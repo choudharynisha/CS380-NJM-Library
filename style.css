@@ -1,4 +1,3 @@
-
 html, body, div, span, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 abbr, address, cite, code,
@@ -11,155 +10,160 @@ table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section, summary,
 time, mark, audio, video {
-margin:0;
-padding:0;
-border:0;
-outline:0;
-font-size:100%;
+	margin:0;
+	padding:0;
+	border:0;
+	outline:0;
+	font-size:100%;
 }
 
 body {
-line-height:1;
+	line-height:1;
 }
 
 article,aside,details,figcaption,figure,
 footer,header,hgroup,menu,nav,section { 
-display:block;
+	display:block;
 }
 
 nav ul {
-list-style:none;
+	list-style:none;
 }
 
 blockquote, q {
-quotes:none;
+	quotes:none;
 }
 
 blockquote:before, blockquote:after,
 q:before, q:after {
-content:'';
-content:none;
+	content:'';
+	content:none;
 }
 
 a {
-margin:0;
-padding:0;
-font-size:100%;
-vertical-align:baseline;
-background:transparent;
+	margin:0;
+	padding:0;
+	font-size:100%;
+	vertical-align:baseline;
+	background:transparent;
 }
 
 /* change colours to suit your needs */
 ins {
-background-color:#ff9;
-color:#000;
-text-decoration:none;
+	background-color:#ff9;
+	color:#000;
+	text-decoration:none;
 }
 
 /* change colours to suit your needs */
 mark {
-background-color:#ff9;
-color:#000; 
-font-style:italic;
-font-weight:bold;
+	background-color:#ff9;
+	color:#000; 
+	font-style:italic;
+	font-weight:bold;
 }
 
 del {
-text-decoration: line-through;
+	text-decoration: line-through;
 }
 
 abbr[title], dfn[title] {
-border-bottom:1px dotted;
-cursor:help;
+	border-bottom:1px dotted;
+	cursor:help;
 }
 
 table {
-border-collapse:collapse;
-border-spacing:0;
+	border-collapse:collapse;
+	border-spacing:0;
 }
 
 /* change border colour to suit your needs */
 hr {
-display:block;
-height:1px;
-border:0; 
-border-top:1px solid #ce2020;
-/*margin:1em 0;*/
-padding:0;
+	display:block;
+	height:1px;
+	border:0; 
+	border-top:1px solid #ce2020;
+	/*margin:1em 0;*/
+	padding:0;
 }
 
 input, select {
-vertical-align:middle;
+	vertical-align:middle;
 }
 
 /*-------------------------------Main code   INDEX ---------------------------------------------------------*/
 
-.wrapper
-{
+.wrapper {
 	height: 660px;
 	width: 1350px;
 }
-header
-{
+
+header {
 	height: 90px;
 	width: 1420px;
 	background-color: #8B4513;
 	padding: 10px;
 }
-section
-{
+
+section {
 	height: 550px;
 	width: 1440px;
 	background-color: grey;
 }
-footer
-{
+
+footer {
 	height: 100px;
 	width: 1440px;
 	background-color: #8B4513;
 }
-.logo
-{
+
+footer a {
+	color: #ffffff;
+}
+
+.logo {
 	float :left;
 	padding-left: 20px;
-
 }
-.logo img 
-{
+
+.logo img {
 	padding-left: 10px;
 }
 
-li a
-{
+li a {
 	color: black;
 	text-decoration: none;
 }
-nav
-{
+
+nav {
 	float: right;
 	word-spacing: 30px;
 	padding: 20px;
 }
-nav li 
-{
+
+nav li  {
 	display: inline-block;
 	line-height: 80px;
 }
 
-section .sec_img
-{
+section .sec_img {
 	height: 550px;
 	margin-top: 0px;
 	background-image: url("images/lib.jpg");
 }
-.box
-{
+
+.box {
 	height: 300px;
 	width: 450px;
 	background-color: #000103;
 	margin: 70px auto;
 	opacity: .6;
 	color: white;
+	line-height: 150px;
+}
+
+.box h1 {
+	vertical-align: middle;
 }
 
 /*--------------------------------st_login-----------------------------*/

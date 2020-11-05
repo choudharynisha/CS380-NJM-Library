@@ -10,57 +10,57 @@ table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section, summary,
 time, mark, audio, video {
-	margin:0;
-	padding:0;
-	border:0;
-	outline:0;
-	font-size:100%;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
 }
 
 body {
-	line-height:1;
+	line-height: 1;
 }
 
-article,aside,details,figcaption,figure,
-footer,header,hgroup,menu,nav,section { 
-	display:block;
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section { 
+	display: block;
 }
 
 nav ul {
-	list-style:none;
+	list-style: none;
 }
 
 blockquote, q {
-	quotes:none;
+	quotes: none;
 }
 
 blockquote:before, blockquote:after,
 q:before, q:after {
-	content:'';
-	content:none;
+	content: '';
+	content: none;
 }
 
 a {
-	margin:0;
-	padding:0;
-	font-size:100%;
-	vertical-align:baseline;
-	background:transparent;
+	margin: 0;
+	padding: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
 }
 
 /* change colours to suit your needs */
 ins {
-	background-color:#ff9;
-	color:#000;
-	text-decoration:none;
+	background-color: #ff9;
+	color: #000;
+	text-decoration: none;
 }
 
 /* change colours to suit your needs */
 mark {
-	background-color:#ff9;
-	color:#000; 
-	font-style:italic;
-	font-weight:bold;
+	background-color: #ff9;
+	color: #000;
+	font-style: italic;
+	font-weight: bold;
 }
 
 del {
@@ -68,27 +68,27 @@ del {
 }
 
 abbr[title], dfn[title] {
-	border-bottom:1px dotted;
-	cursor:help;
+	border-bottom: 1px dotted;
+	cursor: help;
 }
 
 table {
-	border-collapse:collapse;
-	border-spacing:0;
+	border-collapse: collapse;
+	border-spacing: 0;
 }
 
 /* change border colour to suit your needs */
 hr {
-	display:block;
-	height:1px;
-	border:0; 
-	border-top:1px solid #ce2020;
-	/*margin:1em 0;*/
-	padding:0;
+	display: block;
+	height: 1px;
+	border: 0; 
+	border-top: 1px solid #ce2020;
+	/*margin: 1em 0;*/
+	padding: 0;
 }
 
 input, select {
-	vertical-align:middle;
+	vertical-align: middle;
 }
 
 /*-------------------------------Main code   INDEX ---------------------------------------------------------*/
@@ -101,7 +101,7 @@ input, select {
 header {
 	height: 90px;
 	width: 1420px;
-	background-color: #8B4513;
+	background-color: #8b4513;
 	padding: 10px;
 }
 
@@ -114,7 +114,7 @@ section {
 footer {
 	height: 100px;
 	width: 1440px;
-	background-color: #8B4513;
+	background-color: #8b4513;
 }
 
 footer a {
@@ -122,7 +122,7 @@ footer a {
 }
 
 .logo {
-	float :left;
+	float: left;
 	padding-left: 20px;
 }
 
@@ -131,7 +131,7 @@ footer a {
 }
 
 li a {
-	color: black;
+	color: #000000;
 	text-decoration: none;
 }
 
@@ -158,7 +158,7 @@ section .sec_img {
 	background-color: #000103;
 	margin: 70px auto;
 	opacity: .6;
-	color: white;
+	color: #ffffff;
 	line-height: 150px;
 }
 
@@ -168,14 +168,13 @@ section .sec_img {
 
 /*--------------------------------st_login-----------------------------*/
 
-.log_img
-{
+.log_img {
 	height: 650px;
 	margin-top: 0px;
 	background-image: url("images/3.jpg");
 }
-.box1
-{
+
+.box1 {
 	height: 350px;
 	width: 400px;
 	background-color: black;
@@ -184,33 +183,34 @@ section .sec_img {
 	color: white;
 	padding: 20px;
 }
-form .login
-{
+
+form .login {
 	margin: auto 50px;
 }
-input
-{
+
+input {
 	height: 25px;
 	width: 300px;
 
 }
+
 /*------------------------------registration--------------------*/
-.reg_img
-{
+.reg_img {
 	height: 630px;
 	margin-top: 0px;
 	background-image: url("images/4.png");
 }
-.box2
-{
+
+.box2 {
 	height: 589px;
 	width: 400px;
 	background-color: black;
 	margin: 0px auto;
 	opacity: .7;
-	color: white;
+	color: #ffffff;
 	padding: 20px;
 }
+
 form.search input[type=text] {
 	padding: 10px;
 	font-size: 17px;
@@ -218,26 +218,26 @@ form.search input[type=text] {
 	float: left;
 	width: 80%;
 	background: #f1f1f1;
-  }
+}
   
-  form.search button {
+form.search button {
 	float: left;
 	width: 20%;
 	padding: 10px;
 	background: #2196F3;
-	color: white;
+	color: #ffffff;
 	font-size: 17px;
 	border: 1px solid grey;
 	border-left: none;
 	cursor: pointer;
-  }
+}
   
-  form.search button:hover {
+form.search button:hover {
 	background: #0b7dda;
-  }
+}
   
-  form.search::after {
+form.search::after {
 	content: "";
 	clear: both;
 	display: table;
-  }
+}

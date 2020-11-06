@@ -54,12 +54,17 @@
 				<br><br><br>
 				<div class="box">
 					<br><br><br><br>
-					<h1 style="text-align: center; font-size: 35px;"> Log in as</h1><br><br>
-					<h1 style="text-align: center; font-size: 20px;text-decoration: underline;"><b><a href="patron-login.html">Patron</a></b></h1>
-					<br>
-					<br>
-					<h1 style="text-align: center; font-size: 20px;text-decoration: underline;"><b><a href="librarian-login.html">Librarian</a></b></h1>
-
+					<h1 style="text-align: center; font-size: 35px;"> Patron Login</h1><br><br>
+          
+          <div id="login-error-msg-holder">
+            <p id="login-error-msg">Invalid username <span id="error-msg-second-line">and/or password</span></p>
+          </div>
+          
+          <form id="login-form">
+            <input type="text" name="username" id="username-field" class="login-form-field" placeholder="Username">
+            <input type="password" name="password" id="password-field" class="login-form-field" placeholder="Password">
+            <input type="submit" value="Login" id="login-form-submit">
+          </form>
 				</div>
 			</div>
 				

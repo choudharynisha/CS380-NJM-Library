@@ -1,3 +1,4 @@
+
 html, body, div, span, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 abbr, address, cite, code,
@@ -10,171 +11,171 @@ table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section, summary,
 time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	outline: 0;
-	font-size: 100%;
+margin:0;
+padding:0;
+border:0;
+outline:0;
+font-size:100%;
 }
 
 body {
-	line-height: 1;
+line-height:1;
 }
 
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section { 
-	display: block;
+article,aside,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section { 
+display:block;
 }
 
 nav ul {
-	list-style: none;
+list-style:none;
 }
 
 blockquote, q {
-	quotes: none;
+quotes:none;
 }
 
 blockquote:before, blockquote:after,
 q:before, q:after {
-	content: '';
-	content: none;
+content:'';
+content:none;
 }
 
 a {
-	margin: 0;
-	padding: 0;
-	font-size: 100%;
-	vertical-align: baseline;
-	background: transparent;
+margin:0;
+padding:0;
+font-size:100%;
+vertical-align:baseline;
+background:transparent;
 }
 
 /* change colours to suit your needs */
 ins {
-	background-color: #ff9;
-	color: #000;
-	text-decoration: none;
+background-color:#ff9;
+color:#000;
+text-decoration:none;
 }
 
 /* change colours to suit your needs */
 mark {
-	background-color: #ff9;
-	color: #000;
-	font-style: italic;
-	font-weight: bold;
+background-color:#ff9;
+color:#000; 
+font-style:italic;
+font-weight:bold;
 }
 
 del {
-	text-decoration: line-through;
+text-decoration: line-through;
 }
 
 abbr[title], dfn[title] {
-	border-bottom: 1px dotted;
-	cursor: help;
+border-bottom:1px dotted;
+cursor:help;
 }
 
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+border-collapse:collapse;
+border-spacing:0;
 }
 
 /* change border colour to suit your needs */
 hr {
-	display: block;
-	height: 1px;
-	border: 0; 
-	border-top: 1px solid #ce2020;
-	/*margin: 1em 0;*/
-	padding: 0;
+display:block;
+height:1px;
+border:0; 
+border-top:1px solid #ce2020;
+/*margin:1em 0;*/
+padding:0;
 }
 
 input, select {
-	vertical-align: middle;
+vertical-align:middle;
 }
 
 /*-------------------------------Main code   INDEX ---------------------------------------------------------*/
 
-.wrapper {
+.wrapper
+{
 	height: 660px;
 	width: 1350px;
 }
-
-header {
+header
+{
 	height: 90px;
 	width: 1420px;
-	background-color: #8b4513;
+	background-color: #8B4513;
 	padding: 10px;
 }
-
-section {
+section
+{
 	height: 550px;
 	width: 1440px;
 	background-color: grey;
 }
-
-footer {
+footer
+{
 	height: 100px;
 	width: 1440px;
-	background-color: #8b4513;
+	background-color: #8B4513;
 }
-
-footer a {
-	color: #ffffff;
-}
-
-.logo {
-	float: left;
+.logo
+{
+	float :left;
 	padding-left: 20px;
-}
 
-.logo img {
+}
+.logo img 
+{
 	padding-left: 10px;
 }
 
-li a {
-	color: #000000;
+li a
+{
+	color: black;
 	text-decoration: none;
 }
-
-nav {
+nav
+{
 	float: right;
 	word-spacing: 30px;
 	padding: 20px;
 }
-
-nav li  {
+nav li 
+{
 	display: inline-block;
 	line-height: 80px;
 }
 
-section .sec_img {
+section .sec_img
+{
 	height: 550px;
 	margin-top: 0px;
 	background-image: url("images/lib.jpg");
 }
-
-.box {
+.box
+{
 	height: 300px;
 	width: 450px;
 	background-color: #000103;
 	margin: 70px auto;
-	opacity: .6;
-	color: #ffffff;
-	line-height: 150px;
+	opacity: .75;
+	color: white;
+	border-radius: 15px;
 }
-
 .box h1 {
 	vertical-align: middle;
 }
 
 /*--------------------------------st_login-----------------------------*/
 
-.log_img {
+.log_img
+{
 	height: 650px;
 	margin-top: 0px;
 	background-image: url("images/3.jpg");
 }
-
-.box1 {
+.box1
+{
 	height: 350px;
 	width: 400px;
 	background-color: black;
@@ -183,34 +184,33 @@ section .sec_img {
 	color: white;
 	padding: 20px;
 }
-
-form .login {
+form .login
+{
 	margin: auto 50px;
 }
-
-input {
+input
+{
 	height: 25px;
 	width: 300px;
 
 }
-
 /*------------------------------registration--------------------*/
-.reg_img {
+.reg_img
+{
 	height: 630px;
 	margin-top: 0px;
 	background-image: url("images/4.png");
 }
-
-.box2 {
+.box2
+{
 	height: 589px;
 	width: 400px;
 	background-color: black;
 	margin: 0px auto;
 	opacity: .7;
-	color: #ffffff;
+	color: white;
 	padding: 20px;
 }
-
 form.search input[type=text] {
 	padding: 10px;
 	font-size: 17px;
@@ -218,26 +218,107 @@ form.search input[type=text] {
 	float: left;
 	width: 80%;
 	background: #f1f1f1;
-}
+  }
   
-form.search button {
+  form.search button {
 	float: left;
 	width: 20%;
 	padding: 10px;
 	background: #2196F3;
-	color: #ffffff;
+	color: white;
 	font-size: 17px;
 	border: 1px solid grey;
 	border-left: none;
 	cursor: pointer;
-}
+  }
   
-form.search button:hover {
+  form.search button:hover {
 	background: #0b7dda;
-}
+  }
   
-form.search::after {
+  form.search::after {
 	content: "";
 	clear: both;
 	display: table;
-}
+  }
+
+  /* unvisited link */
+	a:link {
+	color: white;
+  }
+  
+  /* visited link */
+  a:visited {
+	color: white;
+  }
+  
+  /* mouse over link */
+  a:hover {
+	color: royalblue;
+  }
+  
+  /* selected link */
+  a:active {
+	color: blue;
+  }
+
+  #login-error-msg-holder {
+	width: 100%;
+	height: 15%;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+  }
+
+  #login-error-msg {
+    width: 23%;
+    text-align: center;
+    margin: 0;
+    padding: 5px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #8a0000;
+    border: 1px solid #8a0000;
+    background-color: #e58f8f;
+    opacity: 0;
+  }
+
+  #error-msg-second-line {
+    display: block;
+  }
+
+  #login-form {
+    align-self: flex-start;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+  }
+  
+  .login-form-field::placeholder {
+	color: black;
+	background-color:white;
+	font-size: 15px;
+  }
+  
+  .login-form-field {
+    border: none;
+    border-bottom: 5px solid #3a3a3a;
+    margin-bottom: 10px;
+    border-radius: 3px;
+    outline: none;
+    width: 90%;
+    height: 20px;
+    padding: 0px 0px 5px 5px;
+  }
+  
+  #login-form-submit {
+    width: 250;
+    padding: 7px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    background-color: #3a3a3a;
+    cursor: pointer;
+    outline: none;
+  }

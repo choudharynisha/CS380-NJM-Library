@@ -1,0 +1,47 @@
+h1{
+    text-align: center;
+    
+}
+ 
+#result {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    text-align:center;
+}
+
+#result td, #result th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#result tr:nth-child(even){background-color: #f2f2f2;}
+#result tr:nth-child(odd){background-color: white;}
+#result tr:hover {background-color: #ddd;}
+
+#result th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: D3EEFF;
+    color: black;
+}
+
+#about{width:250px;height:50px;background:cyan;}
+#pagebox{background:yellow;display:none;}
+
+.showup{background:blue; display: inline-block; display:none; 
+    position: absolute;
+        z-index: 10;} 
+    .click{cursor:pointer;}
+
+button.testbtn{
+    background-color:blue; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px; 
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}

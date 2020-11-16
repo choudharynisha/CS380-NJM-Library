@@ -1,7 +1,8 @@
 <?php
     require('db.php');
+
     $sql = "SELECT publisher_id, name, city, state FROM njm_publishers";
-    $publishers = $conn->query($sql);
+    $publishers = $connnection->query($sql);
 
     if($publishers->num_rows > 0) {
         $options = "";
@@ -14,28 +15,11 @@
     } else {
         $options = "<option value = 1>[New Publisher]</option>";
     }
-
-    if(isset($_POST)) {
-        $title = $_POST['title'];
-        $author = $_POST['author'];
-        $genre = $_POST['genre'];
-        $year = $_POST['year'];
-        $publisher = $_POST['publisher'];
-
-        $sql = "INSERT INTO njm_books (title, author, genre, year, publisher_id, status)
-        VALUES ('$title', '$author', '$genre', '$year', '$publisher', 'Available')";
-
-        if($conn->query($sql) === TRUE) {
-            echo "New book added successfuly";
-        } else {
-            echo "Error – " . $sql . "<br>" . $conn->error;
-        }
-    }
 ?>
 
 <!DOCTYPE html>
 <html>
-    <form action = "<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method = "post">
+    <form action = "<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method = "post">
         Title
         <input type = "text" name = "title" required /><br /><br />
 
@@ -57,3 +41,25 @@
         <input type = "submit" value = "submit" />
     </form>
 </html>
+
+<?php
+    if(isset($_POST)) {
+        require("db.php");
+        
+        $title = $_POST['title'];
+        $author = $_POST['author'];
+        $genre = $_POST['genre'];
+        $year = $_POST['year'];
+        $publisher = $_POST['publishers'];
+
+        echo $publishers;
+
+        $sql = "INSERT INTO njm_books (title, author, genre, year, publisher_id, status) VALUES ('$title', '$author', '$genre', '$year', '$publisher', 'Available');";
+
+        if($connnection->query($sql) === TRUE) {
+            echo "New book added successfuly";
+        } else {
+            echo "Error – " . $sql . "<br>" . $connnection->error;
+        }
+    }
+?>

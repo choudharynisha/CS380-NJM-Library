@@ -16,6 +16,7 @@
 
         $publishers .= "<option value = 0>[NEW PUBLISHER]</option>";
     } else {
+        // no publishers in the publisher table and publisher to be added upon addition of the first book
         $publishers = "<option value = 0>[NEW PUBLISHER]</option>";
     }
 
@@ -33,6 +34,7 @@
     }
 
     if(isset($_POST['submit'])) {
+        // gets the new book's information upon pressing submit
         $title = $_POST['title'];
         $author = $_POST['author'];
         $genre = isset($_POST['newGenre']) ? $_POST['newGenre'] : $_POST['genre'];
@@ -40,6 +42,8 @@
         $publisher = $_POST['publishers'];
         
         if($publisher == 0) {
+            // a book with a new publisher
+            // get publisher information to be added to the njm_publishers table so that this new book can be added
             $name = $_POST['publisher'];
             $city = $_POST['city'];
             $state = $_POST['state'];
@@ -48,6 +52,7 @@
             $addpublisher = "INSERT INTO njm_publishers (name, city, state, zip) VALUES ('$name', '$city', '$state', '$zip')";
             
             if($connection->query($addpublisher) === TRUE) {
+                // successful addition of the new publisher
                 $getpublisher = "SELECT publisher_id FROM njm_publishers WHERE name = $name, city = $city, state = $state, zip = $zip";
                 $publisher = $connection->query($getpublisher);
                 echo $publisher;

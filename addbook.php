@@ -1,9 +1,8 @@
 <?php
     require('db.php');
-    $start = 0;
 
-    $getpublishers = "SELECT publisher_id, name, city, state FROM njm_publishers";
-    $getgenres = "SELECT DISTINCT genre FROM njm_books";
+    $getpublishers = "SELECT publisher_id, name, city, state FROM njm_publishers ORDER BY name, city";
+    $getgenres = "SELECT DISTINCT genre FROM njm_books ORDER BY genre";
     $allpublishers = $connnection->query($getpublishers);
     $allgenres = $connnection->query($getgenres);
 
@@ -16,7 +15,7 @@
 
         $publishers .= "<option value = 0>[NEW PUBLISHER]</option>";
     } else {
-        $publishers = "<option value = 1>[New Publisher]</option>";
+        $publishers = "<option value = 0>[NEW PUBLISHER]</option>";
     }
 
     if($allgenres->num_rows > 0) {
@@ -25,57 +24,44 @@
         while($row = $allgenres->fetch_assoc()) {
             $genres .= "<option value = " . $row['genre'] . ">" . $row['genre'] . "</option>";
         }
+
+        $genres .= "<option value = 0>[NEW GENRE]</option>";
     } else {
-        $genres = "<option value = 'new genre'>[New Genre]</option>";
+        $genres = "<option value = 0>[NEW GENRE]</option>";
     }
 
     if(isset($_POST['submit'])) {
-        require("db.php");
-        $title = "";
-        $author = "";
-        $genre = "";
-        $year = 0;
-        $publisher = 1;
+        $title = $_POST['title'];
+        $author = $_POST['author'];
+        $genre = isset($_POST['newGenre']) ? $_POST['newGenre'] : $_POST['genre'];
+        $year = $_POST['year'];
+        $publisher = $_POST['publishers'];
         
-        if(isset($_POST['title'])) {
-            $title = $_POST['title'];
-        }
-        
-        if(isset($_POST['author'])) {
-            $author = $_POST['author'];
-        }
-        
-        if(isset($_POST['genre'])) {
-            $genre = $_POST['genre'];
-        }
-        
-        if(isset($_POST['year'])) {
-            $year = $_POST['year'];
-        }
-        
-        if(isset($_POST['publishers'])) {
-            $publisher = $_POST['publishers'];
+        if($publisher == 0) {
+            $name = $_POST['publisher'];
+            $city = $_POST['city'];
+            $state = $_POST['state'];
+            $zip = $_POST['zip'];
 
-            if($publisher == 0) {
-
+            $addpublisher = "INSERT INTO njm_publishers (name, city, state, zip) VALUES ('$name', '$city', '$state', '$zip')";
+            
+            if($connection->query($addpublisher) === TRUE) {
+                $getpublisher = "SELECT publisher_id FROM njm_publishers WHERE name = $name, city = $city, state = $state, zip = $zip";
+                $publisher = $connection->query($getpublisher);
+                echo $publisher;
+            } else {
+                die("Unable to add new publisher");
             }
         }
 
-        if(($year > date('Y')) xor ($year < 1832)) {
+        if(($year > date('Y')) xor ($year < 1454)) {
+            // publication year entered is after the current year or before Johannes Gutenburg built the world's first ever printing press (according to https://www.booktrust.org.uk)
             die("Invalid Year of Publication");
         }
 
-        $sql = "SELECT * FROM njm_books WHERE title = $title, author = $author, genre = $genre, year = $year, publisher_id = $publisher";
-        $book = $connnection->query($sql);
+        $addbook = "INSERT INTO njm_books (title, author, genre, year, publisher_id, status) VALUES ('$title', '$author', '$genre', '$year', '$publisher', 'Available')";
 
-        if($book->num_rows > 0) {
-            echo $book;
-            die("Book is Already in the Collection");
-        }
-
-        $sql = "INSERT INTO njm_books (title, author, genre, year, publisher_id, status) VALUES ('$title', '$author', '$genre', '$year', '$publisher', 'Available')";
-
-        if($connnection->query($sql) === TRUE) {
+        if($connnection->query($addbook) === TRUE) {
             echo "New book added successfuly";
         } else {
             echo "Error – " . $sql . "<br>" . $connnection->error;
@@ -97,23 +83,27 @@
             <input type = "text" name = "author" required /><br /><br />
 
             Genre
-            <select name = "genre">
+            <select name = "genre" onchange = "addNewGenre(this)">
                 <?php echo $genres; ?>
             </select>
             <br /><br />
+
+            <div id = "newGenre">
+                <input type = "text" name = "newGenre" id = "genre" /><br /><br />
+            </div>
 
             Year of Publication
             <input type = "number" name = "year" required /><br /><br />
 
             Publisher
-            <select name = "publishers" onchange = "addNew(this)">
+            <select name = "publishers" onchange = "addNewPublisher(this)">
                 <?php echo $publishers; ?>
             </select>
             <br /><br />
 
             <div id = "newPublisher">
                 Publisher Name
-                <input type = "text" name = "newPublisher" id = "publisher" /><br /><br />
+                <input type = "text" name = "publisher" id = "publisher" /><br /><br />
 
                 City
                 <input type = "text" name = "city" id = "city" /><br /><br />
@@ -129,17 +119,31 @@
         </form>
 
         <script>
-            function addNew(e) {
-                let id = e.selectedIndex;
-                let e2 = document.getElementById("newPublisher");
-                if(e.options[id].text == "[NEW PUBLISHER]") {
-                    e2.style.display = "block";
+            function addNewGenre(element) {
+                let id = element.selectedIndex;
+                let newGenre = document.getElementById("newGenre");
+
+                if(element.options[id].text == "[NEW GENRE]") {
+                    newGenre.style.display = "block";
+                    document.getElementById("genre").required = true;
+                } else {
+                    newGenre.style.display = "none";
+                    document.getElementById("genre").required = false;
+                }
+            }
+
+            function addNewPublisher(element) {
+                let id = element.selectedIndex;
+                let newPublisher = document.getElementById("newPublisher");
+
+                if(element.options[id].text == "[NEW PUBLISHER]") {
+                    newPublisher.style.display = "block";
                     document.getElementById("publisher").required = true;
                     document.getElementById("city").required = true;
                     document.getElementById("state").required = true;
                     document.getElementById("zip").required = true;
                 } else {
-                    e2.style.display = "none";
+                    newPublisher.style.display = "none";
                     document.getElementById("publisher").required = false;
                     document.getElementById("city").required = false;
                     document.getElementById("state").required = false;

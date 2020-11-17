@@ -52,9 +52,9 @@
             $addpublisher = "INSERT INTO njm_publishers (name, city, state, zip) VALUES ('$name', '$city', '$state', '$zip')";
             
             if($connection->query($addpublisher) === TRUE) {
-                // successful addition of the new publisher
+                // successful addition of the new publisher to njm_publishers
                 $getpublisher = "SELECT publisher_id FROM njm_publishers WHERE name = $name, city = $city, state = $state, zip = $zip";
-                $publisher = $connection->query($getpublisher);
+                $publisher = $connection->query($getpublisher); // update the publisher id (0 to the new publisher's id in njm_publishers)
                 echo $publisher;
             } else {
                 die("Unable to add new publisher");
@@ -62,13 +62,15 @@
         }
 
         if(($year > date('Y')) xor ($year < 1454)) {
-            // publication year entered is after the current year or before Johannes Gutenburg built the world's first ever printing press (according to https://www.booktrust.org.uk)
+            // publication year entered is after the current year or before Johannes Gutenburg built the world's first ever printing press
+            // (according to https://www.booktrust.org.uk)
             die("Invalid Year of Publication");
         }
 
         $addbook = "INSERT INTO njm_books (title, author, genre, year, publisher_id, status) VALUES ('$title', '$author', '$genre', '$year', '$publisher', 'Available')";
 
         if($connnection->query($addbook) === TRUE) {
+            // successful addition of the new book to njm_books
             echo "New book added successfuly";
         } else {
             echo "Error – " . $sql . "<br>" . $connnection->error;
@@ -131,9 +133,11 @@
                 let newGenre = document.getElementById("newGenre");
 
                 if(element.options[id].text == "[NEW GENRE]") {
+                    // prompts the librarian to type in a new genre if and when [NEW GENRE] is selected
                     newGenre.style.display = "block";
                     document.getElementById("genre").required = true;
                 } else {
+                    // hides the field to type in a new genre if and when the librarian switches from [NEW GENRE] to a genre listed in the dropdown menu
                     newGenre.style.display = "none";
                     document.getElementById("genre").required = false;
                 }
@@ -144,12 +148,14 @@
                 let newPublisher = document.getElementById("newPublisher");
 
                 if(element.options[id].text == "[NEW PUBLISHER]") {
+                    // prompts the librarian to enter publisher information if and when [NEW PUBLISHER] is selected
                     newPublisher.style.display = "block";
                     document.getElementById("publisher").required = true;
                     document.getElementById("city").required = true;
                     document.getElementById("state").required = true;
                     document.getElementById("zip").required = true;
                 } else {
+                    // hides the fields to enter new publisher information if and when the librarian switches from [NEW PUBLISHER] to a publisher listed in the dropdown menu
                     newPublisher.style.display = "none";
                     document.getElementById("publisher").required = false;
                     document.getElementById("city").required = false;

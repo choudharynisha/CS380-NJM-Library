@@ -7,6 +7,7 @@
     $allgenres = $connnection->query($getgenres);
 
     if($allpublishers->num_rows > 0) {
+        // all publishers in the publishers table
         $publishers = "";
 
         while($row = $allpublishers->fetch_assoc()) {
@@ -19,6 +20,7 @@
     }
 
     if($allgenres->num_rows > 0) {
+        // genres from books already in the table
         $genres = "";
         
         while($row = $allgenres->fetch_assoc()) {

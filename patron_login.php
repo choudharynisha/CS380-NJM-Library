@@ -16,6 +16,8 @@
             $hashedpassword = $results->fetch_assoc()['password'];
             if(password_verify($password, $hashedpassword)) {
                 echo "Valid user";
+            } else {
+                echo "Not valid";
             }
         }
     }

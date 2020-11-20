@@ -3,15 +3,15 @@
 
     $getpublishers = "SELECT publisher_id, name, city, state FROM njm_publishers ORDER BY name, city";
     $getgenres = "SELECT DISTINCT genre FROM njm_books ORDER BY genre";
-    $allpublishers = $connnection->query($getpublishers);
-    $allgenres = $connnection->query($getgenres);
+    $allpublishers = $connection->query($getpublishers);
+    $allgenres = $connection->query($getgenres);
 
     if($allpublishers->num_rows > 0) {
         // all publishers in the publishers table
         $publishers = "";
 
         while($row = $allpublishers->fetch_assoc()) {
-            $publishers .= "<option value = " . $row['publisher_id'] . ">" . $row['name'] . ", " . $row['city'] . ", " . $row['state'] . "</option>";
+            $publishers .= "<option value = '" . $row['publisher_id'] . "'>" . $row['name'] . ", " . $row['city'] . ", " . $row['state'] . "</option>";
         }
 
         $publishers .= "<option value = 0>[NEW PUBLISHER]</option>";
@@ -73,11 +73,10 @@
             // successful addition of the new book to njm_books
             echo "New book added successfuly";
         } else {
-            echo "Error – " . $sql . "<br>" . $connnection->error;
+            echo "Error – " . $addbook . "<br>" . $connection->error;
         }
     }
 ?>
-
 <!DOCTYPE html>
 <html>
     <head>

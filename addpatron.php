@@ -56,11 +56,12 @@
                 $town = "";
                 $state = "";
                 $zip = "";
+                exit("Successfully added");
             } else {
-                echo "Error – " . $addpatron . "<br>" . $connection->error;
+                exit("Error – " . $addpatron . "<br>" . $connection->error);
             }
         } else {
-            echo $error;
+            exit($error);
         }
     }
 ?>
@@ -70,7 +71,7 @@
         <link href = "addpatron.css" rel = "stylesheet" />
     </head>
     <body>
-        <form action = "<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method = "post">
+        <form id = "newpatronform" onsubmit = "return false;" action = "<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method = "post">
             Username
             <input type = "text" name = "username" value = "<?php if(isset($_POST['username'])) {echo $username;} ?>" required /><br /><br />
 
@@ -98,7 +99,30 @@
             Zip Code
             <input type = "text" name = "zip" value = "<?php if(isset($_POST['zip'])) {echo $zip;} ?>" required /><br /><br />
 
-            <input type = "submit" value = "submit" name = "submit" />
+            <input type = "submit" value = "submit" onclick = "addPatron()" name = "submit" />
         </form>
+        <script>
+            function addPatron() {
+                // getting and saving the user's form input for a new patron
+                /* let username = event.target.elements.username.value;
+                let password = event.target.elements.password.value;
+                let email = event.target.elements.email.value;
+                let firstname = event.target.elements.firstname.value;
+                let lastname = event.target.elements.lastname.value;
+                let street = event.target.elements.streetname.value;
+                let town = event.target.elements.town.value;
+                let state = event.target.elements.state.value;
+                let zipcode = event.target.elements.zip.value; */
+
+                let form = new FormData(document.getElementById('newpatronform'));
+                fetch("addpatron.php", {
+                    method: "POST",
+                    body: form
+                }).then (function(data) {
+                    console.log("Reply: ");
+                    console.log(data);
+                });
+            }
+        </script>
     </body>
 </html>

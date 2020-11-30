@@ -165,16 +165,8 @@ section .sec_img
 {
 	height: 650px;
 	margin-top: 0px;
-	background-image: url("ch.jpg");
+	background-image: url("images/ch.jpg");
 }
-
-section .sec_holi
-{
-	height: 650px;
-	margin-top: 0px;
-	background-image: url("ch.jpg");
-}
-
 
 section .sec_back
 {

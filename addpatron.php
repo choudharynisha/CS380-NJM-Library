@@ -12,6 +12,8 @@
         $town = $_POST['town'];
         $state = $_POST['state'];
         $zip = $_POST['zip'];
+        $question = $_POST['question'];
+        $answer = $_POST['answer'];
         $error = "";
 
         // form validation
@@ -33,6 +35,9 @@
             $error = "Invalid Zip Code";
         }
 
+        // in order to make sure that no one can easily change the password
+        $hashedsecurityanswer = password_hash($answer, PASSWORD_DEFAULT);
+
         $checkusers = "SELECT * FROM njm_users WHERE username = '$username' OR email = '$email'";
         $results = $connection->query($checkusers);
         
@@ -42,7 +47,7 @@
         
         // add new patron
         if(strlen($error) == 0) {
-            $addpatron = "INSERT INTO njm_users (username, password, email, role, first_name, last_name, street_address, town, state, zip) VALUES ('$username', '$hashedpassword', '$email', 'borrower', '$firstname', '$lastname', '$street', '$town', '$state', '$zip')";
+            $addpatron = "INSERT INTO njm_users (username, password, email, role, first_name, last_name, street_address, town, state, zip, security_question, security_answer) VALUES ('$username', '$hashedpassword', '$email', 'borrower', '$firstname', '$lastname', '$street', '$town', '$state', '$zip', '$question', '$hashedsecurityanswer')";
             
             if($connection->query($addpatron) === TRUE) {
                 // successful addition of the new book to njm_books
@@ -56,6 +61,8 @@
                 $town = "";
                 $state = "";
                 $zip = "";
+                $question = "";
+                $answer = "";
                 exit("Successfully added");
             } else {
                 exit("Error – " . $addpatron . "<br>" . $connection->error);
@@ -99,8 +106,16 @@
             Zip Code
             <input type = "text" name = "zip" value = "<?php if(isset($_POST['zip'])) {echo $zip;} ?>" required /><br /><br />
 
+            Security Question
+            <input type = "text" name = "question" value = "<?php if(isset($_POST['question'])) {echo $question;} ?>" required /><br /><br />
+
+            Security Answer
+            <input type = "text" name = "answer" value = "<?php if(isset($_POST['answer'])) {echo $answer;} ?>" required /><br /><br />
+
             <input type = "submit" value = "submit" name = "submit" />
         </form>
+
+        <a href = "">Forgot Password</a>
         <script>
             function addPatron() {
                 // getting and saving the user's form input for a new patron

@@ -105,7 +105,7 @@ html, body {
     height: 100%;
     margin: 0;
     padding: 0;
-    background-color: #006400;
+    background-color: #3C99DC;
 }
 /*#container {
     width: inherit;
@@ -120,7 +120,7 @@ header
 {
 	height: 90px;
 	width: 1420px;
-	background-color:#006400;
+	background-color:#0F5298;
 	padding: 10px;
 }
 section
@@ -131,7 +131,7 @@ section
 }
 footer
 {	width: 1440px;
-	background-color: #006400;
+	background-color: #3C99DC;
 }
 .logo
 {
@@ -165,7 +165,7 @@ section .sec_img
 {
 	height: 650px;
 	margin-top: 0px;
-	background-image: url("images/ch.jpg");
+	background-image: url("images/happy.jpg");
 }
 
 section .sec_back
@@ -178,9 +178,9 @@ section .sec_back
 {
 	height: 300px;
 	width: 450px;
-	background-color: #000103;
-	margin: 70px auto;
-	opacity: .75;
+	background-color: #041f53;
+	margin: -40px auto;
+	opacity: .95;
 	color: white;
 	border-radius: 15px;
 }
@@ -198,12 +198,13 @@ section .sec_back
 }
 .box1
 {
-	height: 300px;
+	height: 200px;
 	width: 450px;
-	background-color: #d50000;
-	margin: 70px auto;
-	opacity: .95;
-	color: white;
+	margin: 10px auto;
+	background-color: #35f5f5;
+	
+	/*opacity: .95;
+	/*color: white;/*/
 	border-radius: 15px;
 }
 form .login
@@ -246,7 +247,7 @@ form.search input[type=text] {
 	float: left;
 	width: 20%;
 	padding: 10px;
-	background: #006400;
+	background: #3C99DC;
 	color: white;
 	font-size: 17px;
 	border: 1px solid grey;

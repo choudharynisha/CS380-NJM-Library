@@ -83,7 +83,7 @@
         <link href = "addbook.css" rel = "stylesheet" />
     </head>
     <body>
-        <form action = "<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method = "post">
+        <form id = "newbookform" onsubmit = "addBook(); return false;" action = "<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method = "post">
             Title
             <input type = "text" name = "title" required /><br /><br />
 
@@ -161,6 +161,31 @@
                     document.getElementById("state").required = false;
                     document.getElementById("zip").required = false;
                 }
+            }
+
+            function addBook() {
+                // getting and saving the user's form input for a new patron
+                let form = new FormData(document.getElementById('newbookform'));
+                let userInput = "";
+
+                for(obj of form) {
+                    console.log(obj);
+                    userInput += obj[0] + "=" + obj[1] + "&";
+                }
+
+                // make sure that submit is set so that it can be processed using PHP
+                userInput += "submit=submit";
+
+                // sending the processed user input to be loaded using PHP
+                fetch("addbook.php", {
+                    method: "POST",
+                    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                    body: userInput
+                }).then (function(data) {
+                    console.log("Reply: ");
+                    console.log(data);
+                    alert("Submitted");
+                });
             }
         </script>
     </body>

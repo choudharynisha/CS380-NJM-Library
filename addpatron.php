@@ -134,7 +134,7 @@
                 fetch("addpatron.php", {
                     method: "POST",
                     headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-                    body: bodyText
+                    body: userInput
                 }).then (function(data) {
                     console.log("Reply: ");
                     console.log(data);

@@ -2,6 +2,7 @@
     include 'db.php';
 ?>
 
+
 <html>
 <head>
     <link rel="stylesheet" type = "text/css" href="bookTableStyle.css">

@@ -104,7 +104,7 @@
                     <th>Author</th>
                     <th>Genre</th>
                     <th>Year</th>
-                    <th>Select</th>
+                    <th>Borrow</th>
                 </tr> 
                 <tr>
                 <td><input type='text' id='bookInput' onkeyup='filterFunction()' placeholder='Search for Title..'></td>
@@ -143,7 +143,12 @@
                     ('borrowed', '".$_POST['book_id']."', 14, '$dueDate');";  //need to change 14 to user_id
 
                     if (mysqli_query($conn, $q)) {
-                        echo "New record created successfully";
+                        //shows alert box to indicate that a book has been borrowed
+                        echo "<script>
+                                alert('".$_POST['title']." By ".$_POST['author']." Added Successfully'); 
+                                window.location.href = window.location.search;
+                            </script>";
+                            
                       } else {
                         echo "Error: " . $q . "<br>" . mysqli_error($conn);
                     }
@@ -151,12 +156,13 @@
                     $statusChange = "update njm_books set status = 'Not Available' where book_id = '".$_POST['book_id']."';";
 
                     if (mysqli_query($conn, $statusChange)) {
-                        echo "New record created successfully";
+                        //echo "New record created successfully";
                       } else {
                         echo "Error: " . $statusChange . "<br>" . mysqli_error($conn);
                     }
 
-                    header("Location: ".$_SERVER['REQUEST_URI']); //reloads the page to update the changes in the table
+                    //header("Location: ".$_SERVER['REQUEST_URI']); //reloads the page to update the changes in the table but no longer nee since alert box does refreshing
+
                    
                 }
 

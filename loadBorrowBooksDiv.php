@@ -2,11 +2,13 @@
     include 'db.php';
 ?>
 <?php
-           
+           //creates table that shows the borrowed books of the current user
+           //this php file is called to update the div that shows what books have been borrowed
+
             $q = "select njm_books.title, njm_books.author, njm_transactions.due_date from njm_books 
             inner join njm_transactions on njm_books.book_id = njm_transactions.book_id 
             where user_id = 14 and njm_books.status = 'Not Available'
-            group by njm_transactions.book_id;"; //should change to actual user logged in later
+            group by njm_transactions.book_id;"; //change 14 to user_id
             $result = $conn->query($q);
             if ($result->num_rows > 0) {
                 echo "
@@ -35,4 +37,4 @@
                 </table>";
             }
            
-        ?>
+?>

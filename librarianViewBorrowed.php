@@ -83,7 +83,7 @@
                     <th>Book Title</th>
                     <th>Author</th>
                     <th>Due Date</th>
-                    <th>Select</th>
+                    <th>Return</th>
                 </tr> 
                 <tr>
                 <td><input type='text' id='idInput' onkeyup='filterFunction()' placeholder='Search for User ID..'></td>
@@ -107,7 +107,7 @@
                         <td class='table' data-input='due_date'> <input type = 'hidden' name='due_date' value= '$due_date' > $due_date </td>
                         
                         <input type = 'hidden' name='book_id' value= '$book_id' >
-                        <td> <button class='editbtn' type='submit' value='submit'> Return </button></td>
+                        <td> <button class='editbtn' type='submit' value='submit'> Check In </button></td>
                         </tr> </form>";
                 }
                 
@@ -122,7 +122,11 @@
                     ('returned', '".$_POST['book_id']."', 14, '$returnDate');";  //need to change 14 to the user_id
 
                     if (mysqli_query($conn, $q)) {
-                        echo "New record created successfully";
+                        //shows alert box to indicate that a book has been checked in
+                        echo "<script>
+                                alert('Returned ".$_POST['title']." By ".$_POST['author']."'); 
+                                window.location.href = window.location.search;
+                            </script>";
                       } else {
                         echo "Error: " . $q . "<br>" . mysqli_error($conn);
                     }
@@ -135,7 +139,7 @@
                         echo "Error: " . $statusChange . "<br>" . mysqli_error($conn);
                     }
 
-                    header("Location: ".$_SERVER['REQUEST_URI']); //reloads the page to update the changes in the table
+                    //header("Location: ".$_SERVER['REQUEST_URI']); //reloads the page to update the changes in the table
                    
                 }
 

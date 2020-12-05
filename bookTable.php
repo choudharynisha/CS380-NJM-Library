@@ -2,115 +2,103 @@
     include 'db.php';
 ?>
 
-
 <html>
+
 <head>
-    <link rel="stylesheet" type = "text/css" href="bookTableStyle.css">
+    <link rel="stylesheet" type="text/css" href="bookTableStyle.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
 
-        //function deals with inputs to filter by 
-        function myFunction() {
-            var input, input2, filter,filter2, table, tr, td, i, txtValue;
-            input = document.getElementById("myInput");  //book input
-            input2 = document.getElementById("myInput2"); //author input
-            genreInput = document.getElementById("genreInput");
-            yearInput = document.getElementById("yearInput");
-            filter = input.value.toUpperCase();  //gets book input value
-            filter2 = input2.value.toUpperCase(); //gets author input value
-            genreFilter = genreInput.value.toUpperCase();
-            yearFilter = yearInput.value.toUpperCase();
-            table = document.getElementById("result");
-            tr = table.getElementsByTagName("tr");
-            for (i = 2; i < tr.length; i++) {
-                //checking the columns based on inputs
-                td = tr[i].getElementsByTagName("td")[0];
-                td2 = tr[i].getElementsByTagName("td")[1];
-                genreTd = tr[i].getElementsByTagName("td")[2];
-                yearTd = tr[i].getElementsByTagName("td")[3];
-                if (td && td2 && genreTd && genreTd) {
-                txtValue = td.textContent || td.innerText;
-                txtValue2 = td2.textContent || td2.innerText;
+    //filterFunction deals with filtering the columns of the table
+    function filterFunction() {
+
+        //get the input values to filter
+        var bookInput, authorInput, genreInput, yearInput, bookFilter,  authorFilter, genreFilter, yearFilter, table, tr, td, i, txtValue;
+        bookInput = document.getElementById("bookInput"); 
+        authorInput = document.getElementById("authorInput"); 
+        genreInput = document.getElementById("genreInput");
+        yearInput = document.getElementById("yearInput");
+
+        bookFilter = bookInput.value.toUpperCase(); 
+        authorFilter = authorInput.value.toUpperCase(); 
+        genreFilter = genreInput.value.toUpperCase();
+        yearFilter = yearInput.value.toUpperCase();
+
+        //get the table to search through 
+        table = document.getElementById("result");
+        tr = table.getElementsByTagName("tr");
+
+        //go through values of the table and filter by inputs and skip the header and the inputs rows
+        for (i = 2; i < tr.length; i++) {
+            //checking the columns based on inputs
+            bookTd = tr[i].getElementsByTagName("td")[0];
+            authorTd = tr[i].getElementsByTagName("td")[1];
+            genreTd = tr[i].getElementsByTagName("td")[2];
+            yearTd = tr[i].getElementsByTagName("td")[3];
+            if (bookTd && authorTd && genreTd && yearTd) {
+                txtValueBook = bookTd.textContent || bookTd.innerText;
+                txtValueAuthor = authorTd.textContent || authorTd.innerText;
                 txtValueGenre = genreTd.textContent || genreTd.innerText;
                 txtValueYear = yearTd.textContent || yearTd.innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1 
-                    && txtValue2.toUpperCase().indexOf(filter2) > -1 
-                    && txtValueGenre.toUpperCase().indexOf(genreFilter) > -1 
-                    && txtValueYear.toUpperCase().indexOf(yearFilter) > -1) 
-                {
+                if (txtValueBook.toUpperCase().indexOf(bookFilter) > -1 &&
+                txtValueAuthor.toUpperCase().indexOf(authorFilter) > -1 &&
+                    txtValueGenre.toUpperCase().indexOf(genreFilter) > -1 &&
+                    txtValueYear.toUpperCase().indexOf(yearFilter) > -1) {
                     tr[i].style.display = "";
                 } else {
                     tr[i].style.display = "none";
                 }
-                }       
             }
-
         }
 
-        $(document).ready(function(){
-            
-            //Toggles the div with borrowed books
-            $('.viewBooks').click(function(event){
-                event.stopPropagation();
-                $(".showup").slideToggle("fast");
-                $('.showup').load('loadBorrowBooksDiv.php', function() {console.log('Load was performed.');});
-                //$('.listing').load('loadBookTable.php', function() {console.log('Load was performed for Table.');});
-                //$('.listing').load(location.href + ' .listing');
-                console.log("First")
+    }
 
+    $(document).ready(function() {
+
+        //Toggles the Show or Hide Borrowed div
+        $('.viewBooks').click(function(event) {
+            event.stopPropagation();
+            $(".showup").slideToggle("fast");
+            $('.showup').load('loadBorrowBooksDiv.php', function() {  //loads the php file to update the div with new borrowed books
+                console.log('Load was performed.');
             });
 
-            $('.viewBtn').click(function(event){
-                var button = $(this);
-                button.text(button.text() == "Hide Borrowed" ? "Show Borrowed" : "Hide Borrowed")
-            });
-
-            /*$(".showup").on("viewBooks", function (event) {
-                event.stopPropagation();
-                console.log("Second")
-                
-            });*/
-            
-            //click Event for the borrow button (not really noing much now)
-            $('.editbtn').click(function(event){
-                $(this).html('Loaned');
-                console.log("HERE")
-            });
-            
         });
 
-        /*$(document).on("viewBooks", function () {
-            $(".showup").hide();
-            console.log("Third")
-        });*/         
-       
+        //Toggles the the text for Show or Hide Borrowed button
+        $('.viewBtn').click(function(event) {
+            var button = $(this);
+            button.text(button.text() == "Hide Borrowed" ? "Show Borrowed" : "Hide Borrowed")
+        });
+
+    });
     </script>
-    
-</head> 
+
+</head>
 
 <body>
     <h1>Student Borrow Book Page</h1>
 
     <div class="viewBooks">
-        <button class="viewBtn" >Show Borrowed</button>
+        <button class="viewBtn">Show Borrowed</button>
     </div>
 
-    <div class="showup" id = "showup">
-        
+    <div class="showup" id="showup">
+
     </div>
 
     <br></br>
-    
-    <div class='listing' id = 'listing'>
+
+    <div class='listing' id='listing'>
         <?php
-        ob_start();
-            //creates the table for the books that can be borrowed
+            ob_start();
+            //query to create table of available books
             $q = "select * from njm_books where status = 'Available';";
             $result = $conn->query($q);
             if ($result->num_rows > 0) {
                 echo "
                 
-                 <table id='result'>
+                <table id='result'>
                 <tr>
                     <th>Book Title</th>
                     <th>Author</th>
@@ -119,10 +107,10 @@
                     <th>Select</th>
                 </tr> 
                 <tr>
-                <td><input type='text' id='myInput' onkeyup='myFunction()' placeholder='Search for Title..'></td>
-                <td><input type='text' id='myInput2' onkeyup='myFunction()' placeholder='Search for Author..'></td>
-                <td><input type='text' id='genreInput' onkeyup='myFunction()' placeholder='Search for Genre..'></td>
-                <td><input type='text' id='yearInput' onkeyup='myFunction()' placeholder='Search for Year..'></td>
+                <td><input type='text' id='bookInput' onkeyup='filterFunction()' placeholder='Search for Title..'></td>
+                <td><input type='text' id='authorInput' onkeyup='filterFunction()' placeholder='Search for Author..'></td>
+                <td><input type='text' id='genreInput' onkeyup='filterFunction()' placeholder='Search for Genre..'></td>
+                <td><input type='text' id='yearInput' onkeyup='filterFunction()' placeholder='Search for Year..'></td>
                 
                 </tr>
                 ";
@@ -149,9 +137,11 @@
 
                 //checks if form has been submitted and adds to the transaction table and changes the status in the books table
                 if (isset($_POST['title']) && isset($_POST['author'])){
-                    $dueDate = date('Y-m-d',strtotime('+7 day'));
+
+                    $dueDate = date('Y-m-d',strtotime('+7 day')); //gets the current date and adds a week to it
                     $q = "insert into njm_transactions (transaction_type, book_id, user_id, due_date) values 
-                    ('borrowed', '".$_POST['book_id']."', 14, '$dueDate');";  //need to change to user_id and the actual date its due
+                    ('borrowed', '".$_POST['book_id']."', 14, '$dueDate');";  //need to change 14 to user_id
+
                     if (mysqli_query($conn, $q)) {
                         echo "New record created successfully";
                       } else {
@@ -159,12 +149,14 @@
                     }
 
                     $statusChange = "update njm_books set status = 'Not Available' where book_id = '".$_POST['book_id']."';";
+
                     if (mysqli_query($conn, $statusChange)) {
                         echo "New record created successfully";
                       } else {
                         echo "Error: " . $statusChange . "<br>" . mysqli_error($conn);
                     }
-                    header("Location: ".$_SERVER['REQUEST_URI']);
+
+                    header("Location: ".$_SERVER['REQUEST_URI']); //reloads the page to update the changes in the table
                    
                 }
 
@@ -176,10 +168,10 @@
             
         ?>
     </div>
-   
-    
-    
-    
+
+
+
+
 </body>
 
 </html>

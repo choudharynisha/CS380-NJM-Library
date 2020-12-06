@@ -77,13 +77,53 @@
         }
     }
 ?>
+
+
 <!DOCTYPE html>
 <html>
-    <head>
-        <link href = "addbook.css" rel = "stylesheet" />
-    </head>
-    <body>
-        <form id = "newbookform" onsubmit = "addBook(); return false;" action = "<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method = "post">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style2.css">
+    <meta charset = "utf-8">
+    <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <link href = "addbook.css" rel = "stylesheet" />
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: rgb(245, 243, 243);
+        }    
+    </style>
+</head>
+<body>
+<div class="hero-image">
+
+    <div id="navbar">
+        <a class="active" href="javascript:void(0)">Home</a>
+        <a href="javascript:void(0)">News</a>
+        <a href="javascript:void(0)">Contact</a>
+      
+        <div class="logo">
+          <!--<img src="lanternz.gif">-->
+          <h1 style="color: yellow; font-size: 25px;text-align: center;">NJM Online Library</h1>
+      </div>
+  </div>
+
+
+  </div>
+<div class="row">
+  <div class="leftcolumn">
+    <div class="card2">
+      <h2 style="text-align: center;">Add A New Book Record</h2>
+      <div class="fakeimg">
+      <form id = "newbookform" onsubmit = "addBook(); return false;" action = "<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method = "post">
             Title
             <input type = "text" name = "title" required /><br /><br />
 
@@ -125,8 +165,52 @@
 
             <input type = "submit" value = "submit" name = "submit" />
         </form>
+    </div>
+    </div>
+  </div>
+  <div class="rightcolumn">
+    <div class="card">
+        <h4><a href="#">Log in</a></h4>
+        <h4><a href="#">Request Librarian Help</a></h4>
+        <h4><a href="#">Feedback</a></h4>
+    </div>
+    <div class="card">
+      <h3>Monthly Book Club Reads</h3>
+      <div class="fakeimg">
+        <img src="persuasion_ja.jpg"> 
+      </div>
+      <div class="fakeimg"><img src="anxious_people.jpeg"> </div>
+    </div>
+  </div>
+</div>
 
-        <script>
+<div class="footer">
+    <p style="color:white;  text-align: center; ">
+        <br><br>
+        Contact us @
+        Email: ouremail.brynmawr.edu <br>
+        Mobile: +1 610 526 5000
+    </p>
+</div>
+
+<script>
+
+
+    window.onscroll = function() {myFunction()};
+    
+    var navbar = document.getElementById("navbar");
+    var sticky = navbar.offsetTop;
+    
+    function myFunction() {
+      if (window.pageYOffset >= sticky) {
+        navbar.classList.add("sticky")
+      } else {
+        navbar.classList.remove("sticky");
+      }
+    }
+    </script>
+
+<script>
             function addNewGenre(element) {
                 let id = element.selectedIndex;
                 let newGenre = document.getElementById("newGenre");
@@ -188,5 +272,32 @@
                 });
             }
         </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        
+    </head>
+    <body>
+       
+
+        
     </body>
 </html>

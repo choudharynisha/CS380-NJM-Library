@@ -45,73 +45,103 @@
 
 
 <!DOCTYPE html>
-    <html>
-        <head>
-            <title>NMJ Online Library Management System</title>
-            <link rel = "stylesheet" type = "text/css" href = "style.css">
-            <meta charset = "utf-8">
-            <meta name = "viewport" content = "width=device-width, initial-scale=1">
-            <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-            <script defer src = "login-page.js"></script>
-            
-        <style type = "text/css">
-            nav {
-                float: right;
-                word-spacing: 30px;
-                padding: 20px;
-            }
-            
-            nav li {
-                display: inline-block;
-                line-height: 80px;
-            }
-        </style>
-    </head>
-    
-    <body>
-        <div class = "wrapper">
-            <header>
-                <div class = "logo">
-                    <img src = "images/lanternz.gif" style = "border-radius: 45%;">
-                    <h1 style = "color: black; font-size: 25px;text-align: center;">NMJ Online Library</h1>
-                </div>
-                
-                <nav>
-                    <ul>
-                        <li><a href = "index.html">HOME</a></li>
-                        <li><a href = "resources.html">RESOURCES</a></li>
-                        <li><a href = "login.html">LOGIN</a></li>
-                        <li><a href = "feedback.html">FEEDBACK</a></li>
-                    </ul>
-                </nav>
-            </header>
-            <section>
-                <div class = "sec_img">
-                    <br><br><br>
-                    <div class = "box">
-                        <br><br><br><br>
-                        <h1 style = "text-align: center; font-size: 35px;">Librarian Login</h1><br><br>
-                        
-                        <div id = "login-error-msg-holder">
-                            <p id = "login-error-msg">Invalid username<span id="error-msg-second-line">and/or password</span></p>
-                        </div>
-                        
-                        <form id = "login-form" method = "post" action = "librarian_login.php">
-                            <input type = "text" name = "username" id = "username-field" class = "login-form-field" placeholder = "Username">
-                            <input type = "password" name = "password" id = "password-field" class = "login-form-field" placeholder = "Password">
-                            <input type = "submit" name = "submit" value = "Login" id = "login-form-submit">
-                        </form>
-                    </div>
-                </div>
-            </section>
-            <footer>
-                <p style = "color:white;  text-align: center; ">
-                    <br><br>
-                    Contact us @
-                    Email: ouremail.brynmawr.edu <br>
-                    Mobile: +1 610 526 5000
-                </p>
-            </footer>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style2.css">
+    <meta charset = "utf-8">
+    <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script defer src = "login-page.js"></script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: rgb(245, 243, 243);
+        }    
+    </style>
+</head>
+<body>
+<div class="hero-image">
+
+    <div id="navbar">
+        <a class="active" href="javascript:void(0)">Home</a>
+        <a href="javascript:void(0)">News</a>
+        <a href="javascript:void(0)">Contact</a>
+      
+        <div class="logo">
+          <!--<img src="lanternz.gif">-->
+          <h1 style="color: yellow; font-size: 25px;text-align: center;">NJM Online Library</h1>
+      </div>
+  </div>
+
+
+  </div>
+<div class="row">
+  <div class="leftcolumn">
+    <div class="card2">
+      <h2 style="text-align: center;">Log in with your librarian userid and password</h2>
+      <div class="fakeimg">
+      <div class = "box">
+            <h1 style = "text-align: center; font-size: 35px;">Librarian Login</h1>
+            <div id = "login-error-msg-holder">
+                <p id = "login-error-msg">Invalid username<span id="error-msg-second-line">and/or password</span></p>
+            </div>
+            <form id = "login-form" method = "post" action = "librarian_login.php">
+                <input type = "text" name = "username" id = "username-field" class = "login-form-field" placeholder = "Username">
+                <input type = "password" name = "password" id = "password-field" class = "login-form-field" placeholder = "Password">
+                <input type = "submit" name = "submit" value = "Login" id = "login-form-submit">
+            </form>
         </div>
-    </body>
+    </div>
+    </div>
+  </div>
+  <div class="rightcolumn">
+    <div class="card">
+        <h4><a href="#">Log in</a></h4>
+        <h4><a href="#">Request Librarian Help</a></h4>
+        <h4><a href="#">Feedback</a></h4>
+    </div>
+    <div class="card">
+      <h3>Monthly Book Club Reads</h3>
+      <div class="fakeimg">
+        <img src="persuasion_ja.jpg"> 
+      </div>
+      <div class="fakeimg"><img src="anxious_people.jpeg"> </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+    <p style="color:white;  text-align: center; ">
+        <br><br>
+        Contact us @
+        Email: ouremail.brynmawr.edu <br>
+        Mobile: +1 610 526 5000
+    </p>
+</div>
+
+<script>
+
+
+    window.onscroll = function() {myFunction()};
+    
+    var navbar = document.getElementById("navbar");
+    var sticky = navbar.offsetTop;
+    
+    function myFunction() {
+      if (window.pageYOffset >= sticky) {
+        navbar.classList.add("sticky")
+      } else {
+        navbar.classList.remove("sticky");
+      }
+    }
+    </script>
+
+</body>
 </html>

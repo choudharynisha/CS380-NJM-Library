@@ -6,7 +6,7 @@
             $q = "select njm_books.title, njm_books.author from njm_books 
             inner join njm_transactions  on njm_books.book_id = njm_transactions.book_id 
             where user_id = 2;"; //should change to actual user logged in later
-            $result = $conn->query($q);
+            $result = $connection->query($q);
             if ($result->num_rows > 0) {
                 echo "
                  <table id='result'>

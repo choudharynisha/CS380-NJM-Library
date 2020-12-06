@@ -56,7 +56,7 @@
         <?php
             //creates the table for the books that can be borrowed
             $q = "select * from njm_books where status = 'Available';";
-            $result = $conn->query($q);
+            $result = $connection->query($q);
             if ($result->num_rows > 0) {
                 echo "
                  <table id='result'>
@@ -97,17 +97,17 @@
                 if (isset($_POST['title']) && isset($_POST['author'])){
                     $q = "insert into njm_transactions (transaction_type, book_id, user_id, due_date) values 
                     ('borrowed', '".$_POST['book_id']."', 2, '2020-11-11');";
-                    if (mysqli_query($conn, $q)) {
+                    if (mysqli_query($connection, $q)) {
                         echo "New record created successfully";
                       } else {
-                        echo "Error: " . $q . "<br>" . mysqli_error($conn);
+                        echo "Error: " . $q . "<br>" . mysqli_error($connection);
                     }
 
                     $statusChange = "update njm_books set status = 'Not Available' where book_id = '".$_POST['book_id']."';";
-                    if (mysqli_query($conn, $statusChange)) {
+                    if (mysqli_query($connection, $statusChange)) {
                         echo "New record created successfully";
                       } else {
-                        echo "Error: " . $statusChange . "<br>" . mysqli_error($conn);
+                        echo "Error: " . $statusChange . "<br>" . mysqli_error($connection);
                     }
                    
                 }

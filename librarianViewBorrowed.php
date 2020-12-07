@@ -10,7 +10,7 @@
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="style2.css">
+        <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" type="text/css" href="bookTableStyle.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script>
@@ -124,7 +124,7 @@
             <td><input type='text' id='bookInput' onkeyup='filterFunction()' placeholder='Search for Title..'></td>
             <td><input type='text' id='authorInput' onkeyup='filterFunction()' placeholder='Search for Author..'></td>
             <td><input type='text' id='dueInput' onkeyup='filterFunction()' placeholder='Search for Due Date..'></td>
-            
+            <td> Action</td>
             </tr>
             ";
             echo "<tbody class='bookRows' id = 'bookRows'>";

@@ -77,7 +77,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="style.css">
     <meta charset = "utf-8">
     <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href = "addpatron.css" rel = "stylesheet" />
@@ -115,8 +115,10 @@
   <div class="leftcolumn">
     <div class="card2">
       <h2 style="text-align: center;">Add New Patron Account</h2>
-      <div class="fakeimg">
-      <form id = "newpatronform" onsubmit = "addPatron(); return false;" action = "<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method = "post">
+      <div class="boxb">
+      <form style = "padding-top: 70px;" id = "newpatronform" onsubmit = "addPatron(); return false;" action = "<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method = "post">
+            
+            
             Username
             <input type = "text" name = "username" value = "<?php if(isset($_POST['username'])) {echo $username;} ?>" required /><br /><br />
 

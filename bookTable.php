@@ -8,7 +8,7 @@
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="style2.css">
+        <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" type="text/css" href="bookTableStyle.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script>
@@ -104,8 +104,6 @@
         <div class="leftcolumn">
             <div class="card2">
                     <h1>Student Borrow Book Page</h1>
-                    <div class="viewBooks"><button class="viewBtn">Show Borrowed</button></div>
-                    <div class="showup" id="showup"></div>
                     <div class='listing' id='listing'>
                         <?php
                             ob_start();
@@ -128,7 +126,7 @@
                                 <td><input type='text' id='authorInput' onkeyup='filterFunction()' placeholder='Search for Author..'></td>
                                 <td><input type='text' id='genreInput' onkeyup='filterFunction()' placeholder='Search for Genre..'></td>
                                 <td><input type='text' id='yearInput' onkeyup='filterFunction()' placeholder='Search for Year..'></td>
-                                
+                                <td>Action</td>
                                 </tr>
                                 ";
                                 echo "<tbody class='bookRows' id = 'bookRows'>";
@@ -191,6 +189,10 @@
                             
                         ?>
                     </div>
+                    <br>
+                    <div class="viewBooks"><button class="viewBtn">Show Borrowed</button></div>
+                    <div class="showup" id="showup"></div>
+
             </div>
         </div>
 

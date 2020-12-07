@@ -8,6 +8,7 @@ h1{
     border-collapse: collapse; 
     width: 100%;
     text-align:center;
+    border: 2px solid #083b64;
 }
 
 #result td, #result th {

@@ -27,7 +27,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="style.css">
     <meta charset = "utf-8">
     <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script defer src = "login-page.js"></script>
@@ -65,7 +65,6 @@
   <div class="leftcolumn">
     <div class="card2">
       <h2 style="text-align: center;">Log in with your Patron userid and password</h2>
-      <div class="fakeimg">
       <div class = "box">
         
       <h1 style = "text-align: center; font-size: 35px;">Librarian Login</h1>
@@ -77,7 +76,6 @@
                 <input type = "password" name = "password" id = "password-field" class = "login-form-field" placeholder = "Password" required>
                 <input type = "submit" name = "submit" value = "Login" id = "login-form-submit">
         </form>
-    </div>
     </div>
     </div>
   </div>

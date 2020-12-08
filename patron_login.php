@@ -15,6 +15,7 @@
             $hashedpassword = $results->fetch_assoc()['password'];
             if(password_verify($password, $hashedpassword)) {
                 echo "Valid user";
+                
             } else {
                 echo "Not valid";
             }
@@ -23,7 +24,6 @@
 ?>
 <!DOCTYPE html>
 <html>
-<<<<<<< HEAD
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style.css">
@@ -44,41 +44,48 @@
         }    
     </style>
 </head>
-<body>
+<body data-new-gr-c-s-check-loaded="14.984.0" data-gr-ext-installed="">
 <div class="hero-image">
 
     <div id="navbar">
-        <a href="index.html"> Home</a>
-        <a href="main_login.php"> Log In</a>
-        <a href="bookTable.php"> Books</a>
-        <a href="index.html"> Ask Librarian</a>
+        <a class="active" href="javascript:void(0)">Home</a>
+        <a href="javascript:void(0)">News</a>
+        <a href="javascript:void(0)">Contact</a>
       
         <div class="logo">
           <!--<img src="lanternz.gif">-->
           <h1 style="color: yellow; font-size: 25px;text-align: center;">NJM Online Library</h1>
       </div>
   </div>
-=======
-    <head>
-    </head>
-    <body>
-        <form action = "<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method = "post">
+
+
+  </div>
+<div class="row">
+  <div class="leftcolumn">
+    <div class="card2">
+      <h2 style="text-align: center;">Log in with your Patron userid and password</h2>
+      <div class="fakeimg">
+      <div class = "box">
+        
+      <h1 style = "text-align: center; font-size: 35px;">Patron Login</h1>
+            <div id = "login-error-msg-holder">
+                <p id = "login-error-msg">Invalid username<span id="error-msg-second-line">and/or password</span></p>
+            </div>
+
+            <form action = "index.html" method = "post">
             Username
             <input id = "username" type = "text" name = "username" required /><br /><br />
->>>>>>> 11722e8a3b5be8a242c8b24c15b55dd61e698438
-
             Password
             <input type = "password" name = "password" required /><br /><br />
-
-            <input type = "submit" value = "submit" name = "submit" />
+            <input  type = "submit" value = "submit" name = "submit" />
         </form>
-<<<<<<< HEAD
+    </div>
     </div>
     </div>
   </div>
   <div class="rightcolumn">
     <div class="card">
-        <h4><a href="main_login.php">Log in</a></h4>
+        <h4><a href="#">Log in</a></h4>
         <h4><a href="#">Request Librarian Help</a></h4>
         <h4><a href="#">Feedback</a></h4>
     </div>
@@ -100,12 +107,25 @@
         Mobile: +1 610 526 5000
     </p>
 </div>
-=======
->>>>>>> 11722e8a3b5be8a242c8b24c15b55dd61e698438
 
-        <a href = "javascript:reset_password()">Forgot Password</a>
+<script>
 
-        <script>
+
+    window.onscroll = function() {myFunction()};
+    
+    var navbar = document.getElementById("navbar");
+    var sticky = navbar.offsetTop;
+    
+    function myFunction() {
+      if (window.pageYOffset >= sticky) {
+        navbar.classList.add("sticky")
+      } else {
+        navbar.classList.remove("sticky");
+      }
+    }
+    </script>
+
+    <script>
             function reset_password() {
                 var username = document.getElementById("username").value.trim();
 
@@ -117,5 +137,6 @@
                 }
             }
         </script>
-    </body>
+
+</body>
 </html>

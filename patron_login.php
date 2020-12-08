@@ -48,9 +48,10 @@
 <div class="hero-image">
 
     <div id="navbar">
-        <a class="active" href="javascript:void(0)">Home</a>
-        <a href="javascript:void(0)">News</a>
-        <a href="javascript:void(0)">Contact</a>
+         <a href="index.html"> Home</a>
+        <a href="main_login.php"> Log In</a>
+        <a href="bookTable.php"> Books</a>
+        <a href="index.html"> Ask Librarian</a>
       
         <div class="logo">
           <!--<img src="lanternz.gif">-->
@@ -63,7 +64,6 @@
 <div class="row">
   <div class="leftcolumn">
     <div class="card2">
-      <h2 style="text-align: center;">Log in with your Patron userid and password</h2>
       <div class="fakeimg">
       <div class = "box">
         

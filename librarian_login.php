@@ -86,18 +86,19 @@
 <div class="row">
   <div class="leftcolumn">
     <div class="card2">
-      <h2 style="text-align: center;">Log in with your librarian userid and password</h2>
       <div class="fakeimg">
       <div class = "box">
             <h1 style = "text-align: center; font-size: 35px;">Librarian Login</h1>
             <div id = "login-error-msg-holder">
                 <p id = "login-error-msg">Invalid username<span id="error-msg-second-line">and/or password</span></p>
             </div>
-            <form id = "login-form" method = "post" action = "librarian_login.php">
-                <input type = "text" name = "username" id = "username-field" class = "login-form-field" placeholder = "Username">
-                <input type = "password" name = "password" id = "password-field" class = "login-form-field" placeholder = "Password">
-                <input type = "submit" name = "submit" value = "Login" id = "login-form-submit">
-            </form>
+            <form action = "index.html" method = "post">
+                Username
+                <input id = "username" type = "text" name = "username" required /><br /><br />
+                Password
+                <input type = "password" name = "password" required /><br /><br />
+                <input  type = "submit" value = "submit" name = "submit" />
+        </form>
         </div>
     </div>
     </div>
@@ -143,6 +144,20 @@
       }
     }
     </script>
+
+
+    <script>    
+            function reset_password() {
+                var username = document.getElementById("username").value.trim();
+
+                if(username.length > 0) {
+                    window.location = `reset_password.php?username=${username}`;
+                } else {
+                    alert("Please enter your username before requesting to reset password.");
+                    return false;
+                }
+            }
+        </script>
 
 </body>
 </html>

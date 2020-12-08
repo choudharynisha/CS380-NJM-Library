@@ -1,5 +1,6 @@
 <?php
     include 'db.php';
+    session_start();
 ?>
 
 
@@ -108,6 +109,16 @@
                     <div class='listing' id='listing'>
                         <?php
                             ob_start();
+                        
+                           //Session variable to get the user id of the username
+                           $userId = "select user_id from njm_users where username = '" . $_SESSION['userName'] . "'";
+                           $idResult = $conn->query($userId);
+                           while ($row = $idResult->fetch_assoc()) {
+                            $id = $row['user_id'];
+                            echo "$id";
+                            }
+                        
+                        
                             //query to create table of available books
                             $q = "select * from njm_books where status = 'Available';";
                             $result = $connection->query($q);
@@ -156,7 +167,7 @@
 
                                     $dueDate = date('Y-m-d',strtotime('+7 day')); //gets the current date and adds a week to it
                                     $q = "insert into njm_transactions (transaction_type, book_id, user_id, due_date) values 
-                                    ('borrowed', '".$_POST['book_id']."', 14, '$dueDate');";  //need to change 14 to user_id
+                                    ('borrowed', '".$_POST['book_id']."', '$id', '$dueDate');";  //need to change 14 to user_id
 
                                     if (mysqli_query($connection, $q)) {
                                         //shows alert box to indicate that a book has been borrowed

@@ -1,10 +1,13 @@
 <?php
     require("db.php");
+    session_start();
 
     if(isset($_POST['submit'])) {
         $username = $_POST['username'];
         $password = $_POST['password'];
-
+        
+        $_SESSION["userName"] = $username;
+        
         $getuser = "SELECT password FROM njm_users WHERE username = '$username' AND role = 'borrower'";
 
         $results = $connection->query($getuser);

@@ -2,9 +2,6 @@
     include 'db.php';
 ?>
 
-<?php
-    include 'db.php';
-?>
 
 <!DOCTYPE html>
 <html>
@@ -105,7 +102,7 @@
         $q = "select njm_transactions.user_id, njm_books.title, njm_books.author, njm_transactions.due_date, njm_transactions.book_id
             from njm_books inner join njm_transactions 
             on njm_books.book_id = njm_transactions.book_id 
-            where user_id = 14 and status = 'Not Available'  
+            where status = 'Not Available'  
             group by njm_transactions.book_id;";
 
         $result = $connection->query($q);

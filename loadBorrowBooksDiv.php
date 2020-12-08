@@ -1,5 +1,6 @@
 <?php
     include 'db.php';
+    session_start();
 ?>
 
 <!DOCTYPE html>
@@ -24,10 +25,20 @@ body, html {
     <?php
     //creates table that shows the borrowed books of the current user
     //this php file is called to update the div that shows what books have been borrowed
+         
+    //Session variable to get the user id of the username
+        $userId = "select user_id from njm_users where username = '" . $_SESSION['userName'] . "'";
 
+           //Session variable to get the user id of the username
+           $idResult = $conn->query($userId);
+           while ($row = $idResult->fetch_assoc()) {
+            $id = $row['user_id'];
+            echo "$id";
+            }    
+    
         $q = "select njm_books.title, njm_books.author, njm_transactions.due_date from njm_books 
         inner join njm_transactions on njm_books.book_id = njm_transactions.book_id 
-        where user_id = 14 and njm_books.status = 'Not Available'
+        where user_id = $id and njm_books.status = 'Not Available'
         group by njm_transactions.book_id;"; //change 14 to user_id
         $result = $connection->query($q);
         if ($result->num_rows > 0) {

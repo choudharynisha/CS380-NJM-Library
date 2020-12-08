@@ -40,9 +40,10 @@
 <div class="hero-image">
 
     <div id="navbar">
-        <a class="active" href="javascript:void(0)">Home</a>
-        <a href="javascript:void(0)">News</a>
-        <a href="javascript:void(0)">Contact</a>
+        <a href="index.html"> Home</a>
+        <a href="main_login.php"> Log In</a>
+        <a href="bookTable.php"> Books</a>
+        <a href="index.html"> Ask Librarian</a>
       
         <div class="logo">
           <!--<img src="lanternz.gif">-->
@@ -80,7 +81,7 @@
   </div>
   <div class="rightcolumn">
     <div class="card">
-        <h4><a href="#">Log in</a></h4>
+        <h4><a href="main_login.php">Log in</a></h4>
         <h4><a href="#">Request Librarian Help</a></h4>
         <h4><a href="#">Feedback</a></h4>
     </div>

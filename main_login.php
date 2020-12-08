@@ -1,28 +1,3 @@
-<?php
-    require("db.php");
-
-    if(isset($_POST['submit'])) {
-        $username = $_POST['username'];
-        $password = $_POST['password'];
-        $hashed = password_hash($password, PASSWORD_DEFAULT);
-
-        $getuser = "SELECT password FROM njm_users WHERE username = '$username' AND role = 'borrower'";
-
-        $results = $connection->query($getuser);
-        
-        if($results->num_rows == 0) {
-            echo "Invalid user";
-        } else {
-            $hashedpassword = $results->fetch_assoc()['password'];
-            if(password_verify($password, $hashedpassword)) {
-                echo "Valid user";
-            } else {
-                echo "Not valid";
-            }
-        }
-    }
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -49,7 +24,7 @@
 <div class="hero-image">
 
     <div id="navbar">
-        <a href="index.html"> Home</a>
+        <  <a href="index.html"> Home</a>
         <a href="main_login.php"> Log In</a>
         <a href="bookTable.php"> Books</a>
         <a href="index.html"> Ask Librarian</a>
@@ -65,18 +40,17 @@
 <div class="row">
   <div class="leftcolumn">
     <div class="card2">
-      <h2 style="text-align: center;">Log in with your Patron userid and password</h2>
-      <div class = "box">
-        
-      <h1 style = "text-align: center; font-size: 35px;">Librarian Login</h1>
-            <div id = "login-error-msg-holder">
-                <p id = "login-error-msg">Invalid username<span id="error-msg-second-line">and/or password</span></p>
-            </div>
-      <form id = "login-form" method = "post" action = "<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
-                <input type = "text" name = "username" id = "username-field" class = "login-form-field" placeholder = "Username" required>
-                <input type = "password" name = "password" id = "password-field" class = "login-form-field" placeholder = "Password" required>
-                <input type = "submit" name = "submit" value = "Login" id = "login-form-submit">
-        </form>
+      <div class="fakeimg">
+      <div class = "box" >
+            <h1 style = "text-align: center; font-size: 35px;">Login in as </h1>
+
+            <br><br>
+            <a href="patron_login.php" class="button-basic" style= "margin:auto; padding-bottom: 15px;">Patron</a> 
+            <br><br>
+            <a href="librarian_login.php" class="button-basic" style= "margin:auto; padding-bottom: 15px;">Librarian</a>
+    
+            
+        </div>
     </div>
     </div>
   </div>

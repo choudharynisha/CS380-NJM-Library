@@ -4,7 +4,6 @@
     if(isset($_POST['submit'])) {
         $username = $_POST['username'];
         $password = $_POST['password'];
-        $hashed = password_hash($password, PASSWORD_DEFAULT);
 
         $getuser = "SELECT password FROM njm_users WHERE username = '$username' AND role = 'borrower'";
 
@@ -22,9 +21,9 @@
         }
     }
 ?>
-
 <!DOCTYPE html>
 <html>
+<<<<<<< HEAD
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style.css">
@@ -59,24 +58,21 @@
           <h1 style="color: yellow; font-size: 25px;text-align: center;">NJM Online Library</h1>
       </div>
   </div>
+=======
+    <head>
+    </head>
+    <body>
+        <form action = "<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method = "post">
+            Username
+            <input id = "username" type = "text" name = "username" required /><br /><br />
+>>>>>>> 11722e8a3b5be8a242c8b24c15b55dd61e698438
 
+            Password
+            <input type = "password" name = "password" required /><br /><br />
 
-  </div>
-<div class="row">
-  <div class="leftcolumn">
-    <div class="card2">
-      <h2 style="text-align: center;">Log in with your Patron userid and password</h2>
-      <div class = "box">
-        
-      <h1 style = "text-align: center; font-size: 35px;">Librarian Login</h1>
-            <div id = "login-error-msg-holder">
-                <p id = "login-error-msg">Invalid username<span id="error-msg-second-line">and/or password</span></p>
-            </div>
-      <form id = "login-form" method = "post" action = "<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
-                <input type = "text" name = "username" id = "username-field" class = "login-form-field" placeholder = "Username" required>
-                <input type = "password" name = "password" id = "password-field" class = "login-form-field" placeholder = "Password" required>
-                <input type = "submit" name = "submit" value = "Login" id = "login-form-submit">
+            <input type = "submit" value = "submit" name = "submit" />
         </form>
+<<<<<<< HEAD
     </div>
     </div>
   </div>
@@ -104,23 +100,22 @@
         Mobile: +1 610 526 5000
     </p>
 </div>
+=======
+>>>>>>> 11722e8a3b5be8a242c8b24c15b55dd61e698438
 
-<script>
+        <a href = "javascript:reset_password()">Forgot Password</a>
 
+        <script>
+            function reset_password() {
+                var username = document.getElementById("username").value.trim();
 
-    window.onscroll = function() {myFunction()};
-    
-    var navbar = document.getElementById("navbar");
-    var sticky = navbar.offsetTop;
-    
-    function myFunction() {
-      if (window.pageYOffset >= sticky) {
-        navbar.classList.add("sticky")
-      } else {
-        navbar.classList.remove("sticky");
-      }
-    }
-    </script>
-
-</body>
+                if(username.length > 0) {
+                    window.location = `reset_password.php?username=${username}`;
+                } else {
+                    alert("Please enter your username before requesting to reset password.");
+                    return false;
+                }
+            }
+        </script>
+    </body>
 </html>

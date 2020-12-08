@@ -76,7 +76,7 @@
                 <p id = "login-error-msg">Invalid username<span id="error-msg-second-line">and/or password</span></p>
             </div>
 
-            <form action = "index.html" method = "post">
+            <form action = "<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method = "post">
             Username
             <input id = "username" type = "text" name = "username" required /><br /><br />
             Password

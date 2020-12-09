@@ -99,11 +99,21 @@
     ob_start();
 
         //creates the table for the books that can be borrowed and option to return
-        $q = "select njm_transactions.user_id, njm_books.title, njm_books.author, njm_transactions.due_date, njm_transactions.book_id
+        /*$q = "select njm_transactions.user_id, njm_books.title, njm_books.author, njm_transactions.due_date, njm_transactions.book_id
             from njm_books inner join njm_transactions 
             on njm_books.book_id = njm_transactions.book_id 
             where status = 'Not Available'  
-            group by njm_transactions.book_id;";
+            group by njm_transactions.book_id;";*/
+    
+        $q = "select njm_transactions.user_id, njm_users.username, njm_transactions.book_id as book_id, 
+                njm_books.title, njm_books.author, njm_transactions.due_date as due_date from njm_transactions 
+                inner join 
+                (select njm_transactions.book_id as book_id, max(njm_transactions.due_date) as due_date 
+                from njm_transactions where njm_transactions.transaction_type = 'borrowed' group by book_id) maxTable 
+                on njm_transactions.book_id = maxTable.book_id and njm_transactions.due_date = maxTable.due_date 
+                inner join njm_users on njm_users.user_id = njm_transactions.user_id 
+                inner join njm_books on njm_books.book_id = njm_transactions.book_id 
+                where njm_books.status = 'Not Available';";
 
         $result = $connection->query($q);
         if ($result->num_rows > 0) {
@@ -111,7 +121,7 @@
             
             <table id='result'>
             <tr>
-                <th>User ID</th>
+                <th>Borrower Username</th>
                 <th>Book Title</th>
                 <th>Author</th>
                 <th>Due Date</th>
@@ -128,7 +138,7 @@
             echo "<tbody class='bookRows' id = 'bookRows'>";
             while ($row = $result->fetch_assoc()) {
                 $book_id = $row['book_id'];
-                $user_id = $row['user_id'];
+                $user_id = $row['username'];
                 $title = $row['title'];
                 $author = $row['author'];
                 $due_date = $row['due_date'];
@@ -148,10 +158,19 @@
 
             //checks if form has been submitted and adds to the transaction table and changes the status in the books table
             if (isset($_POST['book_id'])){
+                $userId = "select user_id from njm_transactions where due_date = '".$_POST['due_date']."' and book_id = '".$_POST['book_id']."';";
+
+                //Session variable to get the user id of the username
+                $idResult = $connection->query($userId);
+                while ($row = $idResult->fetch_assoc()) {
+                    $id = $row['user_id'];
+                    echo "$id";
+                } 
+                
                 $returnDate = date('Y-m-d H:i:s'); //gets the current date it was returned
 
                 $q = "insert into njm_transactions (transaction_type, book_id, user_id, due_date) values 
-                ('returned', '".$_POST['book_id']."', 14, '$returnDate');";  //need to change 14 to the user_id
+                ('returned', '".$_POST['book_id']."', $id, '$returnDate');";  //need to change 14 to the user_id
 
                 if (mysqli_query($connection, $q)) {
                     //shows alert box to indicate that a book has been checked in

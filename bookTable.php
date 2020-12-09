@@ -22,11 +22,13 @@
             authorInput = document.getElementById("authorInput"); 
             genreInput = document.getElementById("genreInput");
             yearInput = document.getElementById("yearInput");
+            publisherInput = document.getElementById("publisherInput");
 
             bookFilter = bookInput.value.toUpperCase(); 
             authorFilter = authorInput.value.toUpperCase(); 
             genreFilter = genreInput.value.toUpperCase();
             yearFilter = yearInput.value.toUpperCase();
+            publisherFilter = publisherInput.value.toUpperCase();
 
             //get the table to search through 
             table = document.getElementById("result");
@@ -39,15 +41,18 @@
                 authorTd = tr[i].getElementsByTagName("td")[1];
                 genreTd = tr[i].getElementsByTagName("td")[2];
                 yearTd = tr[i].getElementsByTagName("td")[3];
-                if (bookTd && authorTd && genreTd && yearTd) {
+                publisherTd = tr[i].getElementsByTagName("td")[4];
+                if (bookTd && authorTd && genreTd && yearTd && publisherTd) {
                     txtValueBook = bookTd.textContent || bookTd.innerText;
                     txtValueAuthor = authorTd.textContent || authorTd.innerText;
                     txtValueGenre = genreTd.textContent || genreTd.innerText;
                     txtValueYear = yearTd.textContent || yearTd.innerText;
+                    txtValuePublisher = publisherTd.textContent || publisherTd.innerText;
                     if (txtValueBook.toUpperCase().indexOf(bookFilter) > -1 &&
-                    txtValueAuthor.toUpperCase().indexOf(authorFilter) > -1 &&
+                        txtValueAuthor.toUpperCase().indexOf(authorFilter) > -1 &&
                         txtValueGenre.toUpperCase().indexOf(genreFilter) > -1 &&
-                        txtValueYear.toUpperCase().indexOf(yearFilter) > -1) {
+                        txtValueYear.toUpperCase().indexOf(yearFilter) > -1 &&
+                        txtValuePublisher.toUpperCase().indexOf(publisherFilter) > -1) {
                         tr[i].style.display = "";
                     } else {
                         tr[i].style.display = "none";
@@ -120,7 +125,12 @@
                         
                         
                             //query to create table of available books
-                            $q = "select * from njm_books where status = 'Available';";
+                            //$q = "select * from njm_books where status = 'Available';";
+                            $q = "select * from njm_books 
+                                    inner join njm_publishers 
+                                    on njm_books.publisher_id = njm_publishers.publisher_id 
+                                    where njm_books.status = 'Available'";
+                        
                             $result = $connection->query($q);
                             if ($result->num_rows > 0) {
                                 echo "
@@ -131,6 +141,7 @@
                                     <th>Author</th>
                                     <th>Genre</th>
                                     <th>Year</th>
+                                    <th>Publisher</th>
                                     <th>Borrow</th>
                                 </tr> 
                                 <tr>
@@ -138,6 +149,7 @@
                                 <td><input type='text' id='authorInput' onkeyup='filterFunction()' placeholder='Search for Author..'></td>
                                 <td><input type='text' id='genreInput' onkeyup='filterFunction()' placeholder='Search for Genre..'></td>
                                 <td><input type='text' id='yearInput' onkeyup='filterFunction()' placeholder='Search for Year..'></td>
+                                <td><input type='text' id='publisherInput' onkeyup='filterFunction()' placeholder='Search for Publisher..'></td>
                                 <td>Action</td>
                                 </tr>
                                 ";
@@ -148,11 +160,13 @@
                                     $book_id = $row['book_id'];
                                     $genre = $row['genre'];
                                     $year = $row['year'];
+                                    $publisher = $row['name'];
                                     echo "<form id='bookorder' name='form1' method='post'> <tr class='table'>
                                         <td class='table' data-input='title'> <input type = 'hidden' name='title' value= '$title' > $title </td>
                                         <td class='table' data-input='author'> <input type = 'hidden' name='author' value= '$author' > $author </td>
                                         <td class='table' data-input='genre'> <input type = 'hidden' name='genre' value= '$genre' > $genre </td>
                                         <td class='table' data-input='year'> <input type = 'hidden' name='year' value= '$year' > $year </td>
+                                        <td class='table' data-input='publisher'> <input type = 'hidden' name='publisher' value= '$publisher' > $publisher </td>
                                         
                                         <input type = 'hidden' name='book_id' value= '$book_id' >
                                         <td> <button class='editbtn' type='submit' value='submit'> Borrow </button></td>

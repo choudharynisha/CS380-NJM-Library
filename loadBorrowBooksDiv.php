@@ -30,7 +30,7 @@ body, html {
         $userId = "select user_id from njm_users where username = '" . $_SESSION['userName'] . "'";
 
            //Session variable to get the user id of the username
-           $idResult = $conn->query($userId);
+           $idResult = $connection->query($userId);
            while ($row = $idResult->fetch_assoc()) {
             $id = $row['user_id'];
             echo "$id";

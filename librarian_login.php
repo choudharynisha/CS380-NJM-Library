@@ -9,7 +9,7 @@
         $username = $_POST['username'];
         $password = $_POST['password'];
         $hashed = password_hash($password, PASSWORD_DEFAULT);
-        
+
         // make sure the username and password are valid, check length, etc
         if((strlen($username) > 20) || (strlen($username) < 5)) {
             // invalid
@@ -31,6 +31,7 @@
             $hashedpassword = $user->fetch_assoc()['password'];
             if(password_verify($password, $hashedpassword)) {
                 echo "Valid user";
+                header("Location: studentHome.php");
             } else {
                 echo "Not valid";
             }
@@ -41,7 +42,6 @@
         // if there is a match, note the person as logged in in th sessions system, and redirect to the librarian admin page
     }
 ?>
-
 
 <!DOCTYPE html>
 <html>
@@ -65,54 +65,55 @@
         }    
     </style>
 </head>
-<body>
-    <div class = "hero-image">
+<body data-new-gr-c-s-check-loaded="14.984.0" data-gr-ext-installed="">
+<div class="hero-image">
 
-        <div id = "navbar">
-            <a class = "active" href="javascript:void(0)">Home</a>
-            <a href = "javascript:void(0)">News</a>
-            <a href = "javascript:void(0)">Contact</a>
-        
-            <div class = "logo">
-            <h1 style = "color: yellow; font-size: 25px;text-align: center;">NJM Online Library</h1>
+    <div id="navbar">
+         <a href="index.html"> Home</a>
+        <a href="main_login.php"> Log In</a>
+        <a href="logout.php">Log Out</a>
+        <a href="bookTable.php"> Books</a>
+        <a href="index.html"> Ask Librarian</a>
+      
+        <div class="logo">
+          <!--<img src="lanternz.gif">-->
+          <h1 style="color: yellow; font-size: 25px;text-align: center;">NJM Online Library</h1>
         </div>
-    </div>
-
-
-    </div>
+  </div>
+</div>
     <div class="row">
-    <div class="leftcolumn">
-        <div class="card2">
-        <h2 style="text-align: center;">Log in with your librarian userid and password</h2>
-        <div class="fakeimg">
-        <div class = "box">
-                <h1 style = "text-align: center; font-size: 35px;">Librarian Login</h1>
-                <div id = "login-error-msg-holder">
-                    <p id = "login-error-msg">Invalid username<span id="error-msg-second-line">and/or password</span></p>
+        <div class="leftcolumn">
+            <div class="card2">
+                <div class="fakeimg">
+                    <div class = "box">
+                    <h1 style = "text-align: center; font-size: 35px;">Librarian Login</h1>
+                        <div id = "login-error-msg-holder">
+                            <p id = "login-error-msg">Invalid username<span id="error-msg-second-line">and/or password</span></p>
+                        </div>
+
+                        <form action = "<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method = "post">
+                            Username<input id = "username" type = "text" name = "username" required /><br /><br />
+                            Password<input type = "password" name = "password" required /><br /><br />
+                            <input  type = "submit" value = "submit" name = "submit" />
+                            </form>
+                    </div>
                 </div>
-                <form id = "login-form" method = "post" action = "librarian_login.php">
-                    <input type = "text" name = "username" id = "username-field" class = "login-form-field" placeholder = "Username">
-                    <input type = "password" name = "password" id = "password-field" class = "login-form-field" placeholder = "Password">
-                    <input type = "submit" name = "submit" value = "Login" id = "login-form-submit">
-                </form>
             </div>
         </div>
+        <div class="rightcolumn">
+            <div class="card">
+                <h4><a href="#">Log in</a></h4>
+                <h4><a href="#">Request Librarian Help</a></h4>
+                <h4><a href="#">Feedback</a></h4>
+            </div>
+            <div class="card">
+            <h3>Monthly Book Club Reads</h3>
+            <div class="fakeimg">
+                <img src="images/persuasion_ja.jpg"> 
+            </div>
+            <div class="fakeimg"><img src="images/anxious_people.jpeg"> </div>
+            </div>
         </div>
-    </div>
-    <div class="rightcolumn">
-        <div class="card">
-            <h4><a href="#">Log in</a></h4>
-            <h4><a href="#">Request Librarian Help</a></h4>
-            <h4><a href="#">Feedback</a></h4>
-        </div>
-        <div class="card">
-        <h3>Monthly Book Club Reads</h3>
-        <div class="fakeimg">
-            <img src="persuasion_ja.jpg"> 
-        </div>
-        <div class="fakeimg"><img src="anxious_people.jpeg"> </div>
-        </div>
-    </div>
     </div>
 
     <div class="footer">

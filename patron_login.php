@@ -61,11 +61,9 @@
         <div class="logo">
           <!--<img src="lanternz.gif">-->
           <h1 style="color: yellow; font-size: 25px;text-align: center;">NJM Online Library</h1>
-      </div>
+        </div>
   </div>
-
-
-  </div>
+</div>
 <div class="row">
   <div class="leftcolumn">
     <div class="card2">

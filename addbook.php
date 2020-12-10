@@ -79,7 +79,7 @@
 
         $addbook = "INSERT INTO njm_books (title, author, genre, year, publisher_id, status) VALUES ('$title', '$author', '$genre', '$year', '$publisher', 'Available')";
 
-        if($connnection->query($addbook) === TRUE) {
+        if($connection->query($addbook) === TRUE) {
             // successful addition of the new book to njm_books
             echo "New book added successfuly";
         } else {
@@ -91,135 +91,129 @@
 
 <!DOCTYPE html>
 <html>
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="style.css">
-    <meta charset = "utf-8">
-    <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+        <meta charset = "utf-8">
+        <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        
 
-    <style>
-        * {
-            box-sizing: border-box;
-        }
+        <style>
+            * {
+                box-sizing: border-box;
+            }
 
-        body, html {
-            height: 100%;
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background: rgb(245, 243, 243);
-        }    
-    </style>
-</head>
-<body>
-<div class="hero-image">
+            body, html {
+                height: 100%;
+                margin: 0;
+                font-family: Arial, Helvetica, sans-serif;
+                background: rgb(245, 243, 243);
+            }    
+        </style>
+    </head>
+    <body>
+        <div class = "hero-image">
+                <div id = "navbar">
+                    <a href = "index.php"> Home</a>
+                    <a href = "bookTable.php"> Books</a>
+                    <a href = "logout.php">Log Out</a>
 
-    <div id="navbar">
-        <a href="index.php"> Home</a>
-        <a href="bookTable.php"> Books</a>
-        <a href="logout.php">Log Out</a>
-
-        <div class="logo">
-          <!--<img src="lanternz.gif">-->
-          <h1 style="color: yellow; font-size: 25px;text-align: center;">NJM Online Library</h1>
-      </div>
-  </div>
-
-
-  </div>
-<div class="row">
-  <div class="leftcolumn">
-    <div class="card2">
-      <h2 style="text-align: center;">Add A New Book Record</h2>
-      <div class="box">
-      <form style = "padding-top: 70px; text-align: left; padding-left: 20px;" id = "newbookform" onsubmit = "addBook(); return false;" action = "<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method = "post">
-            Title
-            <input type = "text" name = "title" required /><br /><br />
-
-            Author
-            <input type = "text" name = "author" required /><br /><br />
-
-            Genre
-            <select name = "genre" onchange = "addNewGenre(this)">
-                <?php echo $genres; ?>
-            </select>
-            <br /><br />
-
-            <div id = "newGenre">
-                <input type = "text" name = "newGenre" id = "genre" /><br /><br />
+                    <div class = "logo">
+                    <h1 style = "color: yellow; font-size: 25px;text-align: center;">NJM Online Library</h1>
+                </div>
             </div>
+        </div>
+        <div class = "row">
+            <div class = "leftcolumn">
+                <div class = "card2">
+                    <h2 style = "text-align: center;">Add A New Book Record</h2>
+                    <div class = "box">
+                        <form style = "padding-top: 70px; text-align: left; padding-left: 20px;" id = "newbookform" onsubmit = "addBook(); return false;" action = "<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method = "post">
+                            Title
+                            <input type = "text" name = "title" required /><br /><br />
 
-            Year of Publication
-            <input type = "number" name = "year" required /><br /><br />
+                            Author
+                            <input type = "text" name = "author" required /><br /><br />
 
-            Publisher
-            <select name = "publishers" onchange = "addNewPublisher(this)">
-                <?php echo $publishers; ?>
-            </select>
-            <br /><br />
+                            Genre
+                            <select name = "genre" onchange = "addNewGenre(this)">
+                                <?php echo $genres; ?>
+                            </select>
+                            <br /><br />
 
-            <div id = "newPublisher">
-                Publisher Name
-                <input type = "text" name = "publisher" id = "publisher" /><br /><br />
+                            <div id = "newGenre">
+                                <input type = "text" name = "newGenre" id = "genre" /><br /><br />
+                            </div>
 
-                City
-                <input type = "text" name = "city" id = "city" /><br /><br />
+                            Year of Publication
+                            <input type = "number" name = "year" required /><br /><br />
 
-                State
-                <input type = "text" name = "state" id = "state" /><br /><br />
+                            Publisher
+                            <select name = "publishers" onchange = "addNewPublisher(this)">
+                                <?php echo $publishers; ?>
+                            </select>
+                            <br /><br />
 
-                Zip Code
-                <input type = "text" name = "zip" id = "zip" /><br /><br />
+                            <div id = "newPublisher">
+                                Publisher Name
+                                <input type = "text" name = "publisher" id = "publisher" /><br /><br />
+
+                                City
+                                <input type = "text" name = "city" id = "city" /><br /><br />
+
+                                State
+                                <input type = "text" name = "state" id = "state" /><br /><br />
+
+                                Zip Code
+                                <input type = "text" name = "zip" id = "zip" /><br /><br />
+                            </div>
+
+                            <input type = "submit" value = "submit" name = "submit" />
+                        </form>
+                </div>
             </div>
+        </div>
+            <div class = "rightcolumn">
+                <div class = "card">
+                        <h4><a href = "">Add New Patron Account</a></h4>
+                        <h4><a href = "bookTable.php">See Available Books</a></h4>
+                        <h4><a href = "librarianViewBorrowed.php">Return Borrowed Books</a></h4>
+                </div>
+                <div class = "card">
+                    <h3>Monthly Book Club Reads</h3>
+                    <div class = "fakeimg">
+                        <img src = "images/persuasion_ja.jpg"> 
+                    </div>
+                    <div class = "fakeimg">
+                        <img src = "images/anxious_people.jpeg">
+                    </div>
+                </div>
+            </div>
+        </div>
 
-            <input type = "submit" value = "submit" name = "submit" />
-        </form>
-    </div>
-    </div>
-  </div>
-  <div class="rightcolumn">
-    <div class="card">
-            <h4><a href="">Add New Patron Account</a></h4>
-            <h4><a href="bookTable.php">See Available Books</a></h4>
-            <h4><a href="librarianViewBorrowed.php">Return Borrowed Books</a></h4>
-    </div>
-    <div class="card">
-      <h3>Monthly Book Club Reads</h3>
-      <div class="fakeimg">
-        <img src="images/persuasion_ja.jpg"> 
-      </div>
-      <div class="fakeimg"><img src="images/anxious_people.jpeg"> </div>
-    </div>
-  </div>
-</div>
+        <div class = "footer">
+            <p style = "color:white;  text-align: center; ">
+                <br><br>
+                Contact us @
+                Email: ouremail@brynmawr.edu <br>
+                Mobile: +1 610 526 5000
+            </p>
+        </div>
 
-<div class="footer">
-    <p style="color:white;  text-align: center; ">
-        <br><br>
-        Contact us @
-        Email: ouremail@brynmawr.edu <br>
-        Mobile: +1 610 526 5000
-    </p>
-</div>
-
-<script>
-
-
-    window.onscroll = function() {myFunction()};
-    
-    var navbar = document.getElementById("navbar");
-    var sticky = navbar.offsetTop;
-    
-    function myFunction() {
-      if (window.pageYOffset >= sticky) {
-        navbar.classList.add("sticky")
-      } else {
-        navbar.classList.remove("sticky");
-      }
-    }
-    </script>
-
-<script>
+        <script>
+            window.onscroll = function() {myFunction()};
+            
+            var navbar = document.getElementById("navbar");
+            var sticky = navbar.offsetTop;
+            
+            function myFunction() {
+                if (window.pageYOffset >= sticky) {
+                    navbar.classList.add("sticky")
+                } else {
+                    navbar.classList.remove("sticky");
+                }
+            }
+        
             function addNewGenre(element) {
                 let id = element.selectedIndex;
                 let newGenre = document.getElementById("newGenre");
@@ -281,6 +275,5 @@
                 });
             }
         </script>
-
-</body>
+    </body>
 </html>

@@ -7,6 +7,7 @@
         $password = $_POST['password'];
         
         $_SESSION["userName"] = $username;
+        $_SESSION['login_time'] = time(); //session time 
         
         $getuser = "SELECT password FROM njm_users WHERE username = '$username' AND role = 'borrower'";
 

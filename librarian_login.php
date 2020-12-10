@@ -3,6 +3,7 @@
 
     // use sessions system to keep track of logins.
     session_start();
+    $_SESSION['login_time'] = time(); //session time 
     
     // check for a login attempt: 
     if(isset($_POST['submit'])) {

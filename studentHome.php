@@ -1,5 +1,14 @@
 <?php
 session_start();
+    $expiry = 5400; //90 min is 5400 sec
+        if (isset($_SESSION['login_time']) && (time() - $_SESSION['login_time'] > $expiry)) {
+            session_unset();
+            session_destroy();
+            echo "<script>
+                alert('Please login again. Your session expired'); 
+                window.location.href = 'patron_login.php';
+                </script>";
+        }
 ?>
 
 <html>

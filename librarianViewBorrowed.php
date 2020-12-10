@@ -76,6 +76,7 @@
         <div id="navbar">
             <a href="index.html"> Home</a>
             <a href="main_login.php"> Log In</a>
+            <a href="logout.php">Log Out</a>
             <a href="bookTable.php"> Books</a>
             <a href="index.html"> Ask Librarian</a>
         

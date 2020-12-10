@@ -38,10 +38,9 @@ body, html {
 <div class="hero-image">
 
     <div id="navbar">
-      <a href="index.php"> Home</a>
-      <a href="main_login.php"> Log In</a>
+      <a href="patron_index.php"> Home</a>
       <a href="bookTable.php"> Books</a>
-      <a href="index.php"> Contact Us</a>
+      <a href="logout.php"> Log Out</a>
       
         <div class="logo">
           <!--<img src="lanternz.gif">-->
@@ -68,8 +67,9 @@ body, html {
   </div>
     <div class="rightcolumn">
         <div class="card">
-            <h4><a href="index.php"> Request Help</a></h4>
-            <h4><a href="main_login.php"> Log In</a></h4>
+            <h4><a href="main_login.php">Log Out</a></h4>
+            <h4><a href="#">Request Librarian Help</a></h4>
+            <h4><a href="patron_book_view.php">See Available Books</a></h4>
         </div>
         <div class="card">
           <h3>Monthly Book Club Reads</h3>

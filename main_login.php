@@ -24,11 +24,9 @@
 <div class="hero-image">
 
     <div id="navbar">
-        <  <a href="index.html"> Home</a>
-        <a href="main_login.php"> Log In</a>
-        <a href="logout.php">Log Out</a>
+        <  <a href="index.php"> Home</a>
         <a href="bookTable.php"> Books</a>
-        <a href="index.html"> Ask Librarian</a>
+        <a href="index.php"> Contact Us</a>
       
         <div class="logo">
           <!--<img src="lanternz.gif">-->
@@ -56,17 +54,13 @@
     </div>
   </div>
   <div class="rightcolumn">
-    <div class="card">
-        <h4><a href="main_login.php">Log in</a></h4>
-        <h4><a href="#">Request Librarian Help</a></h4>
-        <h4><a href="#">Feedback</a></h4>
-    </div>
+   
     <div class="card">
       <h3>Monthly Book Club Reads</h3>
       <div class="fakeimg">
-        <img src="persuasion_ja.jpg"> 
+        <img src="images/persuasion_ja.jpg"> 
       </div>
-      <div class="fakeimg"><img src="anxious_people.jpeg"> </div>
+      <div class="fakeimg"><img src="images/anxious_people.jpeg"> </div>
     </div>
   </div>
 </div>
@@ -75,7 +69,7 @@
     <p style="color:white;  text-align: center; ">
         <br><br>
         Contact us @
-        Email: ouremail.brynmawr.edu <br>
+        Email: ouremail@brynmawr.edu <br>
         Mobile: +1 610 526 5000
     </p>
 </div>

@@ -82,14 +82,6 @@
                 });
 
             });
-
-            //Toggles the the text for Show or Hide Borrowed button
-            $('.viewBtn').click(function(event) {
-                var button = $(this);
-                button.text(button.text() == "Hide Borrowed" ? "Show Borrowed" : "Hide Borrowed")
-            });
-
-            });
         </script>
 
         <style>
@@ -108,9 +100,9 @@
 <body>
     <div class="hero-image">
         <div id="navbar">
-            <a href="index.php"> Home</a>
+            <a href="patron_index.php"> Home</a>
             <a href="bookTable.php"> Books</a>
-            <a href="bookTable.php"> Contact Us</a>
+            <a href="logout.php">Log Out</a>
             <div class="logo"><h1 style="color: yellow; font-size: 25px;text-align: center;">NJM Online Library</h1></div>
         </div>
     </div>
@@ -224,19 +216,15 @@
                         ?>
                     </div>
                     <br>
-                    <div class="viewBooks"><button class="viewBtn">Show Borrowed</button></div>
                     <div class="showup" id="showup"></div>
 
             </div>
         </div>
 
         <div class="rightcolumn">
-            <div class="card">
-           
-
-            <h4><a href="#">Add New Patron Account</a></h4>
-            <h4><a href="addbook.php">Add New Book Record</a></h4>
-            <h4><a href="librarianViewBorrowed.php">Return Borrowed Books</a></h4>
+        <div class="card">
+                <h4><a href="main_login.php">Log Out</a></h4>
+                <h4><a href="#">Request Librarian Help</a></h4>
             </div>
             <div class="card">
                 <h3>Monthly Book Club Reads</h3>

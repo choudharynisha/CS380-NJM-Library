@@ -11,6 +11,7 @@
                 </script>";
         }
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,9 +40,9 @@ body, html {
 
     <div id="navbar">
       <a href="index.php"> Home</a>
-      <a href="main_login.php"> Log In</a>
       <a href="bookTable.php"> Books</a>
-      <a href="index.php"> Contact Us</a>
+      <a href="logout.php">Log Out</a>
+
       
         <div class="logo">
           <!--<img src="lanternz.gif">-->
@@ -54,7 +55,7 @@ body, html {
 <div class="row">
   <div class="leftcolumn">
     <div class="card2">
-      <h2 style="text-align: center;">Welcome to the NJM Online Library</h2>
+            <h2 style='text-align: center;'>Thank you for Choosing to Work with Us </h2>
       <h3>About Us</h3>
       <div class="fakeimg">
         <img src="images/readonline.jpg"> 
@@ -67,9 +68,12 @@ body, html {
     </div>
   </div>
     <div class="rightcolumn">
-        <div class="card">
-            <h4><a href="index.php"> Request Help</a></h4>
-            <h4><a href="main_login.php"> Log In</a></h4>
+    <div class="card">
+            <h4><a href="main_login.php">Log Out</a></h4>
+            <h4><a href="#">Add New Patron Account</a></h4>
+            <h4><a href="addbook.php">Add New Book Record</a></h4>
+            <h4><a href="librarianViewBorrowed.php">Return Borrowed Books</a></h4>
+            
         </div>
         <div class="card">
           <h3>Monthly Book Club Reads</h3>

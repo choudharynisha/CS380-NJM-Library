@@ -19,7 +19,7 @@
             $hashedpassword = $results->fetch_assoc()['password'];
             if(password_verify($password, $hashedpassword)) {
                 echo "Valid user";
-                header("Location: studentHome.php");
+                header("Location: patron_index.php");
                 
             } else {
                 echo "Not valid";
@@ -53,11 +53,9 @@
 <div class="hero-image">
 
     <div id="navbar">
-         <a href="index.html"> Home</a>
-        <a href="main_login.php"> Log In</a>
-        <a href="logout.php">Log Out</a>
+         <a href="patron_index.php"> Home</a>
         <a href="bookTable.php"> Books</a>
-        <a href="index.html"> Ask Librarian</a>
+        <a href="patron_index.php"> Ask Librarian</a>
       
         <div class="logo">
           <!--<img src="lanternz.gif">-->
@@ -96,9 +94,9 @@
     <div class="card">
       <h3>Monthly Book Club Reads</h3>
       <div class="fakeimg">
-        <img src="persuasion_ja.jpg"> 
+        <img src="images/persuasion_ja.jpg"> 
       </div>
-      <div class="fakeimg"><img src="anxious_people.jpeg"> </div>
+      <div class="fakeimg"><img src="images/anxious_people.jpeg"> </div>
     </div>
   </div>
 </div>
@@ -107,7 +105,7 @@
     <p style="color:white;  text-align: center; ">
         <br><br>
         Contact us @
-        Email: ouremail.brynmawr.edu <br>
+        Email: ouremail@brynmawr.edu <br>
         Mobile: +1 610 526 5000
     </p>
 </div>

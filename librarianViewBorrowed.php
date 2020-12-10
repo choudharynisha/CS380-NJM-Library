@@ -7,7 +7,7 @@
             session_destroy();
             echo "<script>
                 alert('Please login again. Your session expired'); 
-                window.location.href = 'patron_login.php';
+                window.location.href = 'main_login.php';
                 </script>";
         }
 ?>

@@ -184,7 +184,7 @@
             
                 <h4><a href="main_login.php">Log Out</a></h4>
                 <h4><a href="#">Request Librarian Help</a></h4>
-                <h4><a href="patron_book_view.php">See Available Books</a></h4>
+                <h4><a href="patron_book_view.php">Borrow a Book</a></h4>
 
             </div>
             <div class="card">

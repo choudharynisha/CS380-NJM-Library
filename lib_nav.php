@@ -1,15 +1,5 @@
 <?php
     include 'db.php';
-    session_start();
-    $expiry = 5400; //90 min is 5400 sec
-        if (isset($_SESSION['login_time']) && (time() - $_SESSION['login_time'] > $expiry)) {
-            session_unset();
-            session_destroy();
-            echo "<script>
-                alert('Please login again. Your session expired'); 
-                window.location.href = 'main_login.php';
-                </script>";
-        }
 ?>
 
 
@@ -118,18 +108,11 @@
     <div class="row">
         <div class="leftcolumn">
             <div class="card2">
-                    <h1>Available Books. Click Borrow button to lend</h1>
+                    <h1>All Available Books</h1>
                     <div class='listing' id='listing'>
                         <?php
                             ob_start();
                         
-                           //Session variable to get the user id of the username
-                           $userId = "select user_id from njm_users where username = '" . $_SESSION['userName'] . "'";
-                           $idResult = $connection->query($userId);
-                           while ($row = $idResult->fetch_assoc()) {
-                            $id = $row['user_id'];
-                            echo "$id";
-                            }
                         
                         
                             //query to create table of available books
@@ -150,7 +133,7 @@
                                     <th>Genre</th>
                                     <th>Year</th>
                                     <th>Publisher</th>
-                                    <th>Check Out</th>
+                                    
                                 </tr> 
                                 <tr>
                                 <td><input type='text' id='bookInput' onkeyup='filterFunction()' placeholder='Search for Title..'></td>
@@ -158,7 +141,6 @@
                                 <td><input type='text' id='genreInput' onkeyup='filterFunction()' placeholder='Search for Genre..'></td>
                                 <td><input type='text' id='yearInput' onkeyup='filterFunction()' placeholder='Search for Year..'></td>
                                 <td><input type='text' id='publisherInput' onkeyup='filterFunction()' placeholder='Search for Publisher..'></td>
-                                <td>Action</td>
                                 </tr>
                                 ";
                                 echo "<tbody class='bookRows' id = 'bookRows'>";
@@ -176,44 +158,11 @@
                                         <td class='table' data-input='year'> <input type = 'hidden' name='year' value= '$year' > $year </td>
                                         <td class='table' data-input='publisher'> <input type = 'hidden' name='publisher' value= '$publisher' > $publisher </td>
                                         
-                                        <input type = 'hidden' name='book_id' value= '$book_id' >
-                                        <td> <button class='editbtn' type='submit' value='submit'> Check Out </button></td>
+                                        
                                         </tr> </form>";
                                 }
                                 
                                 echo "</tbody>";
-                                
-
-                                //checks if form has been submitted and adds to the transaction table and changes the status in the books table
-                                if (isset($_POST['title']) && isset($_POST['author'])){
-
-                                    $dueDate = date('Y-m-d',strtotime('+7 day')); //gets the current date and adds a week to it
-                                    $q = "insert into njm_transactions (transaction_type, book_id, user_id, due_date) values 
-                                    ('borrowed', '".$_POST['book_id']."', '$id', '$dueDate');";  //need to change 14 to user_id
-
-                                    if (mysqli_query($connection, $q)) {
-                                        //shows alert box to indicate that a book has been borrowed
-                                        echo "<script>
-                                                alert('".$_POST['title']." By ".$_POST['author']." Added Successfully'); 
-                                                window.location.href = window.location.search;
-                                            </script>";
-                                            
-                                    } else {
-                                        echo "Error: " . $q . "<br>" . mysqli_error($connection);
-                                    }
-
-                                    $statusChange = "update njm_books set status = 'Not Available' where book_id = '".$_POST['book_id']."';";
-
-                                    if (mysqli_query($connection, $statusChange)) {
-                                        //echo "New record created successfully";
-                                    } else {
-                                        echo "Error: " . $statusChange . "<br>" . mysqli_error($connection);
-                                    }
-
-                                    //header("Location: ".$_SERVER['REQUEST_URI']); //reloads the page to update the changes in the table but no longer nee since alert box does refreshing
-
-                                
-                                }
 
                             }
                             else {
@@ -224,7 +173,7 @@
                         ?>
                     </div>
                     <br>
-                    <div class="viewBooks"><button class="viewBtn">Show Borrowed</button></div>
+                    
                     <div class="showup" id="showup"></div>
 
             </div>
@@ -232,11 +181,11 @@
 
         <div class="rightcolumn">
             <div class="card">
-           
-
+            <h4><a href="main_login.php">Log Out</a></h4>
             <h4><a href="#">Add New Patron Account</a></h4>
             <h4><a href="addbook.php">Add New Book Record</a></h4>
             <h4><a href="librarianViewBorrowed.php">Return Borrowed Books</a></h4>
+            
             </div>
             <div class="card">
                 <h3>Monthly Book Club Reads</h3>

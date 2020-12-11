@@ -39,7 +39,8 @@ body, html {
 
     <div id="navbar">
       <a href="patron_index.php"> Home</a>
-      <a href="navBookTable.php"> Books</a>
+      <a href="nav_student.php"> Books</a>
+      <a href="#"> Contact Us</a>
       <a href="logout.php"> Log Out</a>
       
         <div class="logo">

@@ -85,7 +85,7 @@
 
         <div id="navbar">
             <a href="index.php"> Home</a>
-            <a href="navBookTable.php"> Books</a>
+            <a href="lib_nav.php"> Books</a>
             <a href="logout.php">Log Out</a>
         
             <div class="logo">

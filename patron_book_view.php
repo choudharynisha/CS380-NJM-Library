@@ -101,7 +101,8 @@
     <div class="hero-image">
         <div id="navbar">
             <a href="patron_index.php"> Home</a>
-            <a href="navBookTable.php"> Books</a>
+            <a href="nav_student.php"> Books</a>
+            <a href="#"> Contact Us</a>
             <a href="logout.php">Log Out</a>
             <div class="logo"><h1 style="color: yellow; font-size: 25px;text-align: center;">NJM Online Library</h1></div>
         </div>
@@ -110,7 +111,8 @@
     <div class="row">
         <div class="leftcolumn">
             <div class="card2">
-                    <h1>Available Books. Click Borrow button to lend</h1>
+                    <h1>Available Books. </h1> 
+                    <h4 style="text-align: center;">Click Borrow button to lend</h4>
                     <div class='listing' id='listing'>
                         <?php
                             ob_start();

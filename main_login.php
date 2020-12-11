@@ -42,13 +42,10 @@
       <div class="fakeimg">
       <div class = "box" >
             <h1 style = "text-align: center; font-size: 35px;">Login in as </h1>
-
             <br><br>
             <a href="patron_login.php" class="button-basic" style= "margin:auto; padding-bottom: 15px;">Patron</a> 
             <br><br>
             <a href="librarian_login.php" class="button-basic" style= "margin:auto; padding-bottom: 15px;">Librarian</a>
-    
-            
         </div>
     </div>
     </div>

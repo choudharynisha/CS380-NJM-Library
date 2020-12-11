@@ -81,6 +81,8 @@
             <input type = "password" name = "password" required /><br /><br />
             <input  type = "submit" value = "submit" name = "submit" />
         </form>
+        <a href="reset_password.php" class="button-basic" style= "margin:auto; padding-bottom: 15px;">Forgot Password</a>
+
     </div>
     </div>
     </div>

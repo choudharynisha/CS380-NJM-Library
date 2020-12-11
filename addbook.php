@@ -93,7 +93,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name = "viewport" content = "width=device-width, initial-scale=1">
         <link rel = "stylesheet" href = "style.css">
         <meta charset = "utf-8">
         <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -116,7 +116,7 @@
         <div class = "hero-image">
                 <div id = "navbar">
                     <a href = "index.php"> Home</a>
-                    <a href = "bookTable.php"> Books</a>
+                    <a href = "navBookTable.php"> Books</a>
                     <a href = "logout.php">Log Out</a>
 
                     <div class = "logo">

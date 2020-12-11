@@ -70,7 +70,7 @@ body, html {
     <div class="rightcolumn">
     <div class="card">
             <h4><a href="main_login.php">Log Out</a></h4>
-            <h4><a href="#">Add New Patron Account</a></h4>
+            <h4><a href="lib_add_patron.php">Add New Patron Account</a></h4>
             <h4><a href="addbook.php">Add New Book Record</a></h4>
             <h4><a href="librarianViewBorrowed.php">Return Borrowed Books</a></h4>
             

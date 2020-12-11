@@ -53,9 +53,9 @@
 <div class="hero-image">
 
     <div id="navbar">
-         <a href="patron_index.php"> Home</a>
+         <a href="index.php"> Home</a>
         <a href="navBookTable.php"> Books</a>
-        <a href="patron_index.php"> Ask Librarian</a>
+        <a href="#"> Contact Us</a>
       
         <div class="logo">
           <!--<img src="lanternz.gif">-->
@@ -86,11 +86,6 @@
     </div>
   </div>
   <div class="rightcolumn">
-    <div class="card">
-        <h4><a href="#">Log in</a></h4>
-        <h4><a href="#">Request Librarian Help</a></h4>
-        <h4><a href="#">Feedback</a></h4>
-    </div>
     <div class="card">
       <h3>Monthly Book Club Reads</h3>
       <div class="fakeimg">

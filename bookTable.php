@@ -118,7 +118,7 @@
     <div class="row">
         <div class="leftcolumn">
             <div class="card2">
-                    <h1>Available Books. Click Borrow button to lend</h1>
+                    <h1>Available Books. Click Borrow button to Request Book</h1>
                     <div class='listing' id='listing'>
                         <?php
                             ob_start();

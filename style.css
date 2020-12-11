@@ -193,14 +193,14 @@
   }
   .boxb
   {
-	  height: 586px;
-	  width: 450px;
-	  background-color: white;
-	  opacity: .75;
-	  color: black;
+	height: 586px;
+	width: 450px;
+	background-color: white;
+	opacity: .75;
+	color: black;
 	border-radius: 15px;
-	margin-left:auto;
-	margin-right:auto;
+	padding-top: 50px;
+	margin:auto;
 	text-align:center;
 	border: 3px solid #083b64;
   }

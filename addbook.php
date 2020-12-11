@@ -116,8 +116,8 @@
     <body>
         <div class = "hero-image">
                 <div id = "navbar">
-                    <a href = "index.php"> Home</a>
-                    <a href = "navBookTable.php"> Books</a>
+                    <a href = "librarian_index.php"> Home</a>
+                    <a href = "lib_nav.php"> Books</a>
                     <a href = "logout.php">Log Out</a>
 
                     <div class = "logo">
@@ -177,9 +177,10 @@
         </div>
             <div class = "rightcolumn">
                 <div class = "card">
-                        <h4><a href = "">Add New Patron Account</a></h4>
-                        <h4><a href = "bookTable.php">See Available Books</a></h4>
-                        <h4><a href = "librarianViewBorrowed.php">Return Borrowed Books</a></h4>
+                <h4><a href="main_login.php">Log Out</a></h4>
+                <h4><a href="lib_add_patron.php">Add New Patron Account</a></h4>
+                <h4><a href="addbook.php">Add New Book Record</a></h4>
+                <h4><a href="librarianViewBorrowed.php">Return Borrowed Books</a></h4>
                 </div>
                 <div class = "card">
                     <h3>Monthly Book Club Reads</h3>

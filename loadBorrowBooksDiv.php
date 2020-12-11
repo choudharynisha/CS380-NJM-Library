@@ -42,7 +42,6 @@ body, html {
            $idResult = $connection->query($userId);
            while ($row = $idResult->fetch_assoc()) {
             $id = $row['user_id'];
-            echo "$id";
             }    
     
         $q = "select njm_books.title, njm_books.author, njm_transactions.due_date from njm_books 

@@ -7,7 +7,7 @@
             session_destroy();
             echo "<script>
                 alert('Please login again. Your session expired'); 
-                window.location.href = 'main_login.php';
+                window.location.href = 'patron_login.php';
                 </script>";
         }
 ?>
@@ -26,7 +26,7 @@
             function filterFunction() {
 
             //get the input values to filter
-            var bookInput, authorInput, genreInput, yearInput, bookFilter,  authorFilter, genreFilter, yearFilter, table, tr, td, i, txtValue;
+            var bookInput, authorInput, genreInput, yearInput, publisherInput, bookFilter,  authorFilter, genreFilter, yearFilter, table, tr, td, i, txtValue;
             bookInput = document.getElementById("bookInput"); 
             authorInput = document.getElementById("authorInput"); 
             genreInput = document.getElementById("genreInput");
@@ -82,6 +82,14 @@
                 });
 
             });
+
+            //Toggles the the text for Show or Hide Borrowed button
+            $('.viewBtn').click(function(event) {
+                var button = $(this);
+                button.text(button.text() == "Hide Borrowed" ? "Show Borrowed" : "Hide Borrowed")
+            });
+
+            });
         </script>
 
         <style>
@@ -100,23 +108,21 @@
 <body>
     <div class="hero-image">
         <div id="navbar">
-            <a href="patron_index.php"> Home</a>
-            <a href="nav_student.php"> Books</a>
-            <a href="#"> Contact Us</a>
-            <a href="logout.php">Log Out</a>
-            <div class="logo"><h1 style="color: yellow; font-size: 25px;text-align: center;">NJM Online Library</h1></div>
+                <a href="patron_index.php"> Home</a>
+                <a href="nav_student.php"> Books</a>
+                <a href="#"> Contact Us</a>
+                <a href="logout.php">Log Out</a>
+                <div class="logo"><h1 style="color: yellow; font-size: 25px;text-align: center;">NJM Online Library</h1></div>
         </div>
     </div>
 
     <div class="row">
         <div class="leftcolumn">
             <div class="card2">
-                    <h1>Available Books. </h1> 
-                    <h4 style="text-align: center;">Click Borrow button to lend</h4>
-                
+                    <h1>Student Borrow Book Page</h1>
                     <div class="viewBooks"><button class="viewBtn">Show Borrowed</button></div>
                     <div class="showup" id="showup"></div>
-                
+                    <br>
                     <div class='listing' id='listing'>
                         <?php
                             ob_start();
@@ -126,7 +132,6 @@
                            $idResult = $connection->query($userId);
                            while ($row = $idResult->fetch_assoc()) {
                             $id = $row['user_id'];
-                            
                             }
                         
                         
@@ -136,7 +141,6 @@
                                     inner join njm_publishers 
                                     on njm_books.publisher_id = njm_publishers.publisher_id 
                                     where njm_books.status = 'Available'";
-                        
                             $result = $connection->query($q);
                             if ($result->num_rows > 0) {
                                 echo "
@@ -184,12 +188,12 @@
 
                                 //checks if form has been submitted and adds to the transaction table and changes the status in the books table
                                 if (isset($_POST['title']) && isset($_POST['author'])){
-
+                                    
                                     $dueDate = date('Y-m-d',strtotime('+7 day')); //gets the current date and adds a week to it
                                     $q = "insert into njm_transactions (transaction_type, book_id, user_id, due_date) values 
                                     ('borrowed', '".$_POST['book_id']."', '$id', '$dueDate');";  //need to change 14 to user_id
 
-                                    if (mysqli_query($connection, $q)) {
+                                    if (mysqli_query($conn, $q)) {
                                         //shows alert box to indicate that a book has been borrowed
                                         echo "<script>
                                                 alert('".$_POST['title']." By ".$_POST['author']." Added Successfully'); 
@@ -197,15 +201,15 @@
                                             </script>";
                                             
                                     } else {
-                                        echo "Error: " . $q . "<br>" . mysqli_error($connection);
+                                        echo "Error: " . $q . "<br>" . mysqli_error($conn);
                                     }
 
                                     $statusChange = "update njm_books set status = 'Not Available' where book_id = '".$_POST['book_id']."';";
 
-                                    if (mysqli_query($connection, $statusChange)) {
+                                    if (mysqli_query($conn, $statusChange)) {
                                         //echo "New record created successfully";
                                     } else {
-                                        echo "Error: " . $statusChange . "<br>" . mysqli_error($connection);
+                                        echo "Error: " . $statusChange . "<br>" . mysqli_error($conn);
                                     }
 
                                     //header("Location: ".$_SERVER['REQUEST_URI']); //reloads the page to update the changes in the table but no longer nee since alert box does refreshing
@@ -221,20 +225,20 @@
                             
                         ?>
                     </div>
-                    <br
+                    
 
             </div>
         </div>
 
         <div class="rightcolumn">
-        <div class="card">
-                <h4><a href="main_login.php">Log Out</a></h4>
+            <div class="card">
+                <h4><a href="main_login.php">Log in</a></h4>
                 <h4><a href="#">Request Librarian Help</a></h4>
+                <h4><a href="#">Feedback</a></h4>
             </div>
             <div class="card">
                 <h3>Monthly Book Club Reads</h3>
-                <div class="fakeimg"><img src="images/persuasion_ja.jpg"></div><br>
-                <div class="fakeimg"><img src="images/anxious_people.jpeg"> </div><br>
+                
             </div>
     
         </div>
@@ -246,7 +250,7 @@
     <p style="color:white;  text-align: center; ">
         <br><br>
         Contact us @
-        Email: ouremail@brynmawr.edu <br>
+        Email: ouremail.brynmawr.edu <br>
         Mobile: +1 610 526 5000
     </p>
 </div>

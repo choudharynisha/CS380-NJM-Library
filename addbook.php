@@ -45,17 +45,17 @@
 
     if(isset($_POST['submit'])) {
         // gets the new book's information upon pressing submit
-        $title = $_POST['title'];
-        $author = $_POST['author'];
-        $genre = isset($_POST['newGenre']) ? $_POST['newGenre'] : $_POST['genre'];
+        $title = $connection->real_escape_string($_POST['title']);
+        $author = $connection->real_escape_string($_POST['author']);
+        $genre = isset($_POST['newGenre']) ? $connection->real_escape_string($_POST['newGenre']) : $connection->real_escape_string($_POST['genre']);
         $year = $_POST['year'];
-        $publisher = $_POST['publishers'];
+        $publisher = $connection->real_escape_string($_POST['publishers']);
         
         if($publisher == 0) {
             // a book with a new publisher
             // get publisher information to be added to the njm_publishers table so that this new book can be added
-            $name = $_POST['publisher'];
-            $city = $_POST['city'];
+            $name = $connection->real_escape_string($_POST['publisher']);
+            $city = $connection->real_escape_string($_POST['city']);
             $state = $_POST['state'];
             $zip = $_POST['zip'];
 
@@ -63,9 +63,10 @@
             
             if($connection->query($addpublisher) === TRUE) {
                 // successful addition of the new publisher to njm_publishers
-                $getpublisher = "SELECT publisher_id FROM njm_publishers WHERE name = $name, city = $city, state = $state, zip = $zip";
-                $publisher = $connection->query($getpublisher); // update the publisher id (0 to the new publisher's id in njm_publishers)
-                echo $publisher;
+                $getpublisher = "SELECT publisher_id FROM njm_publishers WHERE name = '$name' AND city = '$city' AND state = '$state' AND zip = '$zip'";
+                // echo $getpublisher;
+                $result = $connection->query($getpublisher) or die($connection->error); // update the publisher id (0 to the new publisher's id in njm_publishers)
+                $publisher = $result->fetch_assoc()['publisher_id'];
             } else {
                 die("Unable to add new publisher");
             }
@@ -77,7 +78,7 @@
             die("Invalid Year of Publication");
         }
 
-        $addbook = "INSERT INTO njm_books (title, author, genre, year, publisher_id, status) VALUES ('$title', '$author', '$genre', '$year', '$publisher', 'Available')";
+        $addbook = "INSERT INTO njm_books (title, author, genre, year, publisher_id, status) VALUES ('$title', '$author', '$genre', '$year', $publisher, 'Available')";
 
         if($connection->query($addbook) === TRUE) {
             // successful addition of the new book to njm_books
@@ -85,15 +86,15 @@
         } else {
             echo "Error – " . $addbook . "<br>" . $connection->error;
         }
+
+        die("{publisher: $publisher}");
     }
 ?>
-
-
 <!DOCTYPE html>
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="style.css">
+        <link rel = "stylesheet" href = "style.css">
         <meta charset = "utf-8">
         <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         
@@ -270,8 +271,8 @@
                     body: userInput
                 }).then (function(data) {
                     console.log("Reply: ");
-                    console.log(data);
-                    alert("Submitted");
+                    console.log(data.text);
+                    alert("New Book Successfully Added");
                 });
             }
         </script>

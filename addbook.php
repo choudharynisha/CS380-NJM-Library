@@ -83,6 +83,7 @@
         if($connection->query($addbook) === TRUE) {
             // successful addition of the new book to njm_books
             echo "New book added successfuly";
+
         } else {
             echo "Error – " . $addbook . "<br>" . $connection->error;
         }
@@ -273,6 +274,7 @@
                     console.log("Reply: ");
                     console.log(data.text);
                     alert("New Book Successfully Added");
+                    location.replace("addbook.php")
                 });
             }
         </script>

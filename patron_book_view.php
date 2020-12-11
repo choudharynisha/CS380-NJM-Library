@@ -113,6 +113,10 @@
             <div class="card2">
                     <h1>Available Books. </h1> 
                     <h4 style="text-align: center;">Click Borrow button to lend</h4>
+                
+                    <div class="viewBooks"><button class="viewBtn">Show Borrowed</button></div>
+                    <div class="showup" id="showup"></div>
+                
                     <div class='listing' id='listing'>
                         <?php
                             ob_start();
@@ -122,7 +126,7 @@
                            $idResult = $connection->query($userId);
                            while ($row = $idResult->fetch_assoc()) {
                             $id = $row['user_id'];
-                            echo "$id";
+                            
                             }
                         
                         
@@ -217,8 +221,7 @@
                             
                         ?>
                     </div>
-                    <br>
-                    <div class="showup" id="showup"></div>
+                    <br
 
             </div>
         </div>

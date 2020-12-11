@@ -47,7 +47,7 @@
         // gets the new book's information upon pressing submit
         $title = $connection->real_escape_string($_POST['title']);
         $author = $connection->real_escape_string($_POST['author']);
-        $genre = isset($_POST['newGenre']) ? $connection->real_escape_string($_POST['newGenre']) : $connection->real_escape_string($_POST['genre']);
+        $genre = strlen($_POST['newGenre']) > 0 ? $connection->real_escape_string($_POST['newGenre']) : $connection->real_escape_string($_POST['genre']);
         $year = $_POST['year'];
         $publisher = $connection->real_escape_string($_POST['publishers']);
         

@@ -39,7 +39,7 @@ body, html {
 <div class="hero-image">
 
     <div id="navbar">
-      <a href="index.php"> Home</a>
+      <a href="librarian_index.php"> Home</a>
       <a href="lib_nav.php"> Books</a>
       <a href="logout.php">Log Out</a>
 

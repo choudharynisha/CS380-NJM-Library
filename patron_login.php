@@ -54,7 +54,7 @@
 
     <div id="navbar">
          <a href="patron_index.php"> Home</a>
-        <a href="bookTable.php"> Books</a>
+        <a href="navBookTable.php"> Books</a>
         <a href="patron_index.php"> Ask Librarian</a>
       
         <div class="logo">

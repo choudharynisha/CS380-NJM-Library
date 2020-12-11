@@ -39,7 +39,7 @@ body, html {
 
     <div id="navbar">
       <a href="patron_index.php"> Home</a>
-      <a href="bookTable.php"> Books</a>
+      <a href="navBookTable.php"> Books</a>
       <a href="logout.php"> Log Out</a>
       
         <div class="logo">

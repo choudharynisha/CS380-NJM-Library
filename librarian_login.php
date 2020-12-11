@@ -71,7 +71,7 @@
 
     <div id="navbar">
          <a href="index.php"> Home</a>
-         <a href="bookTable.php"> Books</a>
+         <a href="navBookTable.php"> Books</a>
 
       
         <div class="logo">

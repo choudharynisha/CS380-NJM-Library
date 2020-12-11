@@ -99,8 +99,8 @@
     <div class="hero-image">
         <div id="navbar">
             <a href="index.php"> Home</a>
-            <a href="bookTable.php"> Books</a>
-            <a href="bookTable.php"> Contact Us</a>
+            <a href="navBookTable.php"> Books</a>
+            <a href="index.php"> Contact Us</a>
             <div class="logo"><h1 style="color: yellow; font-size: 25px;text-align: center;">NJM Online Library</h1></div>
         </div>
     </div>
@@ -141,7 +141,6 @@
                                 <td><input type='text' id='genreInput' onkeyup='filterFunction()' placeholder='Search for Genre..'></td>
                                 <td><input type='text' id='yearInput' onkeyup='filterFunction()' placeholder='Search for Year..'></td>
                                 <td><input type='text' id='publisherInput' onkeyup='filterFunction()' placeholder='Search for Publisher..'></td>
-                                <td>Action</td>
                                 </tr>
                                 ";
                                 echo "<tbody class='bookRows' id = 'bookRows'>";
@@ -182,11 +181,8 @@
 
         <div class="rightcolumn">
             <div class="card">
-           
-
-            <h4><a href="#">Add New Patron Account</a></h4>
-            <h4><a href="addbook.php">Add New Book Record</a></h4>
-            <h4><a href="librarianViewBorrowed.php">Return Borrowed Books</a></h4>
+            <h4><a href="index.php"> Request Help</a></h4>
+            <h4><a href="main_login.php"> Log In</a></h4>
             </div>
             <div class="card">
                 <h3>Monthly Book Club Reads</h3>

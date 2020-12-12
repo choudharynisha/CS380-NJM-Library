@@ -95,7 +95,9 @@
                             Username<input id = "username" type = "text" name = "username" required /><br /><br />
                             Password<input type = "password" name = "password" required /><br /><br />
                             <input  type = "submit" value = "submit" name = "submit" />
-                            </form>
+                        </form>
+
+                        <a href = "javascript:reset_password()" class = "button-basic" style = "margin:auto; padding-bottom: 15px;">Forgot Password</a>
                     </div>
                 </div>
             </div>
@@ -121,21 +123,28 @@
         </p>
     </div>
 
-    <script>
+        <script>window.onscroll = function() {myFunction()};
+            var navbar = document.getElementById("navbar");
+            var sticky = navbar.offsetTop;
+            
+            function myFunction() {
+                if (window.pageYOffset >= sticky) {
+                    navbar.classList.add("sticky")
+                } else {
+                    navbar.classList.remove("sticky");
+                }
+            }
 
+            function reset_password() {
+                var username = document.getElementById("username").value.trim();
 
-        window.onscroll = function() {myFunction()};
-        
-        var navbar = document.getElementById("navbar");
-        var sticky = navbar.offsetTop;
-        
-        function myFunction() {
-        if (window.pageYOffset >= sticky) {
-            navbar.classList.add("sticky")
-        } else {
-            navbar.classList.remove("sticky");
-        }
-        }
+                if(username.length > 0) {
+                    window.location = `reset_password.php?username=${username}`;
+                } else {
+                    alert("Please enter your username before requesting to reset password.");
+                    return false;
+                }
+            }
         </script>
 
     </body>

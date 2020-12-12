@@ -81,7 +81,6 @@
                     <input  type = "submit" value = "submit" name = "submit" />
                 </form>
                 <a href = "javascript:reset_password()" class = "button-basic" style = "margin:auto; padding-bottom: 15px;">Forgot Password</a>
-
             </div>
             </div>
             </div>

@@ -103,15 +103,15 @@ body, html {
 
 
   </div>
-<div class="row">
-  <div class="leftcolumn">
-        <div class="card2">
-        <h2 style="text-align: center;">Welcome to the NJM Online Library</h2>
+<div class = "row">
+  <div class = "leftcolumn">
+        <div class = "card2">
+        <h2 style = "text-align: center;">Welcome to the NJM Online Library</h2>
 
             <div class = "box">
                 <form id = "resetpassword" onsubmit = "resetPassword(); return false;" action = "<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method = "post">
-                    User Name <input type = "hidden" name = "username" value = "<?php echo $username; ?>" />
-                    Question <input type = "hidden" name = "question" value = "<?php echo $question; ?>" />
+                    <input type = "hidden" name = "username" value = "<?php echo $username; ?>" />
+                    <input type = "hidden" name = "question" value = "<?php echo $question; ?>" />
 
                     Security Question
                     <p><?php echo $question; ?></p>

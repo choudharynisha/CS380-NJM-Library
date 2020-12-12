@@ -109,7 +109,7 @@ body, html {
         <h2 style = "text-align: center;">Welcome to the NJM Online Library</h2>
 
             <div class = "box">
-                <form id = "resetpassword" onsubmit = "resetPassword(); return false;" action = "<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method = "post">
+                <form    style= "text-align: left;padding-left: 20px;" id = "resetpassword" onsubmit = "resetPassword(); return false;" action = "<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method = "post">
                     <input type = "hidden" name = "username" value = "<?php echo $username; ?>" />
                     <input type = "hidden" name = "question" value = "<?php echo $question; ?>" />
                     <br><br><br>

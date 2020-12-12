@@ -180,17 +180,32 @@
   
   .box
   {
-	  height: 350px;
-	  width: 450px;
-	  background-color: white;
-	  opacity: .75;
-	  color: black;
+	height: 350px;
+	width: 450px;
+	background-color: white;
+	opacity: .75;
+	color: black;
 	border-radius: 15px;
 	margin-left:auto;
 	margin-right:auto;
 	text-align:center;
 	border: 3px solid #083b64;
   }
+
+  .boxc
+  {
+	height: 450px;
+	width: 450px;
+	background-color: white;
+	opacity: .75;
+	color: black;
+	border-radius: 15px;
+	margin-left:auto;
+	margin-right:auto;
+	text-align:center;
+	border: 3px solid #083b64;
+  }
+
   .boxb
   {
 	height: 586px;

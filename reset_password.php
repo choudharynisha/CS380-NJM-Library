@@ -112,9 +112,12 @@ body, html {
                 <form id = "resetpassword" onsubmit = "resetPassword(); return false;" action = "<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method = "post">
                     <input type = "hidden" name = "username" value = "<?php echo $username; ?>" />
                     <input type = "hidden" name = "question" value = "<?php echo $question; ?>" />
-
+                    <br><br><br>
+                    
                     Security Question
-                    <p><?php echo $question; ?></p>
+                    <input type="text" placeholder="<?php echo $question; ?>">
+                    <br>
+                    <br>
 
                     Security Answer
                     <input type = "text" name = "answer" value = "<?php if(isset($_POST['answer'])) {echo $answer;} ?>" required /><br /><br />

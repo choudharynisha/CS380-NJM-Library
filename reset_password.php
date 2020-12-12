@@ -14,6 +14,7 @@
             $hashedanswer = $row['security_answer'];
         }
     }
+
     if(isset($_POST['submit'])) {
         $username = $_POST['username'];
         $password = $_POST['password'];
@@ -109,8 +110,8 @@ body, html {
 
             <div class = "box">
                 <form id = "resetpassword" onsubmit = "resetPassword(); return false;" action = "<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method = "post">
-                    User Name <input type = "text" name = "username" value = "<?php echo $username; ?>" />
-                    Question <input type = "text" name = "question" value = "<?php echo $question; ?>" />
+                    User Name <input type = "hidden" name = "username" value = "<?php echo $username; ?>" />
+                    Question <input type = "hidden" name = "question" value = "<?php echo $question; ?>" />
 
                     Security Question
                     <p><?php echo $question; ?></p>

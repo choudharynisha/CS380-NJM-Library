@@ -76,7 +76,7 @@
 <html>
     <head>
         <meta name = "viewport" content = "width=device-width, initial-scale=1">
-        <link rel = "stylesheet" href = "style.css">
+        <link rel = "stylesheet" href = "http://comet.cs.brynmawr.edu/~nchoudhary/CS380-Library-System/style.css">
         <meta charset = "utf-8">
         <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         
@@ -97,10 +97,9 @@
     <body>
         <div class = "hero-image">
                 <div id = "navbar">
-                <a href="librarian_index.php"> Home</a>
-                <a href="lib_nav.php"> Books</a>
-                <a href="logout.php">Log Out</a>
-
+                <a href = "http://comet.cs.brynmawr.edu/~nchoudhary/CS380-Library-System/librarian_index.php"> Home</a>
+                <a href = "http://comet.cs.brynmawr.edu/~nchoudhary/CS380-Library-System/lib_nav.php"> Books</a>
+                <a href = "http://comet.cs.brynmawr.edu/~nchoudhary/CS380-Library-System/logout.php">Log Out</a>
                     <div class = "logo">
                     <h1 style = "color: yellow; font-size: 25px;text-align: center;">NJM Online Library</h1>
                 </div>
@@ -148,26 +147,23 @@
 
                         <input type = "submit" value = "submit" name = "submit" />
                     </form>
-
-
-
                 </div>
             </div>
         </div>
             <div class = "rightcolumn">
                 <div class = "card">
-                <h4><a href="main_login.php">Log Out</a></h4>
-                <h4><a href="lib_add_patron.php">Add New Patron Account</a></h4>
-                <h4><a href="addbook.php">Add New Book Record</a></h4>
-                <h4><a href="librarianViewBorrowed.php">Return Borrowed Books</a></h4>
+                <h4><a href = "http://comet.cs.brynmawr.edu/~nchoudhary/CS380-Library-System/main_login.php">Log Out</a></h4>
+                <h4><a href = "http://comet.cs.brynmawr.edu/~nchoudhary/CS380-Library-System/lib_add_patron.php">Add New Patron Account</a></h4>
+                <h4><a href = "http://comet.cs.brynmawr.edu/~nchoudhary/CS380-Library-System/addbook.php">Add New Book Record</a></h4>
+                <h4><a href = "http://comet.cs.brynmawr.edu/~nchoudhary/CS380-Library-System/librarianViewBorrowed.php">Return Borrowed Books</a></h4>
                 </div>
                 <div class = "card">
                     <h3>Monthly Book Club Reads</h3>
                     <div class = "fakeimg">
-                        <img src = "images/persuasion_ja.jpg"> 
+                        <img src = "http://comet.cs.brynmawr.edu/~nchoudhary/CS380-Library-System/images/persuasion_ja.jpg"> 
                     </div>
                     <div class = "fakeimg">
-                        <img src = "images/anxious_people.jpeg">
+                        <img src = "http://comet.cs.brynmawr.edu/~nchoudhary/CS380-Library-System/images/anxious_people.jpeg">
                     </div>
                 </div>
             </div>

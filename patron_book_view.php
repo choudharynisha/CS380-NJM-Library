@@ -238,6 +238,8 @@
             </div>
             <div class="card">
                 <h3>Monthly Book Club Reads</h3>
+                <div class="fakeimg"><img src="images/persuasion_ja.jpg"></div><br>
+                <div class="fakeimg"><img src="images/anxious_people.jpeg"> </div><br>
                 
             </div>
     

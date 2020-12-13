@@ -134,17 +134,11 @@ body, html {
         </div>
   </div>
     <div class="rightcolumn">
-        <div class="card">
-            <h4><a href="index.php"> Request Help</a></h4>
-            <h4><a href="main_login.php"> Log In</a></h4>
-        </div>
-        <div class="card">
-          <h3>Monthly Book Club Reads</h3>
-          <div class="fakeimg">
-            <img src="images/persuasion_ja.jpg"> 
-          </div><br>
-          <div class="fakeimg"><img src="images/anxious_people.jpeg"> </div><br>
-        </div>
+        <h4><a href="index.php"> Request Help</a></h4>
+        <h4><a href="main_login.php"> Log In</a></h4>
+        <h3>Monthly Book Club Reads</h3>
+        <div class="fakeimg"><img src="images/persuasion_ja.jpg"><br>Persuasion by Jane Austen</div><br>
+        <div class="fakeimg"><img src="images/anxious_people.jpeg"><br>Anxious People by Fredrick Backman</div><br>
     
     </div>
 </div>

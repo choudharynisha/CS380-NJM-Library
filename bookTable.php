@@ -210,17 +210,14 @@
                     <div class = "showup" id = "showup"></div>
                 </div>
             </div>
-            <div class = "rightcolumn">
-                <div class = "card">
+            <div class = "rightcolumn" style= "padding-top: 150px;">
                     <h4><a href = "http://comet.cs.brynmawr.edu/~nchoudhary/CS380-Library-System/lib_add_patron.php">Add New Patron Account</a></h4>
                     <h4><a href = "http://comet.cs.brynmawr.edu/~nchoudhary/CS380-Library-System/addbook.php">Add New Book Record</a></h4>
                     <h4><a href = "http://comet.cs.brynmawr.edu/~nchoudhary/CS380-Library-System/librarianViewBorrowed.php">Return Borrowed Books</a></h4>
-                </div>
-                <div class = "card">
                     <h3>Monthly Book Club Reads</h3>
-                    <div class = "fakeimg"><img src = "http://comet.cs.brynmawr.edu/~nchoudhary/CS380-Library-System/images/persuasion_ja.jpg"></div><br>
-                    <div class = "fakeimg"><img src = "http://comet.cs.brynmawr.edu/~nchoudhary/CS380-Library-System/images/anxious_people.jpeg"></div><br>
-                </div>
+               
+                    <div class = "fakeimg"><img src = "http://comet.cs.brynmawr.edu/~nchoudhary/CS380-Library-System/images/persuasion_ja.jpg"><br>Persuasion by Jane Austen</div><br>
+                    <div class = "fakeimg"><img src = "http://comet.cs.brynmawr.edu/~nchoudhary/CS380-Library-System/images/anxious_people.jpeg"><br>Persuasion by Jane Austen<br>Anxious People by Fredrick Backman</div><br>
             </div>
         </div>
         <div class = "footer">

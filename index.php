@@ -58,17 +58,13 @@
                     <p>We bring to you the latest books from top NY Bestselling authors</p>
                 </div>
         </div>
-        <div class = "rightcolumn">
-            <div class = "card">
+        <div class = "rightcolumn" style= "padding-top: 50px">
                 <h4><a href = "http://comet.cs.brynmawr.edu/~nchoudhary/CS380-Library-System/main_login.php"> Log In</a></h4>
-            </div>
-            <div class = "card">
                 <h3>Monthly Book Club Reads</h3>
                 <div class = "fakeimg">
-                    <img src = "http://comet.cs.brynmawr.edu/~nchoudhary/CS380-Library-System/images/persuasion_ja.jpg"> 
+                    <img src = "http://comet.cs.brynmawr.edu/~nchoudhary/CS380-Library-System/images/persuasion_ja.jpg"> <br>Persuasion by Jane Austen
                 </div><br>
-                <div class = "fakeimg"><img src = "http://comet.cs.brynmawr.edu/~nchoudhary/CS380-Library-System/images/anxious_people.jpeg"></div><br>
-                </div>
+                <div class = "fakeimg"><img src = "http://comet.cs.brynmawr.edu/~nchoudhary/CS380-Library-System/images/anxious_people.jpeg"><br>Anxious People by Fredrick Backman</div><br>
             </div>
         </div>
         <div class = "footer">

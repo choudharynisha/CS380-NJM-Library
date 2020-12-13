@@ -104,13 +104,9 @@
         </div>
         <div class="rightcolumn">
         
-            <div class="card">
-            <h3>Monthly Book Club Reads</h3>
-            <div class="fakeimg">
-                <img src="images/persuasion_ja.jpg"> 
-            </div>
-            <div class="fakeimg"><img src="images/anxious_people.jpeg"> </div>
-            </div>
+                <h3>Monthly Book Club Reads</h3>
+                <div class="fakeimg"><img src="images/persuasion_ja.jpg"><br>Persuasion by Jane Austen</div>
+                <div class="fakeimg"><img src="images/anxious_people.jpeg"> <br>Anxious People by Fredrick Backman</div>
         </div>
     </div>
 

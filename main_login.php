@@ -50,15 +50,10 @@
     </div>
     </div>
   </div>
-  <div class="rightcolumn">
-   
-    <div class="card">
+  <div class="rightcolumn" >
       <h3>Monthly Book Club Reads</h3>
-      <div class="fakeimg">
-        <img src="images/persuasion_ja.jpg"> 
-      </div>
-      <div class="fakeimg"><img src="images/anxious_people.jpeg"> </div>
-    </div>
+      <div class="fakeimg"><img src="images/persuasion_ja.jpg"> <br>Persuasion by Jane Austen</div>
+      <div class="fakeimg"><img src="images/anxious_people.jpeg"> <br>Persuasion by Jane Austen</div>
   </div>
 </div>
 

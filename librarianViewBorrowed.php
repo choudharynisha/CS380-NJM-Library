@@ -220,18 +220,14 @@
         </div>
 
         <div class="rightcolumn">
-        <div class="card">
             
             <h4><a href="main_login.php">Log Out</a></h4>
             <h4><a href="lib_add_patron.php">Add New Patron Account</a></h4>
             <h4><a href="addbook.php">Add New Book Record</a></h4>
             <h4><a href="librarianViewBorrowed.php">Return Borrowed Books</a></h4>
-        </div>
-            <div class="card">
-                <h3>Monthly Book Club Reads</h3>
-                <div class="fakeimg"><img src="images/persuasion_ja.jpg"> </div><br>
-                <div class="fakeimg"><img src="images/anxious_people.jpeg"> </div><br>
-            </div>
+            <h3>Monthly Book Club Reads</h3>
+            <div class="fakeimg"><img src="images/persuasion_ja.jpg"> <br>Persuasion by Jane Austen</div><br>
+            <div class="fakeimg"><img src="images/anxious_people.jpeg"><br>Anxious People by Fredrick Backman</div><br>
         </div>
     </div>
 

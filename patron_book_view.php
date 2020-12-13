@@ -230,7 +230,7 @@
             </div>
         </div>
 
-        <div class="rightcolumn" style = "padding-top: 170px;">
+        <div class="rightcolumn" style="padding-top:180px;">
                 <h4><a href="main_login.php">Log in</a></h4>
             
                 <h3>Monthly Book Club Reads</h3>

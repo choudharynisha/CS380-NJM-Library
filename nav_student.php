@@ -180,18 +180,14 @@
         </div>
 
         <div class="rightcolumn">
-            <div class="card">
             
                 <h4><a href="main_login.php">Log Out</a></h4>
                 <h4><a href="#">Request Librarian Help</a></h4>
                 <h4><a href="patron_book_view.php">Borrow a Book</a></h4>
 
-            </div>
-            <div class="card">
                 <h3>Monthly Book Club Reads</h3>
-                <div class="fakeimg"><img src="images/persuasion_ja.jpg"></div><br>
-                <div class="fakeimg"><img src="images/anxious_people.jpeg"> </div><br>
-            </div>
+                <div class="fakeimg"><img src="images/persuasion_ja.jpg"><br>Persuasion by Jane Austen</div><br>
+                <div class="fakeimg"><img src="images/anxious_people.jpeg">Anxious People by Fredrick Backman </div>
     
         </div>
     </div>

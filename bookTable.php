@@ -17,7 +17,7 @@
         <meta name = "viewport" content = "width=device-width, initial-scale=1">
         <link rel = "stylesheet" href = "style.css">
         <link rel = "stylesheet" type = "text/css" href = "bookTableStyle.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script>
             //filterFunction deals with filtering the columns of the table
             function filterFunction() {
@@ -70,25 +70,24 @@
 
             $(document).ready(function() {
 
-            //Toggles the Show or Hide Borrowed div
-            $('.viewBooks').click(function(event) {
-                event.stopPropagation();
-                $(".showup").slideToggle("fast");
-                $('.showup').load('loadBorrowBooksDiv.php', function() {  //loads the php file to update the div with new borrowed books
-                    console.log('Load was performed.');
+                //Toggles the Show or Hide Borrowed div
+                $('.viewBooks').click(function(event) {
+                    event.stopPropagation();
+                    $(".showup").slideToggle("fast");
+                    $('.showup').load('loadBorrowBooksDiv.php', function() {  //loads the php file to update the div with new borrowed books
+                        console.log('Load was performed.');
+                    });
+
+                });
+
+                //Toggles the the text for Show or Hide Borrowed button
+                $('.viewBtn').click(function(event) {
+                    var button = $(this);
+                    button.text(button.text() == "Hide Borrowed" ? "Show Borrowed" : "Hide Borrowed")
                 });
 
             });
-
-            //Toggles the the text for Show or Hide Borrowed button
-            $('.viewBtn').click(function(event) {
-                var button = $(this);
-                button.text(button.text() == "Hide Borrowed" ? "Show Borrowed" : "Hide Borrowed")
-            });
-
-            });
         </script>
-
         <style>
             * {
                 box-sizing: border-box;
@@ -102,17 +101,17 @@
             }
         </style>
     </head>
-<body>
-    <div class = "hero-image">
-        <div id = "navbar">
-            <a href = "index.php">Home</a>
-            <a href = "navBookTable.php">Books</a>
-            <div class = "logo"><h1 style = "color: yellow; font-size: 25px;text-align: center;">NJM Online Library</h1></div>
+    <body>
+        <div class = "hero-image">
+            <div id = "navbar">
+                <a href = "index.php">Home</a>
+                <a href = "navBookTable.php">Books</a>
+                <div class = "logo"><h1 style = "color: yellow; font-size: 25px;text-align: center;">NJM Online Library</h1></div>
+            </div>
         </div>
-    </div>
-    <div class = "row">
-        <div class = "leftcolumn">
-            <div class = "card2">
+        <div class = "row">
+            <div class = "leftcolumn">
+                <div class = "card2">
                     <h1>Available Books. Click Borrow button to Request Book</h1>
                     <div class = 'listing' id = 'listing'>
                         <?php
@@ -137,7 +136,6 @@
                             $result = $connection->query($q);
                             if($result->num_rows > 0) {
                                 echo "
-                                
                                 <table id='result'>
                                 <tr>
                                     <th>Book Title</th>
@@ -148,12 +146,12 @@
                                     <th>Borrow</th>
                                 </tr> 
                                 <tr>
-                                <td><input type='text' id='bookInput' onkeyup='filterFunction()' placeholder='Search for Title..'></td>
-                                <td><input type='text' id='authorInput' onkeyup='filterFunction()' placeholder='Search for Author..'></td>
-                                <td><input type='text' id='genreInput' onkeyup='filterFunction()' placeholder='Search for Genre..'></td>
-                                <td><input type='text' id='yearInput' onkeyup='filterFunction()' placeholder='Search for Year..'></td>
-                                <td><input type='text' id='publisherInput' onkeyup='filterFunction()' placeholder='Search for Publisher..'></td>
-                                <td>Action</td>
+                                    <td><input type='text' id='bookInput' onkeyup='filterFunction()' placeholder='Search for Title..'></td>
+                                    <td><input type='text' id='authorInput' onkeyup='filterFunction()' placeholder='Search for Author..'></td>
+                                    <td><input type='text' id='genreInput' onkeyup='filterFunction()' placeholder='Search for Genre..'></td>
+                                    <td><input type='text' id='yearInput' onkeyup='filterFunction()' placeholder='Search for Year..'></td>
+                                    <td><input type='text' id='publisherInput' onkeyup='filterFunction()' placeholder='Search for Publisher..'></td>
+                                    <td>Action</td>
                                 </tr>
                                 ";
                                 echo "<tbody class='bookRows' id = 'bookRows'>";
@@ -208,57 +206,48 @@
                             }
 
                             echo "</table>";
-                            
                         ?>
                     </div>
                     <br>
                     <div class = "viewBooks"><button class = "viewBtn">Show Borrowed</button></div>
                     <div class = "showup" id = "showup"></div>
+                </div>
+            </div>
+            <div class = "rightcolumn">
+                <div class = "card">
+                    <h4><a href = "#">Add New Patron Account</a></h4>
+                    <h4><a href = "addbook.php">Add New Book Record</a></h4>
+                    <h4><a href = "librarianViewBorrowed.php">Return Borrowed Books</a></h4>
+                </div>
+                <div class = "card">
+                    <h3>Monthly Book Club Reads</h3>
+                    <div class = "fakeimg"><img src = "images/persuasion_ja.jpg"></div><br>
+                    <div class = "fakeimg"><img src = "images/anxious_people.jpeg"> </div><br>
+                </div>
             </div>
         </div>
-
-        <div class="rightcolumn">
-            <div class="card">
-            <h4><a href = "#">Add New Patron Account</a></h4>
-            <h4><a href = "addbook.php">Add New Book Record</a></h4>
-            <h4><a href = "librarianViewBorrowed.php">Return Borrowed Books</a></h4>
-            </div>
-            <div class = "card">
-                <h3>Monthly Book Club Reads</h3>
-                <div class = "fakeimg"><img src = "images/persuasion_ja.jpg"></div><br>
-                <div class = "fakeimg"><img src = "images/anxious_people.jpeg"> </div><br>
-            </div>
-    
+        <div class = "footer">
+            <p style = "color:white;  text-align: center; ">
+                <br><br>
+                Contact us @
+                Email: ouremail@brynmawr.edu <br>
+                Phone: +1 610 526 5000
+            </p>
         </div>
-    </div>
- 
 
-
-<div class="footer">
-    <p style="color:white;  text-align: center; ">
-        <br><br>
-        Contact us @
-        Email: ouremail@brynmawr.edu <br>
-        Phone: +1 610 526 5000
-    </p>
-</div>
-
-<script>
-
-
-    window.onscroll = function() {myFunction()};
-    
-    var navbar = document.getElementById("navbar");
-    var sticky = navbar.offsetTop;
-    
-    function myFunction() {
-      if (window.pageYOffset >= sticky) {
-        navbar.classList.add("sticky")
-      } else {
-        navbar.classList.remove("sticky");
-      }
-    }
-    </script>
-
-</body>
+        <script>
+            window.onscroll = function() {myFunction()};
+            
+            var navbar = document.getElementById("navbar");
+            var sticky = navbar.offsetTop;
+            
+            function myFunction() {
+                if (window.pageYOffset >= sticky) {
+                    navbar.classList.add("sticky")
+                } else {
+                    navbar.classList.remove("sticky");
+                }
+            }
+        </script>
+    </body>
 </html>

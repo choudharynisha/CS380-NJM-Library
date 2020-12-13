@@ -22,49 +22,49 @@
             //filterFunction deals with filtering the columns of the table
             function filterFunction() {
 
-            //get the input values to filter
-            var bookInput, authorInput, genreInput, yearInput, bookFilter,  authorFilter, genreFilter, yearFilter, table, tr, td, i, txtValue;
-            bookInput = document.getElementById("bookInput"); 
-            authorInput = document.getElementById("authorInput"); 
-            genreInput = document.getElementById("genreInput");
-            yearInput = document.getElementById("yearInput");
-            publisherInput = document.getElementById("publisherInput");
+                //get the input values to filter
+                var bookInput, authorInput, genreInput, yearInput, bookFilter,  authorFilter, genreFilter, yearFilter, table, tr, td, i, txtValue;
+                bookInput = document.getElementById("bookInput"); 
+                authorInput = document.getElementById("authorInput"); 
+                genreInput = document.getElementById("genreInput");
+                yearInput = document.getElementById("yearInput");
+                publisherInput = document.getElementById("publisherInput");
 
-            bookFilter = bookInput.value.toUpperCase(); 
-            authorFilter = authorInput.value.toUpperCase(); 
-            genreFilter = genreInput.value.toUpperCase();
-            yearFilter = yearInput.value.toUpperCase();
-            publisherFilter = publisherInput.value.toUpperCase();
+                bookFilter = bookInput.value.toUpperCase(); 
+                authorFilter = authorInput.value.toUpperCase(); 
+                genreFilter = genreInput.value.toUpperCase();
+                yearFilter = yearInput.value.toUpperCase();
+                publisherFilter = publisherInput.value.toUpperCase();
 
-            //get the table to search through 
-            table = document.getElementById("result");
-            tr = table.getElementsByTagName("tr");
+                //get the table to search through 
+                table = document.getElementById("result");
+                tr = table.getElementsByTagName("tr");
 
-            //go through values of the table and filter by inputs and skip the header and the inputs rows
-            for (i = 2; i < tr.length; i++) {
-                //checking the columns based on inputs
-                bookTd = tr[i].getElementsByTagName("td")[0];
-                authorTd = tr[i].getElementsByTagName("td")[1];
-                genreTd = tr[i].getElementsByTagName("td")[2];
-                yearTd = tr[i].getElementsByTagName("td")[3];
-                publisherTd = tr[i].getElementsByTagName("td")[4];
-                if (bookTd && authorTd && genreTd && yearTd && publisherTd) {
-                    txtValueBook = bookTd.textContent || bookTd.innerText;
-                    txtValueAuthor = authorTd.textContent || authorTd.innerText;
-                    txtValueGenre = genreTd.textContent || genreTd.innerText;
-                    txtValueYear = yearTd.textContent || yearTd.innerText;
-                    txtValuePublisher = publisherTd.textContent || publisherTd.innerText;
-                    if (txtValueBook.toUpperCase().indexOf(bookFilter) > -1 &&
-                        txtValueAuthor.toUpperCase().indexOf(authorFilter) > -1 &&
-                        txtValueGenre.toUpperCase().indexOf(genreFilter) > -1 &&
-                        txtValueYear.toUpperCase().indexOf(yearFilter) > -1 &&
-                        txtValuePublisher.toUpperCase().indexOf(publisherFilter) > -1) {
-                        tr[i].style.display = "";
-                    } else {
-                        tr[i].style.display = "none";
+                //go through values of the table and filter by inputs and skip the header and the inputs rows
+                for (i = 2; i < tr.length; i++) {
+                    //checking the columns based on inputs
+                    bookTd = tr[i].getElementsByTagName("td")[0];
+                    authorTd = tr[i].getElementsByTagName("td")[1];
+                    genreTd = tr[i].getElementsByTagName("td")[2];
+                    yearTd = tr[i].getElementsByTagName("td")[3];
+                    publisherTd = tr[i].getElementsByTagName("td")[4];
+                    if (bookTd && authorTd && genreTd && yearTd && publisherTd) {
+                        txtValueBook = bookTd.textContent || bookTd.innerText;
+                        txtValueAuthor = authorTd.textContent || authorTd.innerText;
+                        txtValueGenre = genreTd.textContent || genreTd.innerText;
+                        txtValueYear = yearTd.textContent || yearTd.innerText;
+                        txtValuePublisher = publisherTd.textContent || publisherTd.innerText;
+                        if (txtValueBook.toUpperCase().indexOf(bookFilter) > -1 &&
+                            txtValueAuthor.toUpperCase().indexOf(authorFilter) > -1 &&
+                            txtValueGenre.toUpperCase().indexOf(genreFilter) > -1 &&
+                            txtValueYear.toUpperCase().indexOf(yearFilter) > -1 &&
+                            txtValuePublisher.toUpperCase().indexOf(publisherFilter) > -1) {
+                            tr[i].style.display = "";
+                        } else {
+                            tr[i].style.display = "none";
+                        }
                     }
                 }
-            }
 
             }
 

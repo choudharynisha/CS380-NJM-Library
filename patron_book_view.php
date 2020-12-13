@@ -233,8 +233,6 @@
         <div class="rightcolumn">
             <div class="card">
                 <h4><a href="main_login.php">Log in</a></h4>
-                <h4><a href="#">Request Librarian Help</a></h4>
-                <h4><a href="#">Feedback</a></h4>
             </div>
             <div class="card">
                 <h3>Monthly Book Club Reads</h3>

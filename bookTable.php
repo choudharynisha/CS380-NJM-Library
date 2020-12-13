@@ -212,7 +212,7 @@
             </div>
             <div class = "rightcolumn">
                 <div class = "card">
-                    <h4><a href = "http://comet.cs.brynmawr.edu/~nchoudhary/CS380-Library-System/addpatron.php">Add New Patron Account</a></h4>
+                    <h4><a href = "http://comet.cs.brynmawr.edu/~nchoudhary/CS380-Library-System/lib_add_patron.php">Add New Patron Account</a></h4>
                     <h4><a href = "http://comet.cs.brynmawr.edu/~nchoudhary/CS380-Library-System/addbook.php">Add New Book Record</a></h4>
                     <h4><a href = "http://comet.cs.brynmawr.edu/~nchoudhary/CS380-Library-System/librarianViewBorrowed.php">Return Borrowed Books</a></h4>
                 </div>

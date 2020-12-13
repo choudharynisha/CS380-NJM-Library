@@ -230,18 +230,13 @@
             </div>
         </div>
 
-        <div class="rightcolumn">
-            <div class="card">
+        <div class="rightcolumn" style = "padding-top: 170px;">
                 <h4><a href="main_login.php">Log in</a></h4>
-            </div>
-            <div class="card">
+            
                 <h3>Monthly Book Club Reads</h3>
-                <div class="fakeimg"><img src="images/persuasion_ja.jpg"></div><br>
-                <div class="fakeimg"><img src="images/anxious_people.jpeg"> </div><br>
-                
+                <div class="fakeimg"><img src="images/persuasion_ja.jpg"><br>Persuasion by Jane Austen</div>
+                <div class="fakeimg"><img src="images/anxious_people.jpeg"><br>Anxious People by Fredrick Backman</div><br>
             </div>
-    
-        </div>
     </div>
  
 

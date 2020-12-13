@@ -2,14 +2,14 @@
     require('db.php');
     session_start();
     $expiry = 5400; //90 min is 5400 sec
-        if (isset($_SESSION['login_time']) && (time() - $_SESSION['login_time'] > $expiry)) {
-            session_unset();
-            session_destroy();
-            echo "<script>
-                alert('Please login again. Your session expired'); 
-                window.location.href = 'main_login.php';
-                </script>";
-        }
+    if(isset($_SESSION['login_time']) && (time() - $_SESSION['login_time'] > $expiry)) {
+        session_unset();
+        session_destroy();
+        echo "<script>
+            alert('Please login again. Your session expired'); 
+            window.location.href = 'main_login.php';
+            </script>";
+    }
 
     $getpublishers = "SELECT publisher_id, name, city, state FROM njm_publishers ORDER BY name, city";
     $getgenres = "SELECT DISTINCT genre FROM njm_books ORDER BY genre";
@@ -116,8 +116,8 @@
     <body>
         <div class = "hero-image">
                 <div id = "navbar">
-                    <a href = "librarian_index.php"> Home</a>
-                    <a href = "lib_nav.php"> Books</a>
+                    <a href = "librarian_index.php">Home</a>
+                    <a href = "lib_nav.php">Books</a>
                     <a href = "logout.php">Log Out</a>
 
                     <div class = "logo">
@@ -177,10 +177,10 @@
         </div>
             <div class = "rightcolumn">
                 <div class = "card">
-                <h4><a href="main_login.php">Log Out</a></h4>
-                <h4><a href="lib_add_patron.php">Add New Patron Account</a></h4>
-                <h4><a href="addbook.php">Add New Book Record</a></h4>
-                <h4><a href="librarianViewBorrowed.php">Return Borrowed Books</a></h4>
+                <h4><a href = "main_login.php">Log Out</a></h4>
+                <h4><a href = "lib_add_patron.php">Add New Patron Account</a></h4>
+                <h4><a href = "addbook.php">Add New Book Record</a></h4>
+                <h4><a href = "librarianViewBorrowed.php">Return Borrowed Books</a></h4>
                 </div>
                 <div class = "card">
                     <h3>Monthly Book Club Reads</h3>
@@ -199,7 +199,7 @@
                 <br><br>
                 Contact us @
                 Email: ouremail@brynmawr.edu <br>
-                Mobile: +1 610 526 5000
+                Phone: +1 610 526 5000
             </p>
         </div>
 

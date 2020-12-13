@@ -11,15 +11,12 @@
                 </script>";
         }
 ?>
-
-
-
 <!DOCTYPE html>
 <html>
     <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet" type="text/css" href="bookTableStyle.css">
+        <meta name = "viewport" content = "width=device-width, initial-scale=1">
+        <link rel = "stylesheet" href = "style.css">
+        <link rel = "stylesheet" type = "text/css" href = "bookTableStyle.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script>
             //filterFunction deals with filtering the columns of the table
@@ -106,29 +103,27 @@
         </style>
     </head>
 <body>
-    <div class="hero-image">
-        <div id="navbar">
-            <a href="index.php"> Home</a>
-            <a href="navBookTable.php"> Books</a>
-            <a href="#"> Contact Us</a>
-            <div class="logo"><h1 style="color: yellow; font-size: 25px;text-align: center;">NJM Online Library</h1></div>
+    <div class = "hero-image">
+        <div id = "navbar">
+            <a href = "index.php">Home</a>
+            <a href = "navBookTable.php">Books</a>
+            <div class = "logo"><h1 style = "color: yellow; font-size: 25px;text-align: center;">NJM Online Library</h1></div>
         </div>
     </div>
-
-    <div class="row">
-        <div class="leftcolumn">
-            <div class="card2">
+    <div class = "row">
+        <div class = "leftcolumn">
+            <div class = "card2">
                     <h1>Available Books. Click Borrow button to Request Book</h1>
-                    <div class='listing' id='listing'>
+                    <div class = 'listing' id = 'listing'>
                         <?php
                             ob_start();
                         
-                           //Session variable to get the user id of the username
-                           $userId = "select user_id from njm_users where username = '" . $_SESSION['userName'] . "'";
-                           $idResult = $connection->query($userId);
-                           while ($row = $idResult->fetch_assoc()) {
-                            $id = $row['user_id'];
-                            echo "$id";
+                            //Session variable to get the user id of the username
+                            $userId = "select user_id from njm_users where username = '" . $_SESSION['userName'] . "'";
+                            $idResult = $connection->query($userId);
+                            while($row = $idResult->fetch_assoc()) {
+                                $id = $row['user_id'];
+                                echo "$id";
                             }
                         
                         
@@ -140,7 +135,7 @@
                                     where njm_books.status = 'Available'";
                         
                             $result = $connection->query($q);
-                            if ($result->num_rows > 0) {
+                            if($result->num_rows > 0) {
                                 echo "
                                 
                                 <table id='result'>
@@ -183,15 +178,13 @@
                                 
                                 echo "</tbody>";
                                 
-
                                 //checks if form has been submitted and adds to the transaction table and changes the status in the books table
-                                if (isset($_POST['title']) && isset($_POST['author'])){
-
+                                if(isset($_POST['title']) && isset($_POST['author'])){
                                     $dueDate = date('Y-m-d',strtotime('+7 day')); //gets the current date and adds a week to it
                                     $q = "insert into njm_transactions (transaction_type, book_id, user_id, due_date) values 
                                     ('borrowed', '".$_POST['book_id']."', '$id', '$dueDate');";  //need to change 14 to user_id
 
-                                    if (mysqli_query($connection, $q)) {
+                                    if(mysqli_query($connection, $q)) {
                                         //shows alert box to indicate that a book has been borrowed
                                         echo "<script>
                                                 alert('".$_POST['title']." By ".$_POST['author']." Added Successfully'); 
@@ -204,44 +197,36 @@
 
                                     $statusChange = "update njm_books set status = 'Not Available' where book_id = '".$_POST['book_id']."';";
 
-                                    if (mysqli_query($connection, $statusChange)) {
+                                    if(mysqli_query($connection, $statusChange)) {
                                         //echo "New record created successfully";
                                     } else {
                                         echo "Error: " . $statusChange . "<br>" . mysqli_error($connection);
                                     }
-
-                                    //header("Location: ".$_SERVER['REQUEST_URI']); //reloads the page to update the changes in the table but no longer nee since alert box does refreshing
-
-                                
                                 }
-
-                            }
-                            else {
+                            } else {
                                 echo "Did not Work!";
                             }
+
                             echo "</table>";
                             
                         ?>
                     </div>
                     <br>
-                    <div class="viewBooks"><button class="viewBtn">Show Borrowed</button></div>
-                    <div class="showup" id="showup"></div>
-
+                    <div class = "viewBooks"><button class = "viewBtn">Show Borrowed</button></div>
+                    <div class = "showup" id = "showup"></div>
             </div>
         </div>
 
         <div class="rightcolumn">
             <div class="card">
-           
-
-            <h4><a href="#">Add New Patron Account</a></h4>
-            <h4><a href="addbook.php">Add New Book Record</a></h4>
-            <h4><a href="librarianViewBorrowed.php">Return Borrowed Books</a></h4>
+            <h4><a href = "#">Add New Patron Account</a></h4>
+            <h4><a href = "addbook.php">Add New Book Record</a></h4>
+            <h4><a href = "librarianViewBorrowed.php">Return Borrowed Books</a></h4>
             </div>
-            <div class="card">
+            <div class = "card">
                 <h3>Monthly Book Club Reads</h3>
-                <div class="fakeimg"><img src="images/persuasion_ja.jpg"></div><br>
-                <div class="fakeimg"><img src="images/anxious_people.jpeg"> </div><br>
+                <div class = "fakeimg"><img src = "images/persuasion_ja.jpg"></div><br>
+                <div class = "fakeimg"><img src = "images/anxious_people.jpeg"> </div><br>
             </div>
     
         </div>
@@ -254,7 +239,7 @@
         <br><br>
         Contact us @
         Email: ouremail@brynmawr.edu <br>
-        Mobile: +1 610 526 5000
+        Phone: +1 610 526 5000
     </p>
 </div>
 

@@ -41,7 +41,7 @@
                 tr = table.getElementsByTagName("tr");
 
                 //go through values of the table and filter by inputs and skip the header and the inputs rows
-                for (i = 2; i < tr.length; i++) {
+                for(i = 2; i < tr.length; i++) {
                     //checking the columns based on inputs
                     bookTd = tr[i].getElementsByTagName("td")[0];
                     authorTd = tr[i].getElementsByTagName("td")[1];
@@ -109,7 +109,6 @@
             <div class = "logo"><h1 style = "color: yellow; font-size: 25px;text-align: center;">NJM Online Library</h1></div>
         </div>
     </div>
-
     <div class = "row">
         <div class = "leftcolumn">
             <div class = "card2">
@@ -121,12 +120,11 @@
                            //Session variable to get the user id of the username
                            $userId = "select user_id from njm_users where username = '" . $_SESSION['userName'] . "'";
                            $idResult = $connection->query($userId);
-                           while ($row = $idResult->fetch_assoc()) {
-                            $id = $row['user_id'];
-                            echo "$id";
+                            while($row = $idResult->fetch_assoc()) {
+                                $id = $row['user_id'];
+                                echo "$id";
                             }
-                        
-                        
+
                             //query to create table of available books
                             //$q = "select * from njm_books where status = 'Available';";
                             $q = "select * from njm_books 
@@ -236,7 +234,7 @@
             <br><br>
             Contact us @
             Email: ouremail@brynmawr.edu <br>
-            Mobile: +1 610 526 5000
+            Phone: +1 610 526 5000
         </p>
     </div>
 

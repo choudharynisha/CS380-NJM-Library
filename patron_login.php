@@ -14,50 +14,54 @@
         $results = $connection->query($getuser);
         
         if($results->num_rows == 0) {
-            echo "Invalid user";
+            echo "<script>
+                    alert('Invalid username and/or password');
+                    window.location.href = 'http://comet.cs.brynmawr.edu/~nchoudhary/CS380-Library-System/patron_login.php';
+                </script>";
         } else {
             $hashedpassword = $results->fetch_assoc()['password'];
             if(password_verify($password, $hashedpassword)) {
                 echo "Valid user";
-                header("Location: patron_index.php");
+                header("Location: http://comet.cs.brynmawr.edu/~nchoudhary/CS380-Library-System/patron_index.php");
                 
             } else {
-                echo "Not valid";
+                echo "<script>
+                    alert('Invalid username and/or password');
+                    window.location.href = 'http://comet.cs.brynmawr.edu/~nchoudhary/CS380-Library-System/patron_login.php';
+                </script>";
             }
         }
     }
 ?>
 <!DOCTYPE html>
 <html>
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="style.css">
-    <meta charset = "utf-8">
-    <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script defer src = "login-page.js"></script>
+    <head>
+        <meta name = "viewport" content = "width=device-width, initial-scale=1">
+        <link rel = "stylesheet" href = "http://comet.cs.brynmawr.edu/~nchoudhary/CS380-Library-System/style.css">
+        <meta charset = "utf-8">
+        <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script defer src = "login-page.js"></script>
 
-    <style>
-        * {
-            box-sizing: border-box;
-        }
+        <style>
+            * {
+                box-sizing: border-box;
+            }
 
-        body, html {
-            height: 100%;
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background: rgb(245, 243, 243);
-        }    
-    </style>
-</head>
-    <body data-new-gr-c-s-check-loaded="14.984.0" data-gr-ext-installed="">
+            body, html {
+                height: 100%;
+                margin: 0;
+                font-family: Arial, Helvetica, sans-serif;
+                background: rgb(245, 243, 243);
+            }    
+        </style>
+    </head>
+    <body data-new-gr-c-s-check-loaded = "14.984.0" data-gr-ext-installed = "">
     <div class = "hero-image">
         <div id = "navbar">
-            <a href = "index.php">Home</a>
-            <a href = "navBookTable.php">Books</a>
-            <a href="#"> Contact Us</a>
+            <a href = "http://comet.cs.brynmawr.edu/~nchoudhary/CS380-Library-System">Home</a>
+            <a href = "http://comet.cs.brynmawr.edu/~nchoudhary/CS380-Library-System/navBookTable.php">Books</a>
             
             <div class = "logo">
-                <!--<img src="lanternz.gif">-->
                 <h1 style = "color: yellow; font-size: 25px;text-align: center;">NJM Online Library</h1>
             </div>
         </div>
@@ -76,6 +80,7 @@
                     <form action = "<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method = "post">
                     Username
                     <input id = "username" type = "text" name = "username" required /><br /><br />
+                    
                     Password
                     <input type = "password" name = "password" required /><br /><br />
                     <input  type = "submit" value = "submit" name = "submit" />
@@ -88,8 +93,8 @@
             </div>
             <div class = "rightcolumn">
                 <h3>Monthly Book Club Reads</h3>
-                <div class = "fakeimg"><img src = "images/persuasion_ja.jpg"><br>Persuasion by Jane Austen</div>
-                <div class = "fakeimg"><img src = "images/anxious_people.jpeg"><br>Anxious People by Fredrick Backman</div>
+                <div class = "fakeimg"><img src = "http://comet.cs.brynmawr.edu/~nchoudhary/CS380-Library-System/images/persuasion_ja.jpg"><br>Persuasion by Jane Austen</div>
+                <div class = "fakeimg"><img src = "http://comet.cs.brynmawr.edu/~nchoudhary/CS380-Library-System/images/anxious_people.jpeg"><br>Anxious People by Fredrick Backman</div>
             </div>
         </div>
 
@@ -109,9 +114,9 @@
         
             function myFunction() {
                 if (window.pageYOffset >= sticky) {
-                navbar.classList.add("sticky")
+                    navbar.classList.add("sticky")
                 } else {
-                navbar.classList.remove("sticky");
+                    navbar.classList.remove("sticky");
                 }
             }
 
@@ -119,7 +124,7 @@
                 var username = document.getElementById("username").value.trim();
 
                 if(username.length > 0) {
-                    window.location = `reset_password.php?username=${username}`;
+                    window.location = `http://comet.cs.brynmawr.edu/~nchoudhary/CS380-Library-System/reset_password.php?username=${username}`;
                 } else {
                     alert("Please enter your username before requesting to reset password.");
                     return false;

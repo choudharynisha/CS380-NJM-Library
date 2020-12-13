@@ -1,83 +1,75 @@
 <?php
     include 'db.php';
     session_start();
-    $expiry = 5400; //90 min is 5400 sec
-        if (isset($_SESSION['login_time']) && (time() - $_SESSION['login_time'] > $expiry)) {
+    $expiry = 5400; // 90 min is 5400 sec
+        if(isset($_SESSION['login_time']) && (time() - $_SESSION['login_time'] > $expiry)) {
             session_unset();
             session_destroy();
             echo "<script>
-                alert('Please login again. Your session expired'); 
-                window.location.href = 'main_login.php';
+                alert('Please login again. Your session has expired.'); 
+                window.location.href = 'http://comet.cs.brynmawr.edu/~nchoudhary/CS380-Library-System/main_login.php';
                 </script>";
         }
 ?>
 <!DOCTYPE html>
-<html>
+<html lang = "en-US" dir = "ltr">
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="style.css">
-  <meta charset = "utf-8">
-  <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <script defer src = "login-page.js"></script>
-<style>
-* {
-  box-sizing: border-box;
-}
+    <meta name = "viewport" content = "width=device-width, initial-scale=1">
+    <link rel = "stylesheet" href = "http://comet.cs.brynmawr.edu/~nchoudhary/CS380-Library-System/style.css">
+    <meta charset = "utf-8">
+    <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script defer src = "http://comet.cs.brynmawr.edu/~nchoudhary/CS380-Library-System/login-page.js"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
 
-body, html {
-  height: 100%;
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background: rgb(245, 243, 243);
-}
-
-
-</style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: rgb(245, 243, 243);
+        }
+    </style>
 </head>
 <body>
-<div class="hero-image">
-
-    <div id="navbar">
-      <a href="patron_index.php"> Home</a>
-      <a href="nav_student.php"> Books</a>
-      <a href="#"> Contact Us</a>
-      <a href="logout.php"> Log Out</a>
+<div class = "hero-image">
+    <div id = "navbar">
+      <a href = "http://comet.cs.brynmawr.edu/~nchoudhary/CS380-Library-System/patron_index.php"> Home</a>
+      <a href = "http://comet.cs.brynmawr.edu/~nchoudhary/CS380-Library-System/nav_student.php"> Books</a>
+      <a href = "logout.php"> Log Out</a>
       
-        <div class="logo">
-          <!--<img src="lanternz.gif">-->
-          <h1 style="color: yellow; font-size: 25px;text-align: center;">NJM Online Library</h1>
-      </div>
-  </div>
-
-
-  </div>
-<div class="row">
-  <div class="leftcolumn">
-    <div class="card2">
-      <h2 style="text-align: center;">Welcome to the NJM Online Library</h2>
-      <h3>About Us</h3>
-      <div class="fakeimg">
-        <img src="images/readonline.jpg"> 
+        <div class = "logo">
+            <h1 style = "color: yellow; font-size: 25px;text-align: center;">NJM Online Library</h1>
+        </div>
     </div>
-      <p>NJM is a student owned and run online library where students from different states can request and return books.</p>
-      <p>We bring to you the latest books from top NY Bestselling authors</p>
-      <p>Join us for our weekly find reads on instagram through our IG handle NJM_Lib_Reads</p>
-      <p>We hope you enjoy our amazing collection of antique books and resourceful academic resources for all your school work</p>
-      <p>We bring to you the latest books from top NY Bestselling authors</p>
+</div>
+<div class = "row">
+    <div class = "leftcolumn">
+        <div class = "card2">
+            <h2 style = "text-align: center;">Welcome to the NJM Online Library</h2>
+            <h3>About Us</h3>
+            <div class = "fakeimg">
+                <img src = "http://comet.cs.brynmawr.edu/~nchoudhary/CS380-Library-System/images/readonline.jpg"> 
+            </div>
+            <p>NJM is a student owned and run online library where students from different states can request and return books.</p>
+            <p>We bring to you the latest books from top NY Bestselling authors</p>
+            <p>Join us for our weekly find reads on instagram through our IG handle NJM_Lib_Reads</p>
+            <p>We hope you enjoy our amazing collection of antique books and resourceful academic resources for all your school work</p>
+            <p>We bring to you the latest books from top NY Bestselling authors</p>
+        </div>
     </div>
-  </div>
-    <div class="rightcolumn">
-          <h4><a href="main_login.php">Log Out</a></h4>
-          <h4><a href="#">Request Librarian Help</a></h4>
-          <h4><a href="patron_book_view.php">Borrow a Book</a></h4>
+    <div class = "rightcolumn">
+          <h4><a href = "http://comet.cs.brynmawr.edu/~nchoudhary/CS380-Library-System/main_login.php">Log Out</a></h4>
+          <h4><a href = "http://comet.cs.brynmawr.edu/~nchoudhary/CS380-Library-System/patron_book_view.php">Borrow a Book</a></h4>
           <h3>Monthly Book Club Reads</h3>
-          <div class="fakeimg"><img src="images/persuasion_ja.jpg"><br>Persuasion by Jane Austen</div><br>
-          <div class="fakeimg"><img src="images/anxious_people.jpeg"><br>Anxious People by Fredrick Backman</div>
+          <div class = "fakeimg"><img src = "http://comet.cs.brynmawr.edu/~nchoudhary/CS380-Library-System/images/persuasion_ja.jpg"><br>Persuasion by Jane Austen</div><br>
+          <div class = "fakeimg"><img src = "http://comet.cs.brynmawr.edu/~nchoudhary/CS380-Library-System/images/anxious_people.jpeg"><br>Anxious People by Fredrick Backman</div>
     </div>
 </div>
 
-<div class="footer">
-    <p style="color:white;  text-align: center; ">
+<div class = "footer">
+    <p style = "color:white;  text-align: center; ">
         <br><br>
         Contact us @
         Email: ouremail@brynmawr.edu <br>
@@ -86,21 +78,19 @@ body, html {
 </div>
 
 <script>
-
-
     window.onscroll = function() {myFunction()};
     
     var navbar = document.getElementById("navbar");
     var sticky = navbar.offsetTop;
     
     function myFunction() {
-      if (window.pageYOffset >= sticky) {
-        navbar.classList.add("sticky")
-      } else {
-        navbar.classList.remove("sticky");
-      }
+        if(window.pageYOffset >= sticky) {
+            navbar.classList.add("sticky")
+        } else {
+            navbar.classList.remove("sticky");
+        }
     }
-    </script>
+</script>
 
 </body>
 </html>

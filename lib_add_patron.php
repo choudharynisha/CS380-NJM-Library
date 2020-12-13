@@ -73,7 +73,7 @@
     }
 ?>
 <!DOCTYPE html>
-<html>
+<html lang = "en-US" dir = "ltr">
     <head>
         <meta name = "viewport" content = "width=device-width, initial-scale=1">
         <link rel = "stylesheet" href = "http://comet.cs.brynmawr.edu/~nchoudhary/CS380-Library-System/style.css">

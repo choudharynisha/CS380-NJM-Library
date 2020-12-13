@@ -116,9 +116,9 @@
     <body>
         <div class = "hero-image">
                 <div id = "navbar">
-                    <a href = "librarian_index.php">Home</a>
-                    <a href = "lib_nav.php">Books</a>
-                    <a href = "logout.php">Log Out</a>
+                    <a href = "http://comet.cs.brynmawr.edu/~nchoudhary/CS380-Library-System/librarian_index.php">Home</a>
+                    <a href = "http://comet.cs.brynmawr.edu/~nchoudhary/CS380-Library-System/lib_nav.php">Books</a>
+                    <a href = "http://comet.cs.brynmawr.edu/~nchoudhary/CS380-Library-System/logout.php">Log Out</a>
 
                     <div class = "logo">
                     <h1 style = "color: yellow; font-size: 25px;text-align: center;">NJM Online Library</h1>
@@ -176,13 +176,13 @@
             </div>
         </div>
             <div class = "rightcolumn">
-                <h4><a href = "main_login.php">Log Out</a></h4>
-                <h4><a href = "lib_add_patron.php">Add New Patron Account</a></h4>
-                <h4><a href = "addbook.php">Add New Book Record</a></h4>
-                <h4><a href = "librarianViewBorrowed.php">Return Borrowed Books</a></h4>
+                <h4><a href = "http://comet.cs.brynmawr.edu/~nchoudhary/CS380-Library-System/main_login.php">Log Out</a></h4>
+                <h4><a href = "http://comet.cs.brynmawr.edu/~nchoudhary/CS380-Library-System/lib_add_patron.php">Add New Patron Account</a></h4>
+                <h4><a href = "http://comet.cs.brynmawr.edu/~nchoudhary/CS380-Library-System/addbook.php">Add New Book Record</a></h4>
+                <h4><a href = "http://comet.cs.brynmawr.edu/~nchoudhary/CS380-Library-System/librarianViewBorrowed.php">Return Borrowed Books</a></h4>
                 <h3>Monthly Book Club Reads</h3>
-                <div class="fakeimg"><img src="images/persuasion_ja.jpg"><br>Persuasion by Jane Austen</div>
-                <div class="fakeimg"><img src="images/anxious_people.jpeg"><br>Anxious People by Fredrick Backman</div><br>
+                <div class = "fakeimg"><img src = "http://comet.cs.brynmawr.edu/~nchoudhary/CS380-Library-System/images/persuasion_ja.jpg"><br>Persuasion by Jane Austen</div>
+                <div class = "fakeimg"><img src = "http://comet.cs.brynmawr.edu/~nchoudhary/CS380-Library-System/images/anxious_people.jpeg"><br>Anxious People by Fredrick Backman</div><br>
             </div>
         </div>
 

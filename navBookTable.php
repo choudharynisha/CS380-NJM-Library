@@ -1,84 +1,76 @@
 <?php
     include 'db.php';
 ?>
-
-
-
 <!DOCTYPE html>
-<html>
+<html lang = "en-US" dir = "ltr">
     <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet" type="text/css" href="bookTableStyle.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <meta name = "viewport" content = "width=device-width, initial-scale=1">
+        <link rel = "stylesheet" href = "http://comet.cs.brynmawr.edu/~nchoudhary/CS380-Library-System/style.css">
+        <link rel = "stylesheet" type = "text/css" href = "http://comet.cs.brynmawr.edu/~nchoudhary/CS380-Library-System/bookTableStyle.css">
+        <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script>
             //filterFunction deals with filtering the columns of the table
             function filterFunction() {
+                //get the input values to filter
+                var bookInput, authorInput, genreInput, yearInput, bookFilter,  authorFilter, genreFilter, yearFilter, table, tr, td, i, txtValue;
+                bookInput = document.getElementById("bookInput"); 
+                authorInput = document.getElementById("authorInput"); 
+                genreInput = document.getElementById("genreInput");
+                yearInput = document.getElementById("yearInput");
+                publisherInput = document.getElementById("publisherInput");
 
-            //get the input values to filter
-            var bookInput, authorInput, genreInput, yearInput, bookFilter,  authorFilter, genreFilter, yearFilter, table, tr, td, i, txtValue;
-            bookInput = document.getElementById("bookInput"); 
-            authorInput = document.getElementById("authorInput"); 
-            genreInput = document.getElementById("genreInput");
-            yearInput = document.getElementById("yearInput");
-            publisherInput = document.getElementById("publisherInput");
+                bookFilter = bookInput.value.toUpperCase(); 
+                authorFilter = authorInput.value.toUpperCase(); 
+                genreFilter = genreInput.value.toUpperCase();
+                yearFilter = yearInput.value.toUpperCase();
+                publisherFilter = publisherInput.value.toUpperCase();
 
-            bookFilter = bookInput.value.toUpperCase(); 
-            authorFilter = authorInput.value.toUpperCase(); 
-            genreFilter = genreInput.value.toUpperCase();
-            yearFilter = yearInput.value.toUpperCase();
-            publisherFilter = publisherInput.value.toUpperCase();
+                //get the table to search through 
+                table = document.getElementById("result");
+                tr = table.getElementsByTagName("tr");
 
-            //get the table to search through 
-            table = document.getElementById("result");
-            tr = table.getElementsByTagName("tr");
-
-            //go through values of the table and filter by inputs and skip the header and the inputs rows
-            for (i = 2; i < tr.length; i++) {
-                //checking the columns based on inputs
-                bookTd = tr[i].getElementsByTagName("td")[0];
-                authorTd = tr[i].getElementsByTagName("td")[1];
-                genreTd = tr[i].getElementsByTagName("td")[2];
-                yearTd = tr[i].getElementsByTagName("td")[3];
-                publisherTd = tr[i].getElementsByTagName("td")[4];
-                if (bookTd && authorTd && genreTd && yearTd && publisherTd) {
-                    txtValueBook = bookTd.textContent || bookTd.innerText;
-                    txtValueAuthor = authorTd.textContent || authorTd.innerText;
-                    txtValueGenre = genreTd.textContent || genreTd.innerText;
-                    txtValueYear = yearTd.textContent || yearTd.innerText;
-                    txtValuePublisher = publisherTd.textContent || publisherTd.innerText;
-                    if (txtValueBook.toUpperCase().indexOf(bookFilter) > -1 &&
-                        txtValueAuthor.toUpperCase().indexOf(authorFilter) > -1 &&
-                        txtValueGenre.toUpperCase().indexOf(genreFilter) > -1 &&
-                        txtValueYear.toUpperCase().indexOf(yearFilter) > -1 &&
-                        txtValuePublisher.toUpperCase().indexOf(publisherFilter) > -1) {
-                        tr[i].style.display = "";
-                    } else {
-                        tr[i].style.display = "none";
+                //go through values of the table and filter by inputs and skip the header and the inputs rows
+                for (i = 2; i < tr.length; i++) {
+                    //checking the columns based on inputs
+                    bookTd = tr[i].getElementsByTagName("td")[0];
+                    authorTd = tr[i].getElementsByTagName("td")[1];
+                    genreTd = tr[i].getElementsByTagName("td")[2];
+                    yearTd = tr[i].getElementsByTagName("td")[3];
+                    publisherTd = tr[i].getElementsByTagName("td")[4];
+                    if (bookTd && authorTd && genreTd && yearTd && publisherTd) {
+                        txtValueBook = bookTd.textContent || bookTd.innerText;
+                        txtValueAuthor = authorTd.textContent || authorTd.innerText;
+                        txtValueGenre = genreTd.textContent || genreTd.innerText;
+                        txtValueYear = yearTd.textContent || yearTd.innerText;
+                        txtValuePublisher = publisherTd.textContent || publisherTd.innerText;
+                        if (txtValueBook.toUpperCase().indexOf(bookFilter) > -1 &&
+                            txtValueAuthor.toUpperCase().indexOf(authorFilter) > -1 &&
+                            txtValueGenre.toUpperCase().indexOf(genreFilter) > -1 &&
+                            txtValueYear.toUpperCase().indexOf(yearFilter) > -1 &&
+                            txtValuePublisher.toUpperCase().indexOf(publisherFilter) > -1) {
+                            tr[i].style.display = "";
+                        } else {
+                            tr[i].style.display = "none";
+                        }
                     }
                 }
             }
 
-            }
-
             $(document).ready(function() {
-
-            //Toggles the Show or Hide Borrowed div
-            $('.viewBooks').click(function(event) {
-                event.stopPropagation();
-                $(".showup").slideToggle("fast");
-                $('.showup').load('loadBorrowBooksDiv.php', function() {  //loads the php file to update the div with new borrowed books
-                    console.log('Load was performed.');
+                //Toggles the Show or Hide Borrowed div
+                $('.viewBooks').click(function(event) {
+                    event.stopPropagation();
+                    $(".showup").slideToggle("fast");
+                    $('.showup').load('loadBorrowBooksDiv.php', function() {  //loads the php file to update the div with new borrowed books
+                        console.log('Load was performed.');
+                    });
                 });
 
-            });
-
-            //Toggles the the text for Show or Hide Borrowed button
-            $('.viewBtn').click(function(event) {
-                var button = $(this);
-                button.text(button.text() == "Hide Borrowed" ? "Show Borrowed" : "Hide Borrowed")
-            });
-
+                //Toggles the the text for Show or Hide Borrowed button
+                $('.viewBtn').click(function(event) {
+                    var button = $(this);
+                    button.text(button.text() == "Hide Borrowed" ? "Show Borrowed" : "Hide Borrowed")
+                });
             });
         </script>
 
@@ -96,37 +88,33 @@
         </style>
     </head>
 <body>
-    <div class="hero-image">
-        <div id="navbar">
-            <a href="index.php"> Home</a>
-            <a href="navBookTable.php"> Books</a>
-            <a href="#"> Contact Us</a>
-            <div class="logo"><h1 style="color: yellow; font-size: 25px;text-align: center;">NJM Online Library</h1></div>
+    <div class = "hero-image">
+        <div id = "navbar">
+            <a href = "http://comet.cs.brynmawr.edu/~nchoudhary/CS380-Library-System">Home</a>
+            <a href = "http://comet.cs.brynmawr.edu/~nchoudhary/CS380-Library-System/navBookTable.php">Books</a>
+            <div class = "logo"><h1 style="color: yellow; font-size: 25px;text-align: center;">NJM Online Library</h1></div>
         </div>
     </div>
 
-    <div class="row">
-        <div class="leftcolumn">
-            <div class="card2">
+    <div class = "row">
+        <div class = "leftcolumn">
+            <div class = "card2">
                     <h1>All Available Books</h1>
-                    <div class='listing' id='listing'>
+                    <div class = 'listing' id = 'listing'>
                         <?php
                             ob_start();
-                        
-                        
-                        
+
                             //query to create table of available books
-                            //$q = "select * from njm_books where status = 'Available';";
                             $q = "select * from njm_books 
                                     inner join njm_publishers 
                                     on njm_books.publisher_id = njm_publishers.publisher_id 
                                     where njm_books.status = 'Available'";
                         
                             $result = $connection->query($q);
-                            if ($result->num_rows > 0) {
+                            if($result->num_rows > 0) {
                                 echo "
                                 
-                                <table id='result'>
+                                <table id = 'result'>
                                 <tr>
                                     <th>Book Title</th>
                                     <th>Author</th>
@@ -136,27 +124,27 @@
                                     
                                 </tr> 
                                 <tr>
-                                <td><input type='text' id='bookInput' onkeyup='filterFunction()' placeholder='Search for Title..'></td>
-                                <td><input type='text' id='authorInput' onkeyup='filterFunction()' placeholder='Search for Author..'></td>
-                                <td><input type='text' id='genreInput' onkeyup='filterFunction()' placeholder='Search for Genre..'></td>
-                                <td><input type='text' id='yearInput' onkeyup='filterFunction()' placeholder='Search for Year..'></td>
-                                <td><input type='text' id='publisherInput' onkeyup='filterFunction()' placeholder='Search for Publisher..'></td>
+                                    <td><input type = 'text' id = 'bookInput' onkeyup = 'filterFunction()' placeholder = 'Search for Title..'></td>
+                                    <td><input type = 'text' id = 'authorInput' onkeyup = 'filterFunction()' placeholder = 'Search for Author..'></td>
+                                    <td><input type = 'text' id = 'genreInput' onkeyup = 'filterFunction()' placeholder = 'Search for Genre..'></td>
+                                    <td><input type = 'text' id = 'yearInput' onkeyup = 'filterFunction()' placeholder = 'Search for Year..'></td>
+                                    <td><input type = 'text' id = 'publisherInput' onkeyup = 'filterFunction()' placeholder = 'Search for Publisher..'></td>
                                 </tr>
                                 ";
-                                echo "<tbody class='bookRows' id = 'bookRows'>";
-                                while ($row = $result->fetch_assoc()) {
+                                echo "<tbody class = 'bookRows' id = 'bookRows'>";
+                                while($row = $result->fetch_assoc()) {
                                     $title = $row['title'];
                                     $author = $row['author'];
                                     $book_id = $row['book_id'];
                                     $genre = $row['genre'];
                                     $year = $row['year'];
                                     $publisher = $row['name'];
-                                    echo "<form id='bookorder' name='form1' method='post'> <tr class='table'>
-                                        <td class='table' data-input='title'> <input type = 'hidden' name='title' value= '$title' > $title </td>
-                                        <td class='table' data-input='author'> <input type = 'hidden' name='author' value= '$author' > $author </td>
-                                        <td class='table' data-input='genre'> <input type = 'hidden' name='genre' value= '$genre' > $genre </td>
-                                        <td class='table' data-input='year'> <input type = 'hidden' name='year' value= '$year' > $year </td>
-                                        <td class='table' data-input='publisher'> <input type = 'hidden' name='publisher' value= '$publisher' > $publisher </td>
+                                    echo "<form id = 'bookorder' name = 'form1' method='post'> <tr class = 'table'>
+                                        <td class = 'table' data-input = 'title'> <input type = 'hidden' name = 'title' value = '$title'> $title </td>
+                                        <td class = 'table' data-input = 'author'> <input type = 'hidden' name = 'author' value = '$author'> $author </td>
+                                        <td class = 'table' data-input = 'genre'> <input type = 'hidden' name = 'genre' value = '$genre'> $genre </td>
+                                        <td class = 'table' data-input = 'year'> <input type = 'hidden' name = 'year' value = '$year'> $year </td>
+                                        <td class = 'table' data-input = 'publisher'> <input type = 'hidden' name = 'publisher' value =  '$publisher'> $publisher </td>
                                         
                                         
                                         </tr> </form>";

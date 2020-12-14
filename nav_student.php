@@ -92,7 +92,7 @@
         <div id = "navbar">
             <a href = "http://comet.cs.brynmawr.edu/~nchoudhary/CS380-Library-System/patron_index.php"> Home</a>
             <a href = "http://comet.cs.brynmawr.edu/~nchoudhary/CS380-Library-System/nav_student.php"> Books</a>
-            <div class="logo"><h1 style="color: yellow; font-size: 25px;text-align: center;">NJM Online Library</h1></div>
+            <div class = "logo"><h1 style = "color: yellow; font-size: 25px;text-align: center;">NJM Online Library</h1></div>
         </div>
     </div>
 
@@ -124,11 +124,11 @@
                                     
                                 </tr> 
                                 <tr>
-                                <td><input type='text' id='bookInput' onkeyup='filterFunction()' placeholder='Search for Title..'></td>
-                                <td><input type='text' id='authorInput' onkeyup='filterFunction()' placeholder='Search for Author..'></td>
-                                <td><input type='text' id='genreInput' onkeyup='filterFunction()' placeholder='Search for Genre..'></td>
-                                <td><input type='text' id='yearInput' onkeyup='filterFunction()' placeholder='Search for Year..'></td>
-                                <td><input type='text' id='publisherInput' onkeyup='filterFunction()' placeholder='Search for Publisher..'></td>
+                                <td><input type = 'text' id = 'bookInput' onkeyup='filterFunction()' placeholder = 'Search for Title'></td>
+                                <td><input type = 'text' id = 'authorInput' onkeyup='filterFunction()' placeholder = 'Search for Author'></td>
+                                <td><input type = 'text' id = 'genreInput' onkeyup='filterFunction()' placeholder = 'Search for Genre'></td>
+                                <td><input type = 'text' id = 'yearInput' onkeyup='filterFunction()' placeholder = 'Search for Year'></td>
+                                <td><input type = 'text' id = 'publisherInput' onkeyup='filterFunction()' placeholder = 'Search for Publisher'></td>
                                 </tr>
                                 ";
                                 echo "<tbody class='bookRows' id = 'bookRows'>";
@@ -167,8 +167,8 @@
         </div>
 
         <div class = "rightcolumn">
-                <h4><a href = "main_login.php">Log Out</a></h4>
-                <h4><a href = "patron_book_view.php">Borrow a Book</a></h4>
+                <h4><a href = "http://comet.cs.brynmawr.edu/~nchoudhary/CS380-Library-System/main_login.php">Log Out</a></h4>
+                <h4><a href = "http://comet.cs.brynmawr.edu/~nchoudhary/CS380-Library-System/patron_book_view.php">Borrow a Book</a></h4>
 
                 <h3>Monthly Book Club Reads</h3>
                 <div class = "fakeimg"><img src = "http://comet.cs.brynmawr.edu/~nchoudhary/CS380-Library-System/images/persuasion_ja.jpg"><br>Persuasion by Jane Austen</div><br>

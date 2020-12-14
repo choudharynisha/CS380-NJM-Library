@@ -92,7 +92,7 @@
         <div id = "navbar">
             <a href = "http://comet.cs.brynmawr.edu/~nchoudhary/CS380-Library-System">Home</a>
             <a href = "http://comet.cs.brynmawr.edu/~nchoudhary/CS380-Library-System/navBookTable.php">Books</a>
-            <div class = "logo"><h1 style="color: yellow; font-size: 25px;text-align: center;">NJM Online Library</h1></div>
+            <div class = "logo"><h1 style = "color: yellow; font-size: 25px;text-align: center;">NJM Online Library</h1></div>
         </div>
     </div>
 
@@ -162,32 +162,28 @@
                     </div>
                     <br>
                     
-                    <div class="showup" id="showup"></div>
+                    <div class = "showup" id = "showup"></div>
 
             </div>
         </div>
 
-        <div class="rightcolumn" style="padding-top:100px">
-                <h4><a href="index.php"> Request Help</a></h4>
-                <h4><a href="main_login.php"> Log In</a></h4>
+        <div class = "rightcolumn" style = "padding-top:100px">
+                <h4><a href = "http://comet.cs.brynmawr.edu/~nchoudhary/CS380-Library-System/main_login.php"> Log In</a></h4>
                 <h3>Monthly Book Club Reads</h3>
-                <div class="fakeimg"><img src="images/persuasion_ja.jpg"><br>Persuasion by Jane Austen</div><br>
-                <div class="fakeimg"><img src="images/anxious_people.jpeg"><br>Anxious People by Fredrick Backman </div>
+                <div class = "fakeimg"><img src = "http://comet.cs.brynmawr.edu/~nchoudhary/CS380-Library-System/images/persuasion_ja.jpg"><br>Persuasion by Jane Austen</div><br>
+                <div class = "fakeimg"><img src = "http://comet.cs.brynmawr.edu/~nchoudhary/CS380-Library-System/images/anxious_people.jpeg"><br>Anxious People by Fredrick Backman </div>
     
         </div>
     </div>
- 
 
-
-<div class="footer">
-    <p style="color:white;  text-align: center; ">
+<div class = "footer">
+    <p style = "color:white; text-align: center; ">
         <br><br>
         Contact us @
         Email: ouremail@brynmawr.edu <br>
         Mobile: +1 610 526 5000
     </p>
 </div>
-
 <script>
 
 
@@ -197,13 +193,12 @@
     var sticky = navbar.offsetTop;
     
     function myFunction() {
-      if (window.pageYOffset >= sticky) {
-        navbar.classList.add("sticky")
-      } else {
-        navbar.classList.remove("sticky");
-      }
+        if (window.pageYOffset >= sticky) {
+            navbar.classList.add("sticky")
+        } else {
+            navbar.classList.remove("sticky");
+        }
     }
-    </script>
-
+</script>
 </body>
 </html>

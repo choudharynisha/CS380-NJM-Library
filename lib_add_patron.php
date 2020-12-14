@@ -170,7 +170,7 @@
                 <br><br>
                 Contact us @
                 Email: ouremail@brynmawr.edu <br>
-                Mobile: +1 610 526 5000
+                Phone: +1 610 526 5000
             </p>
         </div>
 

@@ -3,11 +3,12 @@
 
     if(isset($_GET['username'])) {
         $username = $_GET['username'];
-        $checkuser = "SELECT security_question, security_answer FROM njm_users WHERE username = '$username'";
+        $role = $_GET['role'];
+        $checkuser = "SELECT security_question, security_answer FROM njm_users WHERE username = '$username' AND role = '$role'";
         $results = $connection->query($checkuser);
         
         if($results->num_rows < 1) {
-            $error = "No user exists";
+            $error = "No $role account exists with the username $username";
         } else {
             $row = $results->fetch_assoc();
             $question = $row['security_question'];
@@ -46,9 +47,7 @@
         
     }
 ?>
-
 <?php
-    include 'db.php';
     session_start();
     $expiry = 5400; //90 min is 5400 sec
         if (isset($_SESSION['login_time']) && (time() - $_SESSION['login_time'] > $expiry)) {
@@ -97,11 +96,15 @@
                 <div class = "card2">
                     <h2 style = "text-align: center;">Welcome to the NJM Online Library</h2>
                     <div class = "box">
+                        <?php if(strlen($error) > 0) {
+                            echo "<p>$error</p>";
+                            } else {
+                                 ?>
                         <form style = "text-align: left;padding-left: 20px;" id = "resetpassword" onsubmit = "resetPassword(); return false;" action = "<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method = "post">
                             <input type = "hidden" name = "username" value = "<?php echo $username; ?>" />
                             <br><br><br>
                             
-                            Security Question <?php echo $question; ?>
+                            Security Question <?php echo $question; ?><br />
 
                             Security Answer
                             <input type = "text" name = "answer" value = "<?php if(isset($_POST['answer'])) {echo $answer;} ?>" required /><br /><br />
@@ -114,6 +117,8 @@
 
                             <input type = "submit" value = "submit" name = "submit" />
                         </form>
+                        <?php }
+                        ?>
                     </div>
                 </div>
             </div>

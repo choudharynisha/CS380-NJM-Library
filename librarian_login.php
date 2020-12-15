@@ -136,7 +136,7 @@
                 var username = document.getElementById("username").value.trim();
 
                 if(username.length > 0) {
-                    window.location = `http://comet.cs.brynmawr.edu/~nchoudhary/CS380-Library-System/reset_password.php?username=${username}`;
+                    window.location = `http://comet.cs.brynmawr.edu/~nchoudhary/CS380-Library-System/reset_password.php?username=${username}&role=librarian`;
                 } else {
                     alert("Please enter your username before requesting to reset password.");
                     return false;

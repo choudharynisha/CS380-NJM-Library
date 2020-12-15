@@ -1,6 +1,8 @@
 <?php
     require("db.php");
 
+    $error = "";
+
     if(isset($_GET['username'])) {
         $username = $_GET['username'];
         $role = $_GET['role'];
@@ -104,7 +106,7 @@
                             <input type = "hidden" name = "username" value = "<?php echo $username; ?>" />
                             <br><br><br>
                             
-                            Security Question <?php echo $question; ?><br />
+                            Security Question <?php echo $question; ?><br /><br />
 
                             Security Answer
                             <input type = "text" name = "answer" value = "<?php if(isset($_POST['answer'])) {echo $answer;} ?>" required /><br /><br />
